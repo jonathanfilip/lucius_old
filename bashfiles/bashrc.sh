@@ -21,6 +21,7 @@ export EDITOR=vim
 export VISUAL=vim
 export IGNOREEOF=1 # press ctrl+D twice to exit
 export PROMPT_COMMAND=bash_prompt # Set up the command line
+export GREP_OPTIONS="--exclude=\*.svn\*"
 
 
 function bash_prompt()

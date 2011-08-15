@@ -23,5 +23,4 @@ alias l="less"
 # Other Commands
 alias psme='ps -Af | grep ${USER}'
 alias dfme='df -h | egrep "${USER}|Filesystem"'
-alias xterm='xterm -ls' # Always do login shell
-
+alias xterm='xterm -ls'

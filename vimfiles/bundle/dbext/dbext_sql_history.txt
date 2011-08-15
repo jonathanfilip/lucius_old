@@ -1,0 +1,52 @@
+dbext history, <enter> or dbl-click to execute, or [q] to quit (history size:50)
+1. update cs_model_classification set effective_date = '1/1/1900' where effective_date <= '1/1/1900'@@@update cs_model_classification set effective_date = '1/1/1900' where effective_date = '1/1/1997'@@@update cs_model_classification set expiration_date = '12/31/9999' where expiration_date >= '1/1/3000'
+2. update cs_model_classification set effective_date = '1/1/1900' where effective_date < '1/1/1900'@@@update cs_model_classification set effective_date = '1/1/1900' where effective_date = '1/1/1997'@@@update cs_model_classification set expiration_date = '12/31/9999' where expiration_date > '1/1/3000'
+3. select * from cs_model_classification where notes = 'Liquidation'
+4. select datepart(ms, effective_date), datepart(ms, expiration_date), datepart(ms, last_modified) from cs_model_classification where notes ='Liquidation'
+5. select effective_date, expiration_date, datepart(ms, last_modified) from cs_model_classification where notes ='Liquidation'
+6. select * from cs_model_classification
+7. delete from cs_model_classification
+8. sp_ls
+9. select firm_isymbol_ukey, subsidiary_isymbol_ukey, isnull(effective_date, '1/1/1900'), isnull(expiration_date, '12/31/9999') from firm_subsidiary_map
+10. select * from firm_subsidiary_map
+11. update cs_model_classification set expiration_date = '12/31/9999' where expiration_date <= '1/1/9000'
+12. update cs_model_classification set effective_date = '1/1/1900' where effective_date = '1/1/1997'
+13. update cs_model_classification set effective_date = '1/1/1900' where effective_date <= '1/1/1900'
+14. select * from cs_model_classification where effective_date <= '1/1/1997' and effective_date != '1/1/1800' and effective_date != '1/1/1997'
+15. select * from cs_model_classification where effective_date <= '1/1/1997' and effective_date != '1/1/1800'
+16. select * from cs_model_classification where effective_date <= '1/1/1997'
+17. select * from cs_model_classification where effective_date = '1/1/1997'
+18. select * from cs_model_classification where effective_date = '1/1/2997'
+19. select * from cs_model_category
+20. delete from cs_model_classification where last_modified >= '08/08/2011'
+21. select * from cs_model_classification where last_modified >= '08/08/2011'
+22. sp_help cs_model_classification
+23. select effective_date, expiration_date, datepart(ms, last_modified) from cs_model_classification
+24. select effective_date, expiration_date, last_modified from cs_model_classification
+25. select * from AnalystRating
+26. insert into cs_model_category values (72, 'BANKRUPTCY_LIKE', 'Tag used to identify suspended stock due to fraud investigation', 1)
+27. insert into cs_model_category values (71, 'BAD_COMPOSITE_CURVE', 'Tag used to indentify curves were Markit Composite is missing or curve is inconsistent due to different tenure points at certain time periods', 6)
+28. select *@@@  from cs_model_classification@@@ where isymbol_ukey = 26943@@@   and cs_model_category_ukey in (@@@        select cs_model_category_ukey@@@        from cs_model_category@@@        where category_type = 0@@@       )
+29. select * from LglEntInfo_V
+30. select * from LglEntInfo
+31. select count(*), last_id from cs_model_classification group by last_id order by 1
+32. select count(*), last_id from cs_model_classification group by last_id
+33. select count(*), last_modified from cs_model_classification group by last_modified
+34. sp_help count(*), last_modified from cs_model_classification group by last_modified
+35. select substring(description, 1, 255) from cs_model_category
+36. select substring(1, 255, description) from cs_model_category
+37. select description from cs_model_category
+38. sp_help cs_model_category
+39. select cs_model_category as category, cs_model_category_ukey as category_ukey from creditdb..cs_model_category
+40. select * from cs_model_category_type
+41. sp_databases
+42. select * from cs_model_classification_audit
+43. update fs_equity_errors@@@set end_date = null,@@@hide_item = 0@@@where end_date = '07/15/2011'
+44. delete from fs_equity_errors where add_date = '07/19/2011' and end_date is null and msymbol_ukey in (@@@select msymbol_ukey from fs_equity_errors where end_date = '07/15/2011')
+45. select * from fs_equity_errors where add_date = '07/19/2011' and end_date is null and msymbol_ukey in (@@@select msymbol_ukey from fs_equity_errors where end_date = '07/15/2011')
+46. select * from fs_equity_errors where add_date = '07/19/2011' 
+47. select * from fs_equity_errors where end_date = '07/19/2011' 
+48. select * from fs_equity_errors where end_date = '07/15/2011' 
+49. select * from fs_equity_errors where hide_item = 0
+50. select * from fs_equity_errors where end_date = '07/15/2011' or add_date = '07/19/2011'
+51. select * from fs_equity_errors where end_date = '07/15/2011'

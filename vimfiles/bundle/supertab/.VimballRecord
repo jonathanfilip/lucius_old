@@ -1,0 +1,5 @@
+supertab.vba: call delete('/Users/jonathanfilip/vimfiles/extensions/supertab/doc/supertab.txt')|call delete('/Users/jonathanfilip/vimfiles/extensions/supertab/plugin/supertab.vim')
+supertab.vba: call delete('h:/vimfiles/bundle/supertab//doc/supertab.txt')|call delete('h:/vimfiles/bundle/supertab//plugin/supertab.vim')
+supertab.vba: call delete('H:/vimfiles/bundle/supertab//doc/supertab.txt')|call delete('H:/vimfiles/bundle/supertab//plugin/supertab.vim')
+supertab (1).vba: call delete('H:/vimfiles/bundle/supertab//doc/supertab.txt')|call delete('H:/vimfiles/bundle/supertab//plugin/supertab.vim')
+supertab.vba: call delete('H:/vimfiles/bundle/supertab//doc/supertab.txt')|call delete('H:/vimfiles/bundle/supertab//plugin/supertab.vim')

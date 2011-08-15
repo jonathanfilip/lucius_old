@@ -1,0 +1,26 @@
+#if [[ "$-" != *i* ]]
+#then
+#    # everything from here on out is for interactive shells only
+#    return
+#fi
+#
+#ZSH=`which zsh`
+#[[ $OS_REL != 5.6 ]] && exec $ZSH
+
+#if [ "x$GDMSESSION" = "x" -a -e /bin/zsh ]; then
+#	exec /bin/zsh
+#fi
+
+# Makes unicode work correctly
+LC_ALL=
+
+
+if [[ "$-" != *i* ]]
+then
+    # everything from here on out is for interactive shells only
+    return
+fi
+
+BASH=`which bash`
+BASH=/home/jfilip/bin/bash
+[[ $OS_REL != 5.6 ]] && exec $BASH
