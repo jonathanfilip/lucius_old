@@ -1,17 +1,21 @@
-" Jonathan Filip's Vim configuration file
+" Vim configuration file
+" Author: Jonathan Filip
 
+
+" ============================================================================
+" Setup: {{{
 set nocompatible
 
 " Set location so we can set variables accordingly
-let location = "osx_home"
-if $USERDOMAIN == "CITADEL"
-    let location="windows_work"
-elseif $RUNTIME == "/cigdev/" || $RUNTIME == "/cigprod/" || $RUNTIME == "/cigdev64/" || $RUNTIME == "/cigprod64/"
-    let location="linux_work"
-elseif $MYVIMRC == "/Users/jonathanfilip/.vimrc"
-    let location="osx_home"
-else
-    let location="windows_home"
+let location = "home_osx"
+if exists("$CITADEL_ENV")
+    if has("win32") || has("win64")
+        let location="work_win"
+    else
+        let location="work_linux"
+    endif
+elseif has("win32") || has("win64")
+    let location="home_win"
 endif
 
 function! InLocation(...)
@@ -22,30 +26,11 @@ function! InLocation(...)
     endfor
     return 0
 endfunction
-
-if !has("win32") && !has("win64")
-    set term=$TERM
-endif
-
-set background=light
-if has("gui_running") || &t_Co == 256
-    let g:lucius_style = "light"
-    colorscheme lucius
-else
-    colorscheme default
-endif
-
-if has("gui_running")
-    if has("gui_win32")
-        set guifont=Consolas:h10
-    elseif has("gui_gtk2")
-        set guifont=Consolas\ 13
-    elseif has("gui_macvim")
-        set guifont=Consolas:h13
-    endif
-endif
+" }}}
+" ============================================================================
 
 
+" ============================================================================
 " General Options: {{{
     set shortmess=flmnrxIstToO
     set showmode
@@ -54,10 +39,24 @@ endif
     set browsedir=buffer
     set shellslash
     set hidden
-    set tags+=./tags,tags,./../tags,./../../tags,./../../../tags,./../../../../tags
+    set tags=
+    set tags+=tags,./tags,./../tags,./../../tags
+    set tags+=./../../../tags,./../../../../tags
+    if !has("win32") && !has("win64")
+        set term=$TERM
+    endif
+    set background=light
+    if has("gui_running") || &t_Co == 256
+        let g:lucius_style = "light"
+        colorscheme lucius
+    else
+        colorscheme default
+    endif
 " }}}
+" ============================================================================
 
 
+" ============================================================================
 " UI Options: {{{
     set cmdheight=1
     set completeopt=longest,menu complete=.,w,b,u
@@ -78,17 +77,26 @@ endif
     set winminheight=0 winminwidth=0
     if has("gui_running")
         set title
-        if InLocation("osx_home")
+        if InLocation("home_osx")
             set lines=80 columns=200 fuoptions=maxvert,maxhorz
         else
             set lines=50 columns=120
+        endif
+        if has("gui_win32") || has ("gui_win64")
+            set guifont=Consolas:h10
+        elseif has("gui_gtk2")
+            set guifont=Consolas\ 13
+        elseif has("gui_macvim")
+            set guifont=Consolas:h13
         endif
     else
         set guioptions+=aA
     endif
 " }}}
+" ============================================================================
 
 
+" ============================================================================
 " File Options: {{{
     filetype plugin indent on
     set autoread
@@ -96,8 +104,10 @@ endif
     set fileformats=unix,dos
     set nobackup nowritebackup noswapfile
 " }}}
+" ============================================================================
 
 
+" ============================================================================
 " Editting Options: {{{
     set autoindent
     set backspace=indent,eol,start
@@ -116,16 +126,20 @@ endif
         set cryptmethod=blowfish
     endif
 " }}}
+" ============================================================================
 
 
+" ============================================================================
 " Search Options: {{{
     set ignorecase
     set incsearch
     set nohlsearch
     set smartcase
 " }}}
+" ============================================================================
 
 
+" ============================================================================
 " Key Mappings: {{{
     let mapleader = ";"
     let maplocalleader = ";"
@@ -137,7 +151,7 @@ endif
     vnoremap < <gv
 
     vnoremap <BS> d
-    if InLocation("osx_home")
+    if InLocation("home_osx")
         inoremap <A-BS> <C-w>
     else
         inoremap <C-BS> <C-w>
@@ -176,8 +190,8 @@ endif
     nnoremap <C-Right> 20zl
 
     " Splitting
-    noremap <leader>sp :new<CR>
-    noremap <leader>vs :vnew<CR>
+    noremap <leader>sp :split<CR>
+    noremap <leader>vs :vsplit<CR>
 
     " Shortcuts for clipboard copy/pasting
     vnoremap zp "*p
@@ -186,7 +200,7 @@ endif
     noremap zy "*y
 
     " CTRL-A is Select all, etc
-    if !InLocation("osx_home")
+    if !InLocation("home_osx")
         noremap <C-A> ggVG
         inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
         cnoremap <C-A> <C-C>gggH<C-O>G
@@ -197,7 +211,7 @@ endif
     endif
 
     " Windows copy, cut, and paste
-    if has("win32") or has("win64")
+    if has("win32") || has("win64")
         exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
         exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
 
@@ -245,8 +259,10 @@ endif
         nnoremap <S-Q> <Q>
     " }}}
 " }}}
+" ============================================================================
 
 
+" ============================================================================
 " Commands: {{{
     command! -nargs=1 Title :set title titlestring=<args>
 
@@ -269,8 +285,10 @@ endif
         command! WQ wq
     " }}}
 " }}}
+" ============================================================================
 
 
+" ============================================================================
 " Plugin Options: {{{
     " Pathogen: {{{
         call pathogen#runtime_append_all_bundles()
@@ -289,23 +307,25 @@ endif
         let g:vimwiki_use_mouse = 0 " Toggle mouse to navigate
         let g:vimwiki_hl_headers = 1
         let g:vimwiki_camel_case = 0
-        let g:vimwiki_table_auto_fmt = 0 " Allow tab complete by removing tab table mappings
-        let g:vimwiki_valid_html_tags="b,i,s,u,sub,sup,kbd,br,hr,div,center,strong,em,span,a,img,h1,p"
+        let g:vimwiki_table_auto_fmt = 0 
+        let g:vimwiki_valid_html_tags="b,i,s,u,sub,sup,kbd,br,hr,div," .
+                    \"center,strong,em,span,a,img,h1,p"
         au BufNewFile,BufRead *.wiki set tw=79
-
+        let nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'c#': 'cs',
+                    \'C#': 'cs', 'sql': 'sql', 'xml': 'xml'}
         let wiki = {}
         let wiki.path = '~/wiki/'
         let wiki.path_html = '~/wiki/html/'
         let wiki.index = 'Index'
-        let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'c#': 'cs', 'C#': 'cs', 'sql': 'sql', 'xml': 'xml'}
+        let wiki.nested_syntaxes = nested_syntaxes
         let wiki.maxhi = 1
         let g:vimwiki_list = [wiki]
-        if InLocation("osx_home")
+        if InLocation("home_osx")
             let wiki_info = {}
             let wiki_info.path = '/Volumes/info/'
             let wiki_info.path_html = '/Volumes/info/html/'
             let wiki_info.index = 'Index'
-            let wiki_info.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'c#': 'cs', 'C#': 'cs', 'sql': 'sql', 'xml': 'xml'}
+            let wiki_info.nested_syntaxes = nested_syntaxes
             let wiki_info.maxhi = 1
             let g:vimwiki_list = [wiki, wiki_info]
         endif
@@ -315,7 +335,8 @@ endif
         let g:NERDTreeChDirMode = 0
         let g:NERDChristmasTree = 1
         let g:NERDTreeCaseSensitiveSort = 0
-        let NERDTreeIgnore=['\.doc$', '\.pdf$', '\.xls$', '\.docx$', '\.zip$', '\.dll$', '\.so$', '\.pyc$', '\~$']
+        let g:NERDTreeIgnore = ['\.doc$', '\.pdf$', '\.xls$', '\.docx$', 
+                    \'\.zip$', '\.dll$', '\.so$', '\.pyc$', '\~$']
         let g:NERDTreeShowHidden = 0
         let g:NERDTreeWinPos = 'left'
         let g:NERDTreeWinSize = 32
@@ -331,29 +352,27 @@ endif
     " }}}
 
     " Taglist: {{{
-        let Tlist_Ctags_Cmd = g:ctags_path
         let Tlist_Use_Right_Window = 1
         let Tlist_Exit_OnlyWindow = 1
         let Tlist_WinWidth = 32
         let Tlist_Enable_Fold_Column = 0
         let Tlist_Sort_Type = "name"
         let Tlist_Show_One_File = 1
-        let g:tlist_python_settings = 'python;c:class;m:member;f:function;i:imports;v:variables'
         let g:tlist_python_settings = 'python;c:class;f:function'
-
         "map <F4> :TlistToggle<CR>
     " }}}
 
     " Tagbar: {{{
-        let g:tagbar_ctags_bin = g:ctags_path
         map <F4> :TagbarToggle<CR>
     " }}}
 
     " FuzzyFinder: {{{
-        let g:exc_file_ext = '\.(o|exe|dll|bak|orig|swp|so|obj|dll|pyc|pyo|pyd|exe|bak|swp|lib|sln|suo)'
+        let g:exc_file_ext = '\.(o|exe|dll|bak|orig|swp|so|obj|dll|pyc|pyo' .
+                    \'|pyd|exe|bak|swp|lib|sln|suo)'
         let g:exc_dotdirs = '(^|[/\\])\.(hg|git|bzr|svn)($|[/\\])'
         let g:exc_dirs = '(^|[/\\])(bin|obj)($|[/\\])'
-        let g:ignore_regex = '\v\~$|' . g:exc_file_ext . '|' . g:exc_dotdirs . '|' . g:exc_dirs
+        let g:ignore_regex = '\v\~$|' . g:exc_file_ext . '|' . 
+                    \g:exc_dotdirs . '|' . g:exc_dirs
 
         let g:fuf_ignoreCase = 1
         let g:fuf_smartBs = 1
@@ -361,11 +380,10 @@ endif
         let g:fuf_coveragefile_exclude = g:ignore_regex
         let g:fuf_dir_exclude = '\.svn$'
         let g:fuf_buffer_mruOrder = 0
-        let g:fuf_modesDisable = ['mrufile', 'aroundmrufile', 'mrucmd']
-        let g:fuf_modesDisable += ['dir', 'bookmarkfile', 'bookmarkdir', 'taggedfile']
-        let g:fuf_modesDisable += ['line', 'help', 'givendir', 'givencmd']
-        let g:fuf_modesDisable += ['callbackfile', 'callbackitem']
-        let g:fuf_buffertag_ctagsPath = g:ctags_path
+        let g:fuf_modesDisable = ['mrufile', 'aroundmrufile', 'mrucmd', 
+                    \'dir', 'bookmarkfile', 'bookmarkdir', 'taggedfile',
+                    \'line', 'help', 'givendir', 'givencmd',
+                    \'callbackfile', 'callbackitem']
 
         noremap <silent> <C-S-]> :FufTagWithCursorWord!<CR>
         noremap <silent> <leader>ff :FufFile<CR>
@@ -377,15 +395,8 @@ endif
     " Dbext: {{{
         let g:dbext_default_prompt_for_parameters = 0
         let g:dbext_default_display_cmd_line = 1
-        if InLocation("windows_work")
-            let g:dbext_default_ASE_bin = 'N:/Sybase/OCS-12_5/bin/isql.exe'
-            let g:dbext_default_ASE_bin = 'N:/SYBASE15/OCS-15_0/bin/isql.exe'
-            let g:dbext_default_SQLITE_bin = 'C:/bin/sqlite-3_6_16/sqlite3.exe'
-        elseif InLocation("linux_work")
-            let g:dbext_default_ASE_bin = '/tp64/sybase/OCS-15_0/bin/isql'
-            let g:dbext_default_SQLITE_bin = '/tp64/sqlite/3.6.23/bin/sqlite3'
-        endif
-        let g:dbext_default_history_file = "$HOME/vimfiles/bundle/dbext/dbext_sql_history.txt"
+        let g:dbext_default_SQLITE_bin = 'sqlite3'
+        let g:dbext_default_history_file = "$TMP/dbext_sql_history.txt"
     " }}}
 
     " SuperTab: {{{
@@ -418,26 +429,33 @@ endif
     " }}}
 
 " }}}
+" ============================================================================
 
 
+" ============================================================================
 " Autocommands: {{{
     " Close the preview window automatically
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " }}}
+" ============================================================================
 
+
+" ============================================================================
 " Functions: {{{
     " GenerateTags: {{{
         function! GenerateTags(dir, force)
             " dir - directory to start in
             " force - set to 1 if you want to force tags to be in 'dir'
-            let running_windows = has("win16") || has("win32") || has("win64")
+            let running_windows = has("win16") || has("win32") || 
+                        \has("win64")
             let slash = running_windows ? '\' : '/'
             let ftype = getbufvar("%", '&filetype')
             let olddir = getcwd()
 
             if running_windows
-                let root = substitute(a:dir, '\(^[a-zA-Z]:\).*', '\1', '') . '\'
+                let root = substitute(a:dir, '\(^[a-zA-Z]:\).*', '\1', '') . 
+                            \'\'
             else
                 let root = '/'
             endif
@@ -478,17 +496,20 @@ endif
             if running_windows
                 let ctags_bin = "ctags.exe"
             endif
-            if exists("g:ctags_path")
-                let ctags_bin = g:ctags_path
-            endif
+            "if exists("g:ctags_path")
+            "    let ctags_bin = g:ctags_path
+            "endif
 
             let tag_options = ""
             if ftype == "python"
-                let tag_options = " -h .py --languages=python --python-kinds=-i "
+                let tag_options = " -h .py --languages=python " . 
+                            \"--python-kinds=-i "
             elseif ftype == "cpp"
-                let tag_options = " -h .cpp.C.H.hpp.c.h -R --c++-kinds=+p --fields=+fkiasSt --extra=+q --languages=c++ "
+                let tag_options = " -h .cpp.C.H.hpp.c.h -R --c++-kinds=+p " .
+                            \"--fields=+fkiasSt --extra=+q --languages=c++ "
             elseif ftype == "cs"
-                let tag_options = " -h .cs -R --fields=+fkiasSt --extra=+q --languages=c# "
+                let tag_options = " -h .cs -R --fields=+fkiasSt " .
+                            \"--extra=+q --languages=c# "
             endif
 
             let target = " . "
@@ -497,7 +518,8 @@ endif
             endif
 
             exec "silent cd " . tagsdir
-            let cmd = ctags_bin . " -f " . tagsfile . " --recurse=yes --sort=foldcase " . tag_options . target
+            let cmd = ctags_bin . " -f " . tagsfile . " --recurse=yes " .
+                        \"--sort=foldcase " . tag_options . target
             echo cmd
             let output = system(cmd)
             exec "silent cd " . olddir
@@ -512,10 +534,10 @@ endif
             return
 
         endfunction
-        command! Tags call GenerateTags(fnamemodify(bufname('%'), ':p:h'), 0) " current file dir
-        command! TagsForce call GenerateTags(fnamemodify(bufname('%'), ':p:h'), 1) " current file dir, force
+        command! Tags call GenerateTags(fnamemodify(bufname('%'), \':p:h'), 0) " current file dir
+        command! TagsForce call GenerateTags(fnamemodify(bufname('%'), \':p:h'), 1) " current file dir, force
         command! TagsCwd call GenerateTags(getcwd(), 0) " current cwd
-        command! TagsCwdForce call GenerateTags(getcwd(), 1) " current cwd, force
+        command! TagsCwdForce call GenerateTags(getcwd(), 1) " cwd, force
     " }}}
 
     " ToggleSearchHighlighting: {{{
@@ -621,7 +643,7 @@ endif
             au BufNewFile,BufRead *.cs set noexpandtab
         endfunction
         command! WorkSettings :call UseWorkSettings()
-        if InLocation("windows_work", "linux_work")
+        if InLocation("work_win", "work_linux")
             WorkSettings
         endif
     " }}}
@@ -646,8 +668,10 @@ endif
         function! DatabaseComplete(A,L,P)
             return join(keys(g:databases), "\n")
         endfunction
-        command! -nargs=1 -complete=custom,DatabaseComplete Database :call LoadDatabase(<q-args>)
-        command! -nargs=1 -complete=custom,DatabaseComplete Data :call LoadDatabase(<q-args>)
+        command! -nargs=1 -complete=custom,DatabaseComplete Database :call 
+                    \LoadDatabase(<q-args>)
+        command! -nargs=1 -complete=custom,DatabaseComplete Data :call 
+                    \LoadDatabase(<q-args>)
     " }}}
 
     " LoadSqlite: {{{
@@ -655,7 +679,8 @@ endif
             let path = substitute(a:path, ':', '\\:', "g")
             call ScratchBuffer("[SQLITE]")
             exec "set title titlestring=SQLITE"
-            let cmdStr = 'DBSetOption type=SQLITE:dbname=' . path . ':user=jfilip:passwd=jfilip'
+            let cmdStr = 'DBSetOption type=SQLITE:dbname=' . path . 
+                        \':user=jfilip:passwd=jfilip'
             exec cmdStr
             setlocal filetype=sql
         endfunction
@@ -672,8 +697,23 @@ endif
         function! ProjectComplete(A,L,P)
             return join(keys(g:projects), "\n")
         endfunction
-        command! -nargs=1 -complete=custom,ProjectComplete Project :call LoadProject(<q-args>)
-        command! -nargs=1 -complete=custom,ProjectComplete Proj :call LoadProject(<q-args>)
+        command! -nargs=1 -complete=custom,ProjectComplete Project :call 
+                    \LoadProject(<q-args>)
+        command! -nargs=1 -complete=custom,ProjectComplete Proj :call 
+                    \LoadProject(<q-args>)
     " }}}
 " }}}
+" ============================================================================
+
+
+" ============================================================================
+" Local Settings: {{{
+if filereadable(expand("~/.vimrc_local"))
+    source ~/.vimrc_local
+endif
+" }}}
+" ============================================================================
+
+
+" vim: foldmethod=marker
 
