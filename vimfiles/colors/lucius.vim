@@ -1,6 +1,6 @@
 " Lucius vim color file
 " Maintainer: Jonathan Filip <jfilip1024@gmail.com>
-" Version: 6.02
+" Version: 6.03
 
 hi clear
 if exists("syntax_on")
