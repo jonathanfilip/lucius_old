@@ -155,8 +155,8 @@ elseif g:lucius_style == "light"
 
     hi Comment      guifg=#909090   guibg=NONE      ctermfg=246    ctermbg=NONE      gui=none      cterm=none
 
-    hi Constant     guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
-    hi BConstant    guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
+    hi Constant     guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
+    hi BConstant    guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
 
     hi Identifier   guifg=#009090   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=none      cterm=none
     hi BIdentifier  guifg=#009090   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=bold      cterm=bold
@@ -167,8 +167,8 @@ elseif g:lucius_style == "light"
     hi PreProc      guifg=#a06000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
     hi BPreProc     guifg=#a06000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Type         guifg=#0070b0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=none      cterm=none
-    hi BType        guifg=#0070b0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=bold      cterm=bold
+    hi Type         guifg=#0070c0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=none      cterm=none
+    hi BType        guifg=#0070c0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=bold      cterm=bold
 
     hi Special      guifg=#700090   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=none      cterm=none
     hi BSpecial     guifg=#700090   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=bold      cterm=bold
@@ -219,7 +219,7 @@ elseif g:lucius_style == "light"
     hi DiffText     guifg=#d05000   guibg=#e0d6c0   ctermfg=160    ctermbg=187       gui=bold      cterm=bold
 
     " == Misc ==
-    hi Directory    guifg=#009040   guibg=NONE      ctermfg=29     ctermbg=NONE      gui=none      cterm=none
+    hi Directory    guifg=#209020   guibg=NONE      ctermfg=29     ctermbg=NONE      gui=none      cterm=none
     hi ErrorMsg     guifg=#a00000   guibg=NONE      ctermfg=124    ctermbg=NONE      gui=none      cterm=none
     hi SignColumn   guifg=#708090   guibg=#f8f8f8   ctermfg=66     ctermbg=231       gui=none      cterm=none
     hi LineNr       guifg=#ffffff   guibg=#a0a0a0   ctermfg=231    ctermbg=247       gui=none      cterm=none

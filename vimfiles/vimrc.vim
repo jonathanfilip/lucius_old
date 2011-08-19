@@ -35,7 +35,7 @@ endfunction
     set shortmess=flmnrxIstToO
     set showmode
     set history=1000
-    set foldmethod=manual
+    set foldmethod=marker
     set browsedir=buffer
     set shellslash
     set hidden
@@ -166,6 +166,10 @@ endfunction
     " Buffer contorls
     noremap <silent> <leader>n :bnext<CR>
     noremap <silent> <leader>p :bprev<CR>
+
+    " Diff commands
+    noremap <silent> <leader>dt :diffthis<CR>
+    noremap <silent> <leader>do :diffoff<CR>
 
     " Window control
     nmap <C-j> <C-w>j
@@ -553,6 +557,21 @@ endfunction
         noremap <C-f> :call ToggleSearchHighlighting()<CR>
     " }}}
 
+    " ToggleFold: {{{
+        function! ToggleFold()
+            if &foldmethod == "manual"
+                set foldmethod=marker
+                normal zN
+                echo "Fold on marker."
+            else
+                set foldmethod=manual
+                normal zn
+                echo "Fold manually."
+            endif
+        endfunction
+        nnoremap <F9> :call ToggleFold()<CR>
+    " }}}
+
     " ToggleTextWidth: {{{
         function! ToggleTextWidth()
             if &tw == 0
@@ -563,7 +582,7 @@ endfunction
                 echo "Text width set to 0."
             endif
         endfunction
-        nnoremap <silent> <F9> :call ToggleTextWidth()<CR>
+        nnoremap <silent> <F10> :call ToggleTextWidth()<CR>
     " }}}
 
     " ToggleWrap: {{{
@@ -576,7 +595,7 @@ endfunction
                 echo "Wrapping off."
             endif
         endfunction
-        nnoremap <F10> :call ToggleWrap()<CR>
+        nnoremap <C-F10> :call ToggleWrap()<CR>
     " }}}
 
     " ToggleSpellCheck: {{{
