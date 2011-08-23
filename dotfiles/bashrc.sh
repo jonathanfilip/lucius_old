@@ -32,7 +32,7 @@
     export PROMPT_COMMAND=bash_prompt # Set up the command line
     export GREP_OPTIONS="--exclude=\*.svn\*"
     if [[ "$platform" == "linux" ]]; then
-        export TERM="screen-256color"
+        export TERM="xterm-256color"
     fi
 # }}}
 # ============================================================================
@@ -191,5 +191,5 @@ fi
 # ============================================================================
 
 
-set umask 0002
+umask 0002
 
