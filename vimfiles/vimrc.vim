@@ -36,6 +36,7 @@ endfunction
     set showmode
     set history=1000
     set foldmethod=marker
+    set nofoldenable
     set browsedir=buffer
     set shellslash
     set hidden
@@ -559,14 +560,19 @@ endfunction
 
     " ToggleFold: {{{
         function! ToggleFold()
-            if &foldmethod == "manual"
-                set foldmethod=marker
-                normal zN
-                echo "Fold on marker."
+            if &foldenable == 1
+            "if &foldmethod == "manual"
+                set nofoldenable
+                echo "Folding disabled."
+                "set foldmethod=marker
+                "normal zN
+                "echo "Fold on marker."
             else
-                set foldmethod=manual
-                normal zn
-                echo "Fold manually."
+                set foldenable
+                echo "Folding enabled."
+                "set foldmethod=manual
+                "normal zn
+                "echo "Fold manually."
             endif
         endfunction
         nnoremap <F9> :call ToggleFold()<CR>
