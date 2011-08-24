@@ -376,13 +376,16 @@ endfunction
                     \'|pyd|exe|bak|swp|lib|sln|suo)'
         let g:exc_dotdirs = '(^|[/\\])\.(hg|git|bzr|svn)($|[/\\])'
         let g:exc_dirs = '(^|[/\\])(bin|obj)($|[/\\])'
+        let g:exc_coverage_dirs = '(^|[/\\])(bin|obj|tests)($|[/\\])'
         let g:ignore_regex = '\v\~$|' . g:exc_file_ext . '|' . 
                     \g:exc_dotdirs . '|' . g:exc_dirs
+        let g:ignore_coverage_regex = '\v\~$|' . g:exc_file_ext . '|' . 
+                    \g:exc_dotdirs . '|' . g:exc_coverage_dirs
 
         let g:fuf_ignoreCase = 1
         let g:fuf_smartBs = 1
         let g:fuf_file_exclude = g:ignore_regex
-        let g:fuf_coveragefile_exclude = g:ignore_regex
+        let g:fuf_coveragefile_exclude = g:ignore_coverage_regex
         let g:fuf_dir_exclude = '\.svn$'
         let g:fuf_buffer_mruOrder = 0
         let g:fuf_modesDisable = ['mrufile', 'aroundmrufile', 'mrucmd', 
