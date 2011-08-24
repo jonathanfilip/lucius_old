@@ -67,7 +67,7 @@ endif
 if g:lucius_style == "dark"
 
 
-    hi Normal       guifg=#e8e8e8   guibg=#202020   ctermfg=253    ctermbg=234       gui=none      cterm=none
+    hi Normal       guifg=#e0e0e0   guibg=#202020   ctermfg=253    ctermbg=234       gui=none      cterm=none
 
     hi Comment      guifg=#606060   guibg=NONE      ctermfg=240    ctermbg=NONE      gui=none      cterm=none
 
@@ -103,13 +103,13 @@ if g:lucius_style == "dark"
     hi CursorIM     guifg=bg        guibg=fg        ctermfg=bg     ctermbg=fg        gui=none      cterm=none
     hi CursorColumn guifg=NONE      guibg=#404040   ctermfg=NONE   ctermbg=237       gui=none      cterm=none
     hi CursorLine   guifg=NONE      guibg=#404040   ctermfg=NONE   ctermbg=237       gui=none      cterm=none
-    hi Visual       guifg=NONE      guibg=#304050   ctermfg=NONE   ctermbg=24        gui=none      cterm=none
+    hi Visual       guifg=NONE      guibg=#204060   ctermfg=NONE   ctermbg=24        gui=none      cterm=none
     hi VisualNOS    guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
     hi IncSearch    guifg=bg        guibg=#60e0e0   ctermfg=bg     ctermbg=116       gui=none      cterm=none
     hi Search       guifg=bg        guibg=#f0b030   ctermfg=bg     ctermbg=214       gui=none      cterm=none
 
     " == UI ==
-    hi Pmenu        guifg=bg        guibg=#c0c0c0   ctermfg=bg     ctermbg=252       gui=none      cterm=none
+    hi Pmenu        guifg=#000000   guibg=#c0c0c0   ctermfg=bg     ctermbg=252       gui=none      cterm=none
     hi PmenuSel     guifg=#e0e0e0   guibg=#304050   ctermfg=fg     ctermbg=24        gui=none      cterm=none
     hi PMenuSbar    guifg=#202020   guibg=#d0d0d0   ctermfg=bg     ctermbg=254       gui=none      cterm=none
     hi PMenuThumb   guifg=NONE      guibg=#808080   ctermfg=fg     ctermbg=244       gui=none      cterm=none
