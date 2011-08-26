@@ -160,26 +160,26 @@ elseif g:lucius_style == "light"
     "hi Constant     guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
     "hi BConstant    guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Identifier   guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
-    hi BIdentifier  guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
+    hi Identifier   guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
+    hi BIdentifier  guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
     "hi Identifier   guifg=#0080a0   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=none      cterm=none
     "hi BIdentifier  guifg=#0080a0   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=bold      cterm=bold
 
     hi Statement    guifg=#0030b0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=none      cterm=none
     hi BStatement   guifg=#0030b0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi PreProc      guifg=#009090   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=none      cterm=none
-    hi BPreProc     guifg=#009090   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=bold      cterm=bold
+    hi PreProc      guifg=#008080   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=none      cterm=none
+    hi BPreProc     guifg=#008080   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=bold      cterm=bold
     "hi PreProc      guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
     "hi BPreProc     guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
     "hi PreProc      guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
     "hi BPreProc     guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Type         guifg=#0060b0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=none      cterm=none
-    hi BType        guifg=#0060b0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=bold      cterm=bold
+    hi Type         guifg=#0050a0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=none      cterm=none
+    hi BType        guifg=#0050a0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Special      guifg=#600090   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=none      cterm=none
-    hi BSpecial     guifg=#600090   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=bold      cterm=bold
+    hi Special      guifg=#600080   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=none      cterm=none
+    hi BSpecial     guifg=#600080   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=bold      cterm=bold
 
     " == Text Markup ==
     hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
