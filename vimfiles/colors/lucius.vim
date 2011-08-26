@@ -155,8 +155,8 @@ elseif g:lucius_style == "light"
 
     hi Comment      guifg=#909090   guibg=NONE      ctermfg=246    ctermbg=NONE      gui=none      cterm=none
 
-    hi Constant     guifg=#a06000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
-    hi BConstant    guifg=#a06000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
+    hi Constant     guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
+    hi BConstant    guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
     "hi Constant     guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
     "hi BConstant    guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
 
