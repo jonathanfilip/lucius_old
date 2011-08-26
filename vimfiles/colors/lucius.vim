@@ -168,8 +168,8 @@ elseif g:lucius_style == "light"
     hi Statement    guifg=#0030b0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=none      cterm=none
     hi BStatement   guifg=#0030b0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi PreProc      guifg=#0080a0   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=none      cterm=none
-    hi BPreProc     guifg=#0080a0   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=bold      cterm=bold
+    hi PreProc      guifg=#009090   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=none      cterm=none
+    hi BPreProc     guifg=#009090   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=bold      cterm=bold
     "hi PreProc      guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
     "hi BPreProc     guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
     "hi PreProc      guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
@@ -178,8 +178,8 @@ elseif g:lucius_style == "light"
     hi Type         guifg=#0060b0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=none      cterm=none
     hi BType        guifg=#0060b0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Special      guifg=#700090   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=none      cterm=none
-    hi BSpecial     guifg=#700090   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=bold      cterm=bold
+    hi Special      guifg=#600090   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=none      cterm=none
+    hi BSpecial     guifg=#600090   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=bold      cterm=bold
 
     " == Text Markup ==
     hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
@@ -202,14 +202,14 @@ elseif g:lucius_style == "light"
 
     " == UI ==
     hi Pmenu        guifg=#ffffff   guibg=#505050   ctermfg=231    ctermbg=239       gui=none      cterm=none
-    hi PmenuSel     guifg=#000000   guibg=#d0e0f0   ctermfg=16     ctermbg=153       gui=none      cterm=none
+    hi PmenuSel     guifg=#000000   guibg=#c0e0ff   ctermfg=16     ctermbg=153       gui=none      cterm=none
     hi PMenuSbar    guifg=#ffffff   guibg=#404040   ctermfg=231    ctermbg=238       gui=none      cterm=none
     hi PMenuThumb   guifg=#000000   guibg=#a0a0a0   ctermfg=16     ctermbg=247       gui=none      cterm=none
     hi StatusLine   guifg=#ffffff   guibg=#505050   ctermfg=231    ctermbg=239       gui=bold      cterm=bold
     hi StatusLineNC guifg=#e0e0e0   guibg=#505050   ctermfg=254    ctermbg=239       gui=none      cterm=none
     hi TabLine      guifg=#ffffff   guibg=#505050   ctermfg=231    ctermbg=239       gui=none      cterm=none
     hi TabLineFill  guifg=#a0a0a0   guibg=#505050   ctermfg=247    ctermbg=239       gui=none      cterm=none
-    hi TabLineSel   guifg=#000000   guibg=#d0e0f0   ctermfg=16     ctermbg=153       gui=none      cterm=none
+    hi TabLineSel   guifg=#000000   guibg=#c0e0ff   ctermfg=16     ctermbg=153       gui=none      cterm=none
     hi VertSplit    guifg=#868686   guibg=#505050   ctermfg=102    ctermbg=239       gui=none      cterm=none
     hi Folded       guifg=#ffffff   guibg=#a0a0a0   ctermfg=231    ctermbg=247       gui=none      cterm=none
     hi FoldColumn   guifg=#ffffff   guibg=#a0a0a0   ctermfg=231    ctermbg=247       gui=none      cterm=none
@@ -235,7 +235,7 @@ elseif g:lucius_style == "light"
     hi ModeMsg      guifg=#000000   guibg=NONE      ctermfg=16     ctermbg=NONE      gui=none      cterm=none
     hi Question     guifg=fg        guibg=NONE      ctermfg=NONE   ctermbg=NONE      gui=none      cterm=none
     hi WarningMsg   guifg=#d04020   guibg=NONE      ctermfg=9      ctermbg=NONE      gui=none      cterm=none
-    hi WildMenu     guifg=#000000   guibg=#d0e0f0   ctermfg=16     ctermbg=153       gui=none      cterm=none
+    hi WildMenu     guifg=#000000   guibg=#c0e0ff   ctermfg=16     ctermbg=153       gui=none      cterm=none
     hi ColorColumn  guifg=NONE      guibg=#f0f0e0   ctermfg=NONE   ctermbg=230       gui=none      cterm=none
     hi Ignore       guifg=bg                        ctermfg=bg
 
