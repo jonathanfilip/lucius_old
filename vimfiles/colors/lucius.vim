@@ -155,8 +155,8 @@ elseif g:lucius_style == "light"
 
     hi Comment      guifg=#909090   guibg=NONE      ctermfg=246    ctermbg=NONE      gui=none      cterm=none
 
-    hi Constant     guifg=#b05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
-    hi BConstant    guifg=#b05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
+    hi Constant     guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
+    hi BConstant    guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
     "hi Constant     guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
     "hi BConstant    guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
 
@@ -185,7 +185,7 @@ elseif g:lucius_style == "light"
     hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
     hi Error        guifg=#c02620   guibg=#f0c6c0   ctermfg=1      ctermbg=181       gui=none      cterm=none
     hi Todo         guifg=#504000   guibg=#f6f080   ctermfg=58     ctermbg=228       gui=none      cterm=none
-    hi MatchParen   guifg=NONE      guibg=#d0f080   ctermfg=NONE   ctermbg=192       gui=none      cterm=none
+    hi MatchParen   guifg=NONE      guibg=#00e0e0   ctermfg=NONE   ctermbg=192       gui=none      cterm=none
     hi NonText      guifg=#b0c0d0   guibg=NONE      ctermfg=146    ctermbg=NONE      gui=none      cterm=none
     hi SpecialKey   guifg=#b0d0c0   guibg=NONE      ctermfg=151    ctermbg=NONE      gui=none      cterm=none
     hi Title        guifg=#0060a0   guibg=NONE      ctermfg=26     ctermbg=NONE      gui=bold      cterm=bold

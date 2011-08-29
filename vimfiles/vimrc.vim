@@ -274,8 +274,8 @@ endfunction
     " Strip extra whitespace
     command! Strip %s/\s\+$//
 
-    command! ReloadConfig :source $MYVIMRC
-    command! Config :e $MYVIMRC
+    command! ReloadConfig :source ~/lucius/vimfiles/vimrc.vim
+    command! Config :e ~/lucius/vimfiles/vimrc.vim
 
     " Change directory to current buffer
     command! CD :lcd %:p:h
@@ -644,6 +644,7 @@ endfunction
             execute '219'
             normal zt
             execute 'wincmd h'
+            execute 'set title titlestring=Colors'
         endfunction
         command! Colors call EditColors()
     " }}}
