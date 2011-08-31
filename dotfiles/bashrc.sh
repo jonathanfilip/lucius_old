@@ -84,24 +84,24 @@
             local W="\[\033[0;37m\]"    # white
 
             # empahsized (bolded) colors
-            local EMK="\[\033[1;30m\]"    # black  
-            local EMR="\[\033[1;31m\]"    # red    
-            local EMG="\[\033[1;32m\]"    # green  
-            local EMY="\[\033[1;33m\]"    # yellow 
-            local EMB="\[\033[1;34m\]"    # blue   
+            local EMK="\[\033[1;30m\]"    # black
+            local EMR="\[\033[1;31m\]"    # red
+            local EMG="\[\033[1;32m\]"    # green
+            local EMY="\[\033[1;33m\]"    # yellow
+            local EMB="\[\033[1;34m\]"    # blue
             local EMM="\[\033[1;35m\]"    # magenta
-            local EMC="\[\033[1;36m\]"    # cyan   
-            local EMW="\[\033[1;37m\]"    # white  
+            local EMC="\[\033[1;36m\]"    # cyan
+            local EMW="\[\033[1;37m\]"    # white
 
             # background colors
-            local BGK="\[\033[40m\]"    # black  
-            local BGR="\[\033[41m\]"    # red    
-            local BGG="\[\033[42m\]"    # green  
-            local BGY="\[\033[43m\]"    # yellow 
-            local BGB="\[\033[44m\]"    # blue   
+            local BGK="\[\033[40m\]"    # black
+            local BGR="\[\033[41m\]"    # red
+            local BGG="\[\033[42m\]"    # green
+            local BGY="\[\033[43m\]"    # yellow
+            local BGB="\[\033[44m\]"    # blue
             local BGM="\[\033[45m\]"    # magenta
-            local BGC="\[\033[46m\]"    # cyan   
-            local BGW="\[\033[47m\]"    # white  
+            local BGC="\[\033[46m\]"    # cyan
+            local BGW="\[\033[47m\]"    # white
 
             if [ "${SHELL_TAG}" ]; then
                 PS1="  ${EMK}[${NONE}${Y}${SHELL_TAG}${NONE}${EMK}]${NONE} "
@@ -135,7 +135,7 @@
                 echo -e "\e[${i#*=}m$( x=${i%=*}; [ "${!x}" ] && echo \
                     "${!x}" || echo "$x" )\e[m"
             done
-            } 
+            }
         }
     # }}}
 

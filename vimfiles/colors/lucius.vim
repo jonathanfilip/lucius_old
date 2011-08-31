@@ -73,15 +73,21 @@ if g:lucius_style == "dark"
 
     hi Constant     guifg=#c0e0a0   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=none      cterm=none
     hi BConstant    guifg=#c0e0a0   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=bold      cterm=bold
+    hi Constant     guifg=#f0e0a0   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=none      cterm=none
+    hi BConstant    guifg=#f0e0a0   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=bold      cterm=bold
 
     hi Identifier   guifg=#a0e0d0   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=none      cterm=none
     hi BIdentifier  guifg=#a0e0d0   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=bold      cterm=bold
+    hi Identifier   guifg=#c0e0a0   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=none      cterm=none
+    hi BIdentifier  guifg=#c0e0a0   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=bold      cterm=bold
 
     hi Statement    guifg=#80d0f0   guibg=NONE      ctermfg=74     ctermbg=NONE      gui=none      cterm=none
     hi BStatement   guifg=#80d0f0   guibg=NONE      ctermfg=74     ctermbg=NONE      gui=bold      cterm=bold
 
     hi PreProc      guifg=#f0f0b0   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=none      cterm=none
     hi BPreProc     guifg=#f0f0b0   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=bold      cterm=bold
+    hi PreProc      guifg=#a0e0d0   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=none      cterm=none
+    hi BPreProc     guifg=#a0e0d0   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=bold      cterm=bold
 
     hi Type         guifg=#a0d0e0   guibg=NONE      ctermfg=116    ctermbg=NONE      gui=none      cterm=none
     hi BType        guifg=#a0d0e0   guibg=NONE      ctermfg=116    ctermbg=NONE      gui=bold      cterm=bold
@@ -155,25 +161,17 @@ elseif g:lucius_style == "light"
 
     hi Comment      guifg=#909090   guibg=NONE      ctermfg=246    ctermbg=NONE      gui=none      cterm=none
 
-    hi Constant     guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
-    hi BConstant    guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
-    "hi Constant     guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
-    "hi BConstant    guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
+    hi Constant     guifg=#904000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
+    hi BConstant    guifg=#904000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
 
     hi Identifier   guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
     hi BIdentifier  guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
-    "hi Identifier   guifg=#0080a0   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=none      cterm=none
-    "hi BIdentifier  guifg=#0080a0   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=bold      cterm=bold
 
     hi Statement    guifg=#0030b0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=none      cterm=none
     hi BStatement   guifg=#0030b0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=bold      cterm=bold
 
     hi PreProc      guifg=#008080   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=none      cterm=none
     hi BPreProc     guifg=#008080   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=bold      cterm=bold
-    "hi PreProc      guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
-    "hi BPreProc     guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
-    "hi PreProc      guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
-    "hi BPreProc     guifg=#208000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
 
     hi Type         guifg=#0050a0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=none      cterm=none
     hi BType        guifg=#0050a0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=bold      cterm=bold
