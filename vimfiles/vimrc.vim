@@ -604,7 +604,7 @@ endfunction
                 echo "Wrapping off."
             endif
         endfunction
-        nnoremap <C-F10> :call ToggleWrap()<CR>
+        nnoremap <S-F10> :call ToggleWrap()<CR>
     " }}}
 
     " ToggleSpellCheck: {{{
@@ -659,7 +659,7 @@ endfunction
                 echo "LuciusLight."
             endif
         endfunction
-        nnoremap <C-F12> :call ToggleColors()<CR>
+        nnoremap <S-F12> :call ToggleColors()<CR>
     " }}}
 
     " UseWorkSettings: {{{
