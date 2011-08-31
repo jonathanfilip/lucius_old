@@ -215,6 +215,10 @@ endfunction
         noremap <C-S> :w<CR>
     endif
 
+    " Color scheme
+    nnoremap <F2> :LuciusLight<CR>
+    nnoremap <S-F2> :LuciusDark<CR>
+
     " Windows copy, cut, and paste
     if has("win32") || has("win64")
         exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
@@ -649,18 +653,18 @@ endfunction
         command! Colors call EditColors()
     " }}}
 
-    " ToggleColors: {{{
-        function! ToggleColors()
-            if g:lucius_style == "light"
-                execute 'LuciusDark'
-                echo "LuciusDark."
-            else
-                execute 'LuciusLight'
-                echo "LuciusLight."
-            endif
-        endfunction
-        nnoremap <S-F12> :call ToggleColors()<CR>
-    " }}}
+    "" ToggleColors: {{{
+    "    function! ToggleColors()
+    "        if g:lucius_style == "light"
+    "            execute 'LuciusDark'
+    "            echo "LuciusDark."
+    "        else
+    "            execute 'LuciusLight'
+    "            echo "LuciusLight."
+    "        endif
+    "    endfunction
+    "    nnoremap <S-F12> :call ToggleColors()<CR>
+    "" }}}
 
     " UseWorkSettings: {{{
         function! UseWorkSettings()
