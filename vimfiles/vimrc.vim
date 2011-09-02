@@ -377,7 +377,8 @@ endfunction
 
     " FuzzyFinder: {{{
         let g:exc_file_ext = '\.(o|exe|dll|bak|orig|swp|so|obj|dll|pyc|pyo' .
-                    \'|pyd|exe|bak|swp|lib|sln|suo)'
+                    \'|pyd|exe|bak|swp|lib|sln|suo|pdf|gif|jpg|bmp|wmv|mov' .
+                    \'|avi|db)'
         let g:exc_dotdirs = '(^|[/\\])\.(hg|git|bzr|svn)($|[/\\])'
         let g:exc_dirs = '(^|[/\\])(bin|obj)($|[/\\])'
         let g:exc_coverage_dirs = '(^|[/\\])(bin|obj|tests)($|[/\\])'
@@ -449,6 +450,9 @@ endfunction
     " Close the preview window automatically
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+    " Set xaml to be like xml
+    au BufNewFile,BufRead *.xaml setfiletype xml
 " }}}
 " ============================================================================
 
