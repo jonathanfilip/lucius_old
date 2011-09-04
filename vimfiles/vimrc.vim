@@ -657,19 +657,6 @@ endfunction
         command! Colors call EditColors()
     " }}}
 
-    "" ToggleColors: {{{
-    "    function! ToggleColors()
-    "        if g:lucius_style == "light"
-    "            execute 'LuciusDark'
-    "            echo "LuciusDark."
-    "        else
-    "            execute 'LuciusLight'
-    "            echo "LuciusLight."
-    "        endif
-    "    endfunction
-    "    nnoremap <S-F12> :call ToggleColors()<CR>
-    "" }}}
-
     " UseWorkSettings: {{{
         function! UseWorkSettings()
             au BufNewFile,BufRead *.py set noexpandtab
