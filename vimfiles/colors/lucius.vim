@@ -109,21 +109,21 @@ if g:lucius_style == "dark"
     hi CursorIM     guifg=bg        guibg=fg        ctermfg=bg     ctermbg=fg        gui=none      cterm=none
     hi CursorColumn guifg=NONE      guibg=#404040   ctermfg=NONE   ctermbg=237       gui=none      cterm=none
     hi CursorLine   guifg=NONE      guibg=#404040   ctermfg=NONE   ctermbg=237       gui=none      cterm=none
-    hi Visual       guifg=NONE      guibg=#204050   ctermfg=NONE   ctermbg=24        gui=none      cterm=none
+    hi Visual       guifg=NONE      guibg=#305060   ctermfg=NONE   ctermbg=24        gui=none      cterm=none
     hi VisualNOS    guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
     hi IncSearch    guifg=bg        guibg=#60e0e0   ctermfg=bg     ctermbg=116       gui=none      cterm=none
     hi Search       guifg=bg        guibg=#f0b030   ctermfg=bg     ctermbg=214       gui=none      cterm=none
 
     " == UI ==
     hi Pmenu        guifg=#000000   guibg=#c0c0c0   ctermfg=bg     ctermbg=252       gui=none      cterm=none
-    hi PmenuSel     guifg=#e0e0e0   guibg=#204050   ctermfg=fg     ctermbg=24        gui=none      cterm=none
+    hi PmenuSel     guifg=#e0e0e0   guibg=#305060   ctermfg=fg     ctermbg=24        gui=none      cterm=none
     hi PMenuSbar    guifg=#202020   guibg=#d0d0d0   ctermfg=bg     ctermbg=254       gui=none      cterm=none
     hi PMenuThumb   guifg=NONE      guibg=#808080   ctermfg=fg     ctermbg=244       gui=none      cterm=none
     hi StatusLine   guifg=#202020   guibg=#c0c0c0   ctermfg=bg     ctermbg=252       gui=bold      cterm=bold
     hi StatusLineNC guifg=#404040   guibg=#c0c0c0   ctermfg=240    ctermbg=252       gui=none      cterm=none
     hi TabLine      guifg=#202020   guibg=#e0e0e0   ctermfg=bg     ctermbg=252       gui=none      cterm=none
     hi TabLineFill  guifg=#404040   guibg=#e0e0e0   ctermfg=240    ctermbg=252       gui=none      cterm=none
-    hi TabLineSel   guifg=#e0e0e0   guibg=#204050   ctermfg=fg     ctermbg=24        gui=bold      cterm=bold
+    hi TabLineSel   guifg=#e0e0e0   guibg=#305060   ctermfg=fg     ctermbg=24        gui=bold      cterm=bold
     hi VertSplit    guifg=#606060   guibg=#c0c0c0   ctermfg=245    ctermbg=252       gui=none      cterm=none
     hi Folded       guifg=#202020   guibg=#808080   ctermfg=bg     ctermbg=246       gui=none      cterm=none
     hi FoldColumn   guifg=#202020   guibg=#808080   ctermfg=bg     ctermbg=246       gui=none      cterm=none
@@ -149,7 +149,7 @@ if g:lucius_style == "dark"
     hi ModeMsg      guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=none      cterm=none
     hi Question     guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=none      cterm=none
     hi WarningMsg   guifg=#e87870   guibg=NONE      ctermfg=173    ctermbg=NONE      gui=none      cterm=none
-    hi WildMenu     guifg=NONE      guibg=#204050   ctermfg=NONE   ctermbg=24        gui=none      cterm=none
+    hi WildMenu     guifg=NONE      guibg=#305060   ctermfg=NONE   ctermbg=24        gui=none      cterm=none
     hi ColorColumn  guifg=NONE      guibg=#403630   ctermfg=NONE   ctermbg=101       gui=none      cterm=none
     hi Ignore       guifg=bg                        ctermfg=bg
 
@@ -241,11 +241,11 @@ elseif g:lucius_style == "light"
 endif
 
 " == Vimwiki Colors ==
-hi link VimwikiHeader1 BConstant
-hi link VimwikiHeader2 BIdentifier
+hi link VimwikiHeader1 BIdentifier
+hi link VimwikiHeader2 BPreProc
 hi link VimwikiHeader3 BStatement
 hi link VimwikiHeader4 BSpecial
-hi link VimwikiHeader5 BPreProc
+hi link VimwikiHeader5 BConstant
 hi link VimwikiHeader6 BType
 
 " == Tagbar Colors ==
