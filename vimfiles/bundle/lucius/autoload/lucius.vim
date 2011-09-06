@@ -6,7 +6,7 @@
 " Functions: {{{
 
    " GenerateTags: {{{
-        function! GenerateTags(dir, force)
+        function! lucius#GenerateTags(dir, force)
             " dir - directory to start in
             " force - set to 1 if you want to force tags to be in 'dir'
             let running_windows = has("win16") || has("win32") ||
@@ -96,6 +96,47 @@
             return
 
         endfunction
+
+" }}}
+" ============================================================================
+
+
+" ============================================================================
+" Python: {{{
+
+if has("python")
+python << EOL
+import vim
+import StringIO
+import sys
+import os
+from vim import buffers, windows, command, current, error
+
+def EvaluateCurrentRange():
+    global __redirected_buffer
+    redirected = StringIO.StringIO()
+    orig_stdout = sys.stdout
+    sys.stdout = redirected
+    code = "\n".join(vim.current.range)
+    eval(compile(code, '', 'exec'), globals())
+    sys.stdout = orig_stdout
+    output = redirected.getvalue().split('\n')
+    r = vim.current.range
+    result = code.strip().split("\n")
+    result.extend(output[:-1]) # the -1 is to remove the final blank line
+    r[:] = result
+    redirected.close()
+
+for entry in sys.path:
+    if os.path.isdir(entry):
+        vim.command(r'set path+=%s' % (entry.replace(' ', r'\ ')))
+EOL
+
+function! lucius#EvaluateCurrentRange()
+    execute 'py EvaluateCurrentRange()'
+endfunction
+
+endif
 
 " }}}
 " ============================================================================

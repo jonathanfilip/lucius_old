@@ -446,6 +446,11 @@ endfunction
         command! TagsForce call lucius#GenerateTags(fnamemodify(bufname('%'), \':p:h'), 1) " current file dir, force
         command! TagsCwd call lucius#GenerateTags(getcwd(), 0) " current cwd
         command! TagsCwdForce call lucius#GenerateTags(getcwd(), 1) " cwd, force
+
+        if has("python")
+            command! -range EvalPythonRange call lucius#EvaluateCurrentRange()
+            map <silent> <F5> :EvalPythonRange<CR>
+        endif
     " }}}
 " }}}
 " ============================================================================
