@@ -155,8 +155,8 @@ elseif g:lucius_style == "light"
 
     hi Comment      guifg=#909090   guibg=NONE      ctermfg=246    ctermbg=NONE      gui=none      cterm=none
 
-    hi Constant     guifg=#904000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
-    hi BConstant    guifg=#904000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
+    hi Constant     guifg=#905000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
+    hi BConstant    guifg=#905000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
 
     hi Identifier   guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
     hi BIdentifier  guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
@@ -187,7 +187,7 @@ elseif g:lucius_style == "light"
     hi CursorIM     guifg=bg        guibg=#505050   ctermfg=bg     ctermbg=239       gui=none      cterm=none
     hi CursorColumn guifg=NONE      guibg=#e8e8e8   ctermfg=NONE   ctermbg=254       gui=none      cterm=none
     hi CursorLine   guifg=NONE      guibg=#e8e8e8   ctermfg=NONE   ctermbg=254       gui=none      cterm=none
-    hi Visual       guifg=NONE      guibg=#c0e0ff   ctermfg=NONE   ctermbg=153       gui=none      cterm=none
+    hi Visual       guifg=fg        guibg=#b0d0f0   ctermfg=NONE   ctermbg=153       gui=none      cterm=none
     hi VisualNOS    guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
     hi IncSearch    guifg=#000000   guibg=#90d0d0   ctermfg=fg     ctermbg=116       gui=none      cterm=none
     hi Search       guifg=#000000   guibg=#f0b060   ctermfg=fg     ctermbg=215       gui=none      cterm=none
