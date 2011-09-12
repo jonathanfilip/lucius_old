@@ -19,6 +19,7 @@
 # Options {{{
     shopt -s cdspell # Correct minor cd spelling errors
     shopt -s dotglob # Allow dot files to be returned in path expansion
+    shopt -s checkwinsize # Check size after each command
     #set -o vi # Make the prompt like vi
 # }}}
 # ============================================================================
@@ -31,6 +32,7 @@
     export IGNOREEOF=1 # press ctrl+D twice to exit
     export PROMPT_COMMAND=bash_prompt # Set up the command line
     export GREP_OPTIONS="--exclude=\*.svn\*"
+    export HISTCONTROL=ignoreboth
     if [[ "$platform" == "linux" ]]; then
         export TERM="xterm-256color"
     fi
@@ -103,12 +105,31 @@
             local BGC="\[\033[46m\]"    # cyan
             local BGW="\[\033[47m\]"    # white
 
+
             if [ "${SHELL_TAG}" ]; then
-                PS1="  ${EMK}[${NONE}${Y}${SHELL_TAG}${NONE}${EMK}]${NONE} "
+                local header="- [${SHELL_TAG}] [${USER}@${HOSTNAME}] ${PWD} "
+                let header_length=${#header}
+                let fillsize=${COLUMNS}-${header_length}
+                local fill=""
+                while [ "$fillsize" -gt "0" ]
+                do
+                    fill="-${fill}"
+                    let fillsize=${fillsize}-1
+                done
+                PS1="${EMK}- [${NONE}${Y}${SHELL_TAG}${NONE}${EMK}]${NONE} "
                 PS1="${PS1}${EMK}[${NONE}${C}\u@\h${NONE}${EMK}]${NONE} "
-                PS1="${PS1}${G}\w${NONE}\n> "
+                PS1="${PS1}${G}${PWD}${NONE} ${EMK}${fill}${NONE}\n> "
             else
-                PS1="  ${EMK}[${NONE}${C}\u@\h${NONE}${EMK}]${NONE} ${G}\w${NONE}\n> "
+                local header="- [${USER}@${HOSTNAME}] ${PWD} "
+                let header_length=${#header}
+                let fillsize=${COLUMNS}-${header_length}
+                local fill=""
+                while [ "$fillsize" -gt "0" ]
+                do
+                    fill="-${fill}"
+                    let fillsize=${fillsize}-1
+                done
+                PS1="${EMK}- [${NONE}${C}\u@\h${NONE}${EMK}]${NONE} ${G}${PWD}${NONE} ${EMK}${fill}${NONE}\n> "
             fi
 
             if [ "${TITLE}" ]; then
