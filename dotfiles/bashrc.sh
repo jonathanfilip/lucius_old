@@ -129,7 +129,7 @@
                     fill="-${fill}"
                     let fillsize=${fillsize}-1
                 done
-                PS1="${EMK}- [${NONE}${C}\u@\h${NONE}${EMK}]${NONE} ${G}${PWD}${NONE} ${EMK}${fill}${NONE}\n> "
+                PS1="${EMK}- [${NONE}${C}${USER}@${HOSTNAME}${NONE}${EMK}]${NONE} ${G}${PWD}${NONE} ${EMK}${fill}${NONE}\n> "
             fi
 
             if [ "${TITLE}" ]; then
