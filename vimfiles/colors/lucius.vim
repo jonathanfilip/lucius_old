@@ -67,12 +67,12 @@ endif
 if g:lucius_style == "dark" || g:lucius_style == "blue"
 
 
-    hi Normal       guifg=#d0d0d0   guibg=#282828   ctermfg=253    ctermbg=234       gui=none      cterm=none
+    hi Normal       guifg=#d0d0d0   guibg=#303030   ctermfg=253    ctermbg=234       gui=none      cterm=none
 
-    hi Comment      guifg=#606060   guibg=NONE      ctermfg=240    ctermbg=NONE      gui=none      cterm=none
+    hi Comment      guifg=#707070   guibg=NONE      ctermfg=240    ctermbg=NONE      gui=none      cterm=none
 
-    hi Constant     guifg=#d0c080   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=none      cterm=none
-    hi BConstant    guifg=#d0c080   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=bold      cterm=bold
+    hi Constant     guifg=#c0c080   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=none      cterm=none
+    hi BConstant    guifg=#c0c080   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=bold      cterm=bold
 
     hi Identifier   guifg=#b0d090   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=none      cterm=none
     hi BIdentifier  guifg=#b0d090   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=bold      cterm=bold
@@ -148,8 +148,8 @@ if g:lucius_style == "dark" || g:lucius_style == "blue"
     hi Ignore       guifg=bg                        ctermfg=bg
 
     if g:lucius_style == "blue"
-        hi Normal guibg=#002530
-        hi Comment guifg=#406570
+        hi Normal guibg=#00303b
+        hi Comment guifg=#507580
     endif
 
 
