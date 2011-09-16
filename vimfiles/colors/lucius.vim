@@ -64,7 +64,7 @@ endif
 
 " set colorcolumn=21,37,53,68,86,100
 
-if g:lucius_style == "dark"
+if g:lucius_style == "dark" || g:lucius_style == "blue"
 
 
     hi Normal       guifg=#d0d0d0   guibg=#282828   ctermfg=253    ctermbg=234       gui=none      cterm=none
@@ -146,6 +146,11 @@ if g:lucius_style == "dark"
     hi WildMenu     guifg=NONE      guibg=#205070   ctermfg=NONE   ctermbg=24        gui=none      cterm=none
     hi ColorColumn  guifg=NONE      guibg=#484038   ctermfg=NONE   ctermbg=101       gui=none      cterm=none
     hi Ignore       guifg=bg                        ctermfg=bg
+
+    if g:lucius_style == "blue"
+        hi Normal guibg=#002530
+        hi Comment guifg=#406570
+    endif
 
 
 elseif g:lucius_style == "light"
@@ -250,5 +255,6 @@ hi link TagbarAccessPrivate PreProc
 " == Commands ==
 command! LuciusLight let g:lucius_style = "light" | colorscheme lucius
 command! LuciusDark let g:lucius_style = "dark" | colorscheme lucius
+command! LuciusBlue let g:lucius_style = "blue" | colorscheme lucius
 
 
