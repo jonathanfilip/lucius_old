@@ -67,7 +67,7 @@ endif
 if g:lucius_style == "dark" || g:lucius_style == "blue"
 
 
-    hi Normal       guifg=#d0d0d0   guibg=#303030   ctermfg=253    ctermbg=234       gui=none      cterm=none
+    hi Normal       guifg=#d0d0d0   guibg=#202020   ctermfg=253    ctermbg=234       gui=none      cterm=none
 
     hi Comment      guifg=#707070   guibg=NONE      ctermfg=240    ctermbg=NONE      gui=none      cterm=none
 
@@ -147,14 +147,6 @@ if g:lucius_style == "dark" || g:lucius_style == "blue"
     hi ColorColumn  guifg=NONE      guibg=#484038   ctermfg=NONE   ctermbg=101       gui=none      cterm=none
     hi Ignore       guifg=bg                        ctermfg=bg
 
-    if g:lucius_style == "blue"
-        hi Normal guibg=#00303b
-        hi Comment guifg=#507580
-        hi CursorLine   guibg=#004550
-        hi CursorColumn guibg=#004550
-        hi ColorColumn  guibg=#284038
-    endif
-
 
 elseif g:lucius_style == "light"
 
@@ -163,8 +155,8 @@ elseif g:lucius_style == "light"
 
     hi Comment      guifg=#909090   guibg=NONE      ctermfg=246    ctermbg=NONE      gui=none      cterm=none
 
-    hi Constant     guifg=#905000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
-    hi BConstant    guifg=#905000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
+    hi Constant     guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
+    hi BConstant    guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
 
     hi Identifier   guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
     hi BIdentifier  guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
@@ -178,8 +170,8 @@ elseif g:lucius_style == "light"
     hi Type         guifg=#0050a0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=none      cterm=none
     hi BType        guifg=#0050a0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Special      guifg=#600080   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=none      cterm=none
-    hi BSpecial     guifg=#600080   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=bold      cterm=bold
+    hi Special      guifg=#700080   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=none      cterm=none
+    hi BSpecial     guifg=#700080   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=bold      cterm=bold
 
     " == Text Markup ==
     hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
