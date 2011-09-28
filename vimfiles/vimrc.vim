@@ -218,8 +218,6 @@ endfunction
     " Color scheme
     nnoremap <F2> :LuciusLight<CR>
     nnoremap <S-F2> :LuciusDark<CR>
-    nnoremap <C-F2> :LuciusBlue<CR>
-    nnoremap <A-F2> :LuciusBlue<CR>
 
     " Windows copy, cut, and paste
     if has("win32") || has("win64")

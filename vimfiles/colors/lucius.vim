@@ -161,8 +161,8 @@ elseif g:lucius_style == "light"
     hi Identifier   guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
     hi BIdentifier  guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Statement    guifg=#0020c0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=none      cterm=none
-    hi BStatement   guifg=#0020c0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=bold      cterm=bold
+    hi Statement    guifg=#0040c0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=none      cterm=none
+    hi BStatement   guifg=#0040c0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=bold      cterm=bold
 
     hi PreProc      guifg=#009080   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=none      cterm=none
     hi BPreProc     guifg=#009080   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=bold      cterm=bold
@@ -250,6 +250,5 @@ hi link TagbarAccessPrivate PreProc
 " == Commands ==
 command! LuciusLight let g:lucius_style = "light" | colorscheme lucius
 command! LuciusDark let g:lucius_style = "dark" | colorscheme lucius
-command! LuciusBlue let g:lucius_style = "blue" | colorscheme lucius
 
 
