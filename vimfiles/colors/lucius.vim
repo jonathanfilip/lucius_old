@@ -1,6 +1,6 @@
 " Lucius vim color file
 " Maintainer: Jonathan Filip <jfilip1024@gmail.com>
-" Version: 6.04
+" Version: 6.1.0
 
 hi clear
 if exists("syntax_on")
@@ -31,7 +31,7 @@ let colors_name="lucius"
 " loaded, you can use the commands "LuciusLight" or "LuciusDark" to change
 " schemes quickly.
 "
-" Screeshots of the new version (6+):
+" Screenshots of the new version (6+):
 "
 " * Dark: http://i.imgur.com/IzYcB.png
 " * Light: http://i.imgur.com/kfJcm.png
@@ -67,27 +67,31 @@ endif
 if g:lucius_style == "dark" || g:lucius_style == "blue"
 
 
-    hi Normal       guifg=#d0d0d0   guibg=#202020   ctermfg=253    ctermbg=234       gui=none      cterm=none
+    hi Normal       guifg=#e0e0e0   guibg=#282828   ctermfg=253    ctermbg=234       gui=none      cterm=none
+
+    if g:lucius_style == "blue"
+        hi Normal                   guibg=#002b36
+    endif
 
     hi Comment      guifg=#707070   guibg=NONE      ctermfg=240    ctermbg=NONE      gui=none      cterm=none
 
-    hi Constant     guifg=#c0c080   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=none      cterm=none
-    hi BConstant    guifg=#c0c080   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=bold      cterm=bold
+    hi Constant     guifg=#e0e090   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=none      cterm=none
+    hi BConstant    guifg=#e0e090   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Identifier   guifg=#b0d090   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=none      cterm=none
-    hi BIdentifier  guifg=#b0d090   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=bold      cterm=bold
+    hi Identifier   guifg=#c0e0a0   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=none      cterm=none
+    hi BIdentifier  guifg=#c0e0a0   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Statement    guifg=#70c0e0   guibg=NONE      ctermfg=74     ctermbg=NONE      gui=none      cterm=none
-    hi BStatement   guifg=#70c0e0   guibg=NONE      ctermfg=74     ctermbg=NONE      gui=bold      cterm=bold
+    hi Statement    guifg=#80d0f0   guibg=NONE      ctermfg=74     ctermbg=NONE      gui=none      cterm=none
+    hi BStatement   guifg=#80d0f0   guibg=NONE      ctermfg=74     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi PreProc      guifg=#90d0c0   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=none      cterm=none
-    hi BPreProc     guifg=#90d0c0   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=bold      cterm=bold
+    hi PreProc      guifg=#a0e0d0   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=none      cterm=none
+    hi BPreProc     guifg=#a0e0d0   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Type         guifg=#90c0d0   guibg=NONE      ctermfg=116    ctermbg=NONE      gui=none      cterm=none
-    hi BType        guifg=#90c0d0   guibg=NONE      ctermfg=116    ctermbg=NONE      gui=bold      cterm=bold
+    hi Type         guifg=#a0d0e0   guibg=NONE      ctermfg=116    ctermbg=NONE      gui=none      cterm=none
+    hi BType        guifg=#a0d0e0   guibg=NONE      ctermfg=116    ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Special      guifg=#c0b0d0   guibg=NONE      ctermfg=182    ctermbg=NONE      gui=none      cterm=none
-    hi BSpecial     guifg=#c0b0d0   guibg=NONE      ctermfg=182    ctermbg=NONE      gui=bold      cterm=bold
+    hi Special      guifg=#c0a0d0   guibg=NONE      ctermfg=182    ctermbg=NONE      gui=none      cterm=none
+    hi BSpecial     guifg=#c0a0d0   guibg=NONE      ctermfg=182    ctermbg=NONE      gui=bold      cterm=bold
 
     " == Text Markup ==
     hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
@@ -177,7 +181,7 @@ elseif g:lucius_style == "light"
     hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
     hi Error        guifg=#c02620   guibg=#f0c6c0   ctermfg=1      ctermbg=181       gui=none      cterm=none
     hi Todo         guifg=#504000   guibg=#f6f080   ctermfg=58     ctermbg=228       gui=none      cterm=none
-    hi MatchParen   guifg=NONE      guibg=#40d0d0   ctermfg=NONE   ctermbg=192       gui=none      cterm=none
+    hi MatchParen   guifg=NONE      guibg=#40d0d0   ctermfg=NONE   ctermbg=80        gui=none      cterm=none
     hi NonText      guifg=#b0c0d0   guibg=NONE      ctermfg=146    ctermbg=NONE      gui=none      cterm=none
     hi SpecialKey   guifg=#b0d0c0   guibg=NONE      ctermfg=151    ctermbg=NONE      gui=none      cterm=none
     hi Title        guifg=#0060a0   guibg=NONE      ctermfg=26     ctermbg=NONE      gui=bold      cterm=bold
@@ -250,5 +254,6 @@ hi link TagbarAccessPrivate PreProc
 " == Commands ==
 command! LuciusLight let g:lucius_style = "light" | colorscheme lucius
 command! LuciusDark let g:lucius_style = "dark" | colorscheme lucius
+command! LuciusBlue let g:lucius_style = "blue" | colorscheme lucius
 
 
