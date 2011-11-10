@@ -554,7 +554,7 @@ endfunction
 
     " EditColors: {{{
         function! EditColors()
-            execute 'e ~/vimfiles/colors/lucius.vim'
+            execute 'e ~/lucius/vimfiles/colors/lucius.vim'
             execute 'so $VIMRUNTIME/syntax/hitest.vim'
             execute 'wincmd L'
             execute 'help syntax'
