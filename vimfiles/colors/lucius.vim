@@ -168,8 +168,8 @@ elseif g:lucius_style == "light"
     hi Statement    guifg=#0040c0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=none      cterm=none
     hi BStatement   guifg=#0040c0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi PreProc      guifg=#009078   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=none      cterm=none
-    hi BPreProc     guifg=#009078   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=bold      cterm=bold
+    hi PreProc      guifg=#008080   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=none      cterm=none
+    hi BPreProc     guifg=#008080   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=bold      cterm=bold
 
     hi Type         guifg=#0070a0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=none      cterm=none
     hi BType        guifg=#0070a0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=bold      cterm=bold
