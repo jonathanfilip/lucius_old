@@ -68,7 +68,7 @@ if g:lucius_style == "dark"
 
 
     hi Normal       guifg=#d0d0d0   guibg=#282828   ctermfg=253    ctermbg=234       gui=none      cterm=none
-    hi Normal       guifg=#d0d0d0   guibg=#002b36   ctermfg=253    ctermbg=234       gui=none      cterm=none
+    "hi Normal       guifg=#d0d0d0   guibg=#002b36   ctermfg=253    ctermbg=234       gui=none      cterm=none
 
     hi Comment      guifg=#707070   guibg=NONE      ctermfg=240    ctermbg=NONE      gui=none      cterm=none
 
@@ -153,7 +153,7 @@ elseif g:lucius_style == "light"
 
 
     hi Normal       guifg=#202020   guibg=#f8f8f8   ctermfg=16     ctermbg=231       gui=none      cterm=none
-    hi Normal       guifg=#202020   guibg=#fdf6e3   ctermfg=16     ctermbg=231       gui=none      cterm=none
+    "hi Normal       guifg=#202020   guibg=#fdf6e3   ctermfg=16     ctermbg=231       gui=none      cterm=none
     "hi Normal       guifg=#202020   guibg=#e6e3de   ctermfg=16     ctermbg=231       gui=none      cterm=none
 
     hi Comment      guifg=#909090   guibg=NONE      ctermfg=246    ctermbg=NONE      gui=none      cterm=none

@@ -26,6 +26,9 @@ function! InLocation(...)
     endfor
     return 0
 endfunction
+
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 " }}}
 " ============================================================================
 
@@ -50,6 +53,7 @@ endfunction
     if has("gui_running") || &t_Co == 256
         let g:lucius_style = "light"
         colorscheme lucius
+        "colorscheme solarized
     else
         colorscheme default
     endif
@@ -299,11 +303,6 @@ endfunction
 
 " ============================================================================
 " Plugin Options: {{{
-    " Pathogen: {{{
-        call pathogen#runtime_append_all_bundles()
-        call pathogen#helptags()
-    " }}}
-
     " VCS: {{{
         let VCSCommandDeleteOnHide = 1
         augroup VCSCommand
