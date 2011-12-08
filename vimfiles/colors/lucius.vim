@@ -153,8 +153,10 @@ if g:lucius_style == "dark"
 elseif g:lucius_style == "light"
 
 
-    hi Normal       guifg=#202020   guibg=#f8f8f8   ctermfg=16     ctermbg=231       gui=none      cterm=none
-    hi Normal       guifg=#303030   guibg=#f8f8f0   ctermfg=16     ctermbg=231       gui=none      cterm=none
+    "hi Normal       guifg=#202020   guibg=#f8f8f8   ctermfg=16     ctermbg=231       gui=none      cterm=none
+    "hi Normal       guifg=#303030   guibg=#f3f3f3   ctermfg=16     ctermbg=231       gui=none      cterm=none
+    hi Normal       guifg=#303030   guibg=#f8f8f0   ctermfg=16     ctermbg=NONE      gui=none      cterm=none
+    "hi Normal       guifg=#303030   guibg=#f3f3f3   ctermfg=16     ctermbg=NONE      gui=none      cterm=none
     "hi Normal       guifg=#202020   guibg=#fdf6e3   ctermfg=16     ctermbg=231       gui=none      cterm=none
     "hi Normal       guifg=#202020   guibg=#e6e3de   ctermfg=16     ctermbg=231       gui=none      cterm=none
 
@@ -188,8 +190,8 @@ elseif g:lucius_style == "light"
     hi Title        guifg=#0060a0   guibg=NONE      ctermfg=26     ctermbg=NONE      gui=bold      cterm=bold
 
     " == Text Selection ==
-    hi Cursor       guifg=bg        guibg=#505050   ctermfg=bg     ctermbg=239       gui=none      cterm=none
-    hi CursorIM     guifg=bg        guibg=#505050   ctermfg=bg     ctermbg=239       gui=none      cterm=none
+    hi Cursor       guifg=bg        guibg=#505050   ctermfg=NONE   ctermbg=239       gui=none      cterm=none
+    hi CursorIM     guifg=bg        guibg=#505050   ctermfg=NONE   ctermbg=239       gui=none      cterm=none
     hi CursorColumn guifg=NONE      guibg=#e8e8e8   ctermfg=NONE   ctermbg=254       gui=none      cterm=none
     hi CursorLine   guifg=NONE      guibg=#e8e8e8   ctermfg=NONE   ctermbg=254       gui=none      cterm=none
     hi Visual       guifg=NONE      guibg=#b0d0f0   ctermfg=NONE   ctermbg=153       gui=none      cterm=none
@@ -234,7 +236,7 @@ elseif g:lucius_style == "light"
     hi WarningMsg   guifg=#b03000   guibg=NONE      ctermfg=9      ctermbg=NONE      gui=none      cterm=none
     hi WildMenu     guifg=#000000   guibg=#c0e0ff   ctermfg=16     ctermbg=153       gui=none      cterm=none
     hi ColorColumn  guifg=NONE      guibg=#f0f0e0   ctermfg=NONE   ctermbg=230       gui=none      cterm=none
-    hi Ignore       guifg=bg                        ctermfg=bg
+    hi Ignore       guifg=bg                        ctermfg=NONE
 
 
 endif
