@@ -156,6 +156,7 @@ elseif g:lucius_style == "light"
     "hi Normal       guifg=#202020   guibg=#f8f8f8   ctermfg=16     ctermbg=231       gui=none      cterm=none
     "hi Normal       guifg=#303030   guibg=#f3f3f3   ctermfg=16     ctermbg=231       gui=none      cterm=none
     hi Normal       guifg=#303030   guibg=#f8f8f0   ctermfg=16     ctermbg=NONE      gui=none      cterm=none
+    "               48 48 48        248 248 240 
     "hi Normal       guifg=#303030   guibg=#f3f3f3   ctermfg=16     ctermbg=NONE      gui=none      cterm=none
     "hi Normal       guifg=#202020   guibg=#fdf6e3   ctermfg=16     ctermbg=231       gui=none      cterm=none
     "hi Normal       guifg=#202020   guibg=#e6e3de   ctermfg=16     ctermbg=231       gui=none      cterm=none
