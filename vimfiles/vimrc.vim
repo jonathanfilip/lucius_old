@@ -44,8 +44,12 @@ call pathogen#helptags()
     set shellslash
     set hidden
     set tags=
-    set tags+=tags,./tags,./../tags,./../../tags
-    set tags+=./../../../tags,./../../../../tags
+    set tags=./tags;/.
+    set wildignore=.svn\*,*.pyc,*.pyo,*.so,*.o,*.dll,*.lib,*.pyd,
+    set wildignore+=*.obj,*.h5,*.ttf,*.pdf,*.xls,*.pcl,*.gz,*.png,
+    set wildignore+=*.gif,*.jpg
+    "set tags+=tags,./tags,./../tags,./../../tags
+    "set tags+=./../../../tags,./../../../../tags
     if !has("win32") && !has("win64")
         set term=$TERM
     endif
@@ -53,7 +57,6 @@ call pathogen#helptags()
     if has("gui_running") || &t_Co == 256
         let g:lucius_style = "light"
         colorscheme lucius
-        "colorscheme solarized
     else
         colorscheme default
     endif
@@ -288,8 +291,6 @@ call pathogen#helptags()
     " Change directory to current buffer
     command! CD :lcd %:p:h
 
-    command! MaxSize :set columns=9999 lines=9999
-
     " Clumsy Stuff: {{{
         " More lenient to save command
         command! W w
@@ -374,34 +375,41 @@ call pathogen#helptags()
         map <F4> :TagbarToggle<CR>
     " }}}
 
+    " CtrlP: {{{
+        let g:ctrlp_working_path_mode = 0
+        let g:ctrlp_dotfiles = 0
+        let g:ctrlp_max_height = 20
+        let g:ctrlp_clear_cache_on_exit = 0
+    " }}}
+
     " FuzzyFinder: {{{
-        let g:exc_file_ext = '\.(o|exe|dll|bak|orig|swp|so|obj|dll|pyc|pyo' .
-                    \'|pyd|exe|bak|swp|lib|sln|suo|pdf|gif|jpg|bmp|wmv|mov' .
-                    \'|avi|db)'
-        let g:exc_dotdirs = '(^|[/\\])\.(hg|git|bzr|svn)($|[/\\])'
-        let g:exc_dirs = '(^|[/\\])(bin|obj)($|[/\\])'
-        let g:exc_coverage_dirs = '(^|[/\\])(bin|obj|tests)($|[/\\])'
-        let g:ignore_regex = '\v\~$|' . g:exc_file_ext . '|' . 
-                    \g:exc_dotdirs . '|' . g:exc_dirs
-        let g:ignore_coverage_regex = '\v\~$|' . g:exc_file_ext . '|' . 
-                    \g:exc_dotdirs . '|' . g:exc_coverage_dirs
+        "let g:exc_file_ext = '\.(o|exe|dll|bak|orig|swp|so|obj|dll|pyc|pyo' .
+        "            \'|pyd|exe|bak|swp|lib|sln|suo|pdf|gif|jpg|bmp|wmv|mov' .
+        "            \'|avi|db)'
+        "let g:exc_dotdirs = '(^|[/\\])\.(hg|git|bzr|svn)($|[/\\])'
+        "let g:exc_dirs = '(^|[/\\])(bin|obj)($|[/\\])'
+        "let g:exc_coverage_dirs = '(^|[/\\])(bin|obj|tests)($|[/\\])'
+        "let g:ignore_regex = '\v\~$|' . g:exc_file_ext . '|' . 
+        "            \g:exc_dotdirs . '|' . g:exc_dirs
+        "let g:ignore_coverage_regex = '\v\~$|' . g:exc_file_ext . '|' . 
+        "            \g:exc_dotdirs . '|' . g:exc_coverage_dirs
 
-        let g:fuf_ignoreCase = 1
-        let g:fuf_smartBs = 1
-        let g:fuf_file_exclude = g:ignore_regex
-        let g:fuf_coveragefile_exclude = g:ignore_coverage_regex
-        let g:fuf_dir_exclude = '\.svn$'
-        let g:fuf_buffer_mruOrder = 0
-        let g:fuf_modesDisable = ['mrufile', 'aroundmrufile', 'mrucmd', 
-                    \'dir', 'bookmarkfile', 'bookmarkdir', 'taggedfile',
-                    \'line', 'help', 'givendir', 'givencmd',
-                    \'callbackfile', 'callbackitem']
+        "let g:fuf_ignoreCase = 1
+        "let g:fuf_smartBs = 1
+        "let g:fuf_file_exclude = g:ignore_regex
+        "let g:fuf_coveragefile_exclude = g:ignore_coverage_regex
+        "let g:fuf_dir_exclude = '\.svn$'
+        "let g:fuf_buffer_mruOrder = 0
+        "let g:fuf_modesDisable = ['mrufile', 'aroundmrufile', 'mrucmd', 
+        "            \'dir', 'bookmarkfile', 'bookmarkdir', 'taggedfile',
+        "            \'line', 'help', 'givendir', 'givencmd',
+        "            \'callbackfile', 'callbackitem']
 
-        noremap <silent> <C-S-]> :FufTagWithCursorWord!<CR>
-        noremap <silent> <leader>ff :FufFile<CR>
-        noremap <silent> <leader>fb :FufBuffer<CR>
-        noremap <silent> <leader>ft :FufBufferTag<CR>
-        noremap <silent> <leader>fc :FufCoverageFile<CR>
+        "noremap <silent> <C-S-]> :FufTagWithCursorWord!<CR>
+        "noremap <silent> <leader>ff :FufFile<CR>
+        "noremap <silent> <leader>fb :FufBuffer<CR>
+        "noremap <silent> <leader>ft :FufBufferTag<CR>
+        "noremap <silent> <leader>fc :FufCoverageFile<CR>
     " }}}
 
     " Dbext: {{{
