@@ -45,8 +45,8 @@ call pathogen#helptags()
     set hidden
     set tags=
     set tags=./tags;/.
-    set wildignore=.svn\*,*.pyc,*.pyo,*.so,*.o,*.dll,*.lib,*.pyd,
-    set wildignore+=*.obj,*.h5,*.ttf,*.pdf,*.xls,*.pcl,*.gz,*.png,
+    set wildignore+=.svn\*,*.pyc,*.pyo,*.so,*.o,*.dll,*.lib,*.pyd
+    set wildignore+=*.obj,*.h5,*.ttf,*.pdf,*.xls,*.pcl,*.gz,*.png
     set wildignore+=*.gif,*.jpg
     "set tags+=tags,./tags,./../tags,./../../tags
     "set tags+=./../../../tags,./../../../../tags
@@ -380,6 +380,14 @@ call pathogen#helptags()
         let g:ctrlp_dotfiles = 0
         let g:ctrlp_max_height = 20
         let g:ctrlp_clear_cache_on_exit = 0
+        let g:ctrlp_extensions = ["tagz"]
+        "let g:ctrlp_ctags_bin = "C:/bin/ctags58/ctags.exe"
+    " }}}
+
+    " Pandoc: {{{
+        let g:pandoc_use_hard_wraps = 1
+        let g:pandoc_no_empty_implicits = 1
+        let g:pandoc_no_folding = 1
     " }}}
 
     " FuzzyFinder: {{{
