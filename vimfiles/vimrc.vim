@@ -288,8 +288,12 @@ call pathogen#helptags()
     command! ReloadConfig :source ~/lucius/vimfiles/vimrc.vim
     command! Config :e ~/lucius/vimfiles/vimrc.vim
 
+    command! Notes :cd ~/notes
+
     " Change directory to current buffer
     command! CD :lcd %:p:h
+
+    command! Pandoc :!pandoc -f markdown -t html -Ss -o ~/out.html %
 
     " Clumsy Stuff: {{{
         " More lenient to save command
