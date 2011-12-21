@@ -384,12 +384,6 @@ call pathogen#helptags()
         "let g:ctrlp_ctags_bin = "C:/bin/ctags58/ctags.exe"
     " }}}
 
-    " Pandoc: {{{
-        let g:pandoc_use_hard_wraps = 1
-        let g:pandoc_no_empty_implicits = 1
-        let g:pandoc_no_folding = 1
-    " }}}
-
     " FuzzyFinder: {{{
         "let g:exc_file_ext = '\.(o|exe|dll|bak|orig|swp|so|obj|dll|pyc|pyo' .
         "            \'|pyd|exe|bak|swp|lib|sln|suo|pdf|gif|jpg|bmp|wmv|mov' .
