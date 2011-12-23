@@ -69,8 +69,8 @@ if g:lucius_style == "dark"
 
     "hi Normal       guifg=#d0d0d0   guibg=#282828   ctermfg=253    ctermbg=234       gui=none      cterm=none
     hi Normal       guifg=#c8c6c0   guibg=#202628   ctermfg=253    ctermbg=234       gui=none      cterm=none
-    hi Normal       guifg=#c8c6c0   guibg=#282e30   ctermfg=253    ctermbg=234       gui=none      cterm=none
-    hi Normal       guifg=#d0cec8   guibg=#282e30   ctermfg=253    ctermbg=234       gui=none      cterm=none
+    "hi Normal       guifg=#c8c6c0   guibg=#282e30   ctermfg=253    ctermbg=234       gui=none      cterm=none
+    "hi Normal       guifg=#d0cec8   guibg=#282e30   ctermfg=253    ctermbg=234       gui=none      cterm=none
     "hi Normal       guifg=#d0d0d0   guibg=#002b36   ctermfg=253    ctermbg=234       gui=none      cterm=none
 
     hi Comment      guifg=#707678   guibg=NONE      ctermfg=240    ctermbg=NONE      gui=none      cterm=none
@@ -161,8 +161,6 @@ elseif g:lucius_style == "light"
     "hi Normal       guifg=#303030   guibg=#e6e3de   ctermfg=16     ctermbg=NONE      gui=none      cterm=none
     "hi Normal       guifg=#303030   guibg=#f6f3ee   ctermfg=16     ctermbg=NONE      gui=none      cterm=none
     hi Normal       guifg=#404648   guibg=#f8f6f0   ctermfg=16     ctermbg=NONE      gui=none      cterm=none
-    hi Normal       guifg=#404648   guibg=#f0eee8   ctermfg=16     ctermbg=NONE      gui=none      cterm=none
-    hi Normal       guifg=#484e50   guibg=#f0eee8   ctermfg=16     ctermbg=NONE      gui=none      cterm=none
     "               64 70 72        248 246 240 
     " #F9F7F5
     " #F8F7F3
