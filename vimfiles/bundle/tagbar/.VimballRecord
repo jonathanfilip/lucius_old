@@ -1,3 +1,4 @@
 tagbar.vba: call delete('H:/vimfiles/bundle/tagbar//doc/tagbar.txt')|call delete('H:/vimfiles/bundle/tagbar//plugin/tagbar.vim')|call delete('H:/vimfiles/bundle/tagbar//syntax/tagbar.vim')
 tagbar.vba: call delete('H:/vimfiles/bundle/tagbar//doc/tagbar.txt')|call delete('H:/vimfiles/bundle/tagbar//plugin/tagbar.vim')|call delete('H:/vimfiles/bundle/tagbar//syntax/tagbar.vim')
 tagbar.vmb: call delete('H:/lucius/vimfiles/bundle/tagbar//autoload/tagbar.vim')|call delete('H:/lucius/vimfiles/bundle/tagbar//doc/tagbar.txt')|call delete('H:/lucius/vimfiles/bundle/tagbar//plugin/tagbar.vim')|call delete('H:/lucius/vimfiles/bundle/tagbar//syntax/tagbar.vim')
+tagbar.vmb: call delete('H:/lucius/vimfiles/bundle/tagbar//autoload/tagbar.vim')|call delete('H:/lucius/vimfiles/bundle/tagbar//doc/tagbar.txt')|call delete('H:/lucius/vimfiles/bundle/tagbar//plugin/tagbar.vim')|call delete('H:/lucius/vimfiles/bundle/tagbar//syntax/tagbar.vim')
