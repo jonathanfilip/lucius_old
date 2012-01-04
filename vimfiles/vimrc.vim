@@ -47,7 +47,8 @@ call pathogen#helptags()
     set tags=./tags;/.
     set wildignore+=.svn\*,*.pyc,*.pyo,*.so,*.o,*.dll,*.lib,*.pyd
     set wildignore+=*.obj,*.h5,*.ttf,*.pdf,*.xls,*.pcl,*.gz,*.png
-    set wildignore+=*.gif,*.jpg,*.bak,*~,*.db
+    set wildignore+=*.gif,*.jpg,*.ico,*.bak,*~,*.db
+    set wildignore+=*.sln,*.csproj,*.resx,*.suo
     set wildignore+=tests,tmp
     "set tags+=tags,./tags,./../tags,./../../tags
     "set tags+=./../../../tags,./../../../../tags
