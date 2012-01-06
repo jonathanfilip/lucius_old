@@ -67,11 +67,9 @@ endif
 if g:lucius_style == "dark"
 
 
-    "hi Normal       guifg=#d0d0d0   guibg=#282828   ctermfg=253    ctermbg=234       gui=none      cterm=none
     hi Normal       guifg=#c8c6c0   guibg=#202628   ctermfg=253    ctermbg=234       gui=none      cterm=none
-    "hi Normal       guifg=#c8c6c0   guibg=#282e30   ctermfg=253    ctermbg=234       gui=none      cterm=none
-    "hi Normal       guifg=#d0cec8   guibg=#282e30   ctermfg=253    ctermbg=234       gui=none      cterm=none
-    "hi Normal       guifg=#d0d0d0   guibg=#002b36   ctermfg=253    ctermbg=234       gui=none      cterm=none
+    hi Normal       guifg=#c8c6c0   guibg=#2b2d37   ctermfg=253    ctermbg=234       gui=none      cterm=none
+    hi Normal       guifg=#d4d2c8   guibg=#2b2d37   ctermfg=253    ctermbg=234       gui=none      cterm=none
 
     hi Comment      guifg=#707678   guibg=NONE      ctermfg=240    ctermbg=NONE      gui=none      cterm=none
 
@@ -157,7 +155,7 @@ elseif g:lucius_style == "light"
 
     hi Normal       guifg=#404648   guibg=#f8f6f0   ctermfg=16     ctermbg=NONE      gui=none      cterm=none
     hi Normal       guifg=#404648   guibg=#f6f2e8   ctermfg=16     ctermbg=NONE      gui=none      cterm=none
-    hi Normal       guifg=#404648   guibg=#f4f2e8   ctermfg=16     ctermbg=NONE      gui=none      cterm=none
+    hi Normal       guifg=#2b2d37   guibg=#f4f2e8   ctermfg=16     ctermbg=NONE      gui=none      cterm=none
 
     hi Comment      guifg=#989690   guibg=NONE      ctermfg=246    ctermbg=NONE      gui=none      cterm=none
 
@@ -189,8 +187,8 @@ elseif g:lucius_style == "light"
     hi Title        guifg=#0060a0   guibg=NONE      ctermfg=26     ctermbg=NONE      gui=bold      cterm=bold
 
     " == Text Selection ==
-    hi Cursor       guifg=bg        guibg=#707070   ctermfg=NONE   ctermbg=239       gui=none      cterm=none
-    hi CursorIM     guifg=bg        guibg=#707070   ctermfg=NONE   ctermbg=239       gui=none      cterm=none
+    hi Cursor       guifg=bg        guibg=#687274   ctermfg=NONE   ctermbg=239       gui=none      cterm=none
+    hi CursorIM     guifg=bg        guibg=#687274   ctermfg=NONE   ctermbg=239       gui=none      cterm=none
     hi CursorColumn guifg=NONE      guibg=#e8e8e8   ctermfg=NONE   ctermbg=254       gui=none      cterm=none
     hi CursorLine   guifg=NONE      guibg=#e8e8e8   ctermfg=NONE   ctermbg=254       gui=none      cterm=none
     hi Visual       guifg=NONE      guibg=#b0d0f0   ctermfg=NONE   ctermbg=153       gui=none      cterm=none
@@ -199,16 +197,16 @@ elseif g:lucius_style == "light"
     hi Search       guifg=#000000   guibg=#f0b060   ctermfg=fg     ctermbg=215       gui=none      cterm=none
 
     " == UI ==
-    hi Pmenu        guifg=bg        guibg=#707070   ctermfg=231    ctermbg=239       gui=none      cterm=none
+    hi Pmenu        guifg=bg        guibg=#687274   ctermfg=231    ctermbg=239       gui=none      cterm=none
     hi PmenuSel     guifg=#000000   guibg=#c0e0ff   ctermfg=16     ctermbg=153       gui=none      cterm=none
     hi PMenuSbar    guifg=bg        guibg=#404040   ctermfg=231    ctermbg=238       gui=none      cterm=none
     hi PMenuThumb   guifg=#000000   guibg=#a0a0a0   ctermfg=16     ctermbg=247       gui=none      cterm=none
-    hi StatusLine   guifg=bg        guibg=#707070   ctermfg=231    ctermbg=239       gui=bold      cterm=bold
-    hi StatusLineNC guifg=#e0e0e0   guibg=#707070   ctermfg=254    ctermbg=239       gui=none      cterm=none
-    hi TabLine      guifg=bg        guibg=#707070   ctermfg=231    ctermbg=239       gui=none      cterm=none
-    hi TabLineFill  guifg=#a0a0a0   guibg=#707070   ctermfg=247    ctermbg=239       gui=none      cterm=none
+    hi StatusLine   guifg=bg        guibg=#687274   ctermfg=231    ctermbg=239       gui=bold      cterm=bold
+    hi StatusLineNC guifg=#e0e0e0   guibg=#687274   ctermfg=254    ctermbg=239       gui=none      cterm=none
+    hi TabLine      guifg=bg        guibg=#687274   ctermfg=231    ctermbg=239       gui=none      cterm=none
+    hi TabLineFill  guifg=#a0a0a0   guibg=#687274   ctermfg=247    ctermbg=239       gui=none      cterm=none
     hi TabLineSel   guifg=#000000   guibg=#c0e0ff   ctermfg=16     ctermbg=153       gui=none      cterm=none
-    hi VertSplit    guifg=#868686   guibg=#707070   ctermfg=102    ctermbg=239       gui=none      cterm=none
+    hi VertSplit    guifg=#868686   guibg=#687274   ctermfg=102    ctermbg=239       gui=none      cterm=none
     hi Folded       guifg=bg        guibg=#a0a0a0   ctermfg=231    ctermbg=247       gui=none      cterm=none
     hi FoldColumn   guifg=bg        guibg=#a0a0a0   ctermfg=231    ctermbg=247       gui=none      cterm=none
 
