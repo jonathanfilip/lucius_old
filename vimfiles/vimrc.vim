@@ -387,7 +387,10 @@ call pathogen#helptags()
         let g:ctrlp_max_height = 20
         let g:ctrlp_clear_cache_on_exit = 0
         let g:ctrlp_extensions = ["tagz"]
-        "let g:ctrlp_ctags_bin = "C:/bin/ctags58/ctags.exe"
+
+        noremap <silent> <leader>ff :CtrlP<CR>
+        noremap <silent> <leader>fb :CtrlPBuffer<CR>
+        noremap <silent> <leader>fr :CtrlPMRU<CR>
     " }}}
 
     " FuzzyFinder: {{{
