@@ -72,26 +72,27 @@ if g:lucius_style == "dark"
     hi Normal       guifg=#d4d2c8   guibg=#2b2d37   ctermfg=253    ctermbg=234       gui=none      cterm=none
     hi Normal       guifg=#d5d2ca   guibg=#23252f   ctermfg=253    ctermbg=234       gui=none      cterm=none
     hi Normal       guifg=#d5d2ca   guibg=#23282f   ctermfg=253    ctermbg=234       gui=none      cterm=none
+    hi Normal       guifg=#cdcac2   guibg=#23282f   ctermfg=253    ctermbg=234       gui=none      cterm=none
 
-    hi Comment      guifg=#73757f   guibg=NONE      ctermfg=240    ctermbg=NONE      gui=none      cterm=none
+    hi Comment      guifg=#73787f   guibg=NONE      ctermfg=240    ctermbg=NONE      gui=none      cterm=none
 
     hi Constant     guifg=#c8c890   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=none      cterm=none
     hi BConstant    guifg=#d0d090   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Identifier   guifg=#b0d090   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=none      cterm=none
-    hi BIdentifier  guifg=#b0d090   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=bold      cterm=bold
+    hi Identifier   guifg=#a0c080   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=none      cterm=none
+    hi BIdentifier  guifg=#a0c080   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Statement    guifg=#70c0e0   guibg=NONE      ctermfg=74     ctermbg=NONE      gui=none      cterm=none
-    hi BStatement   guifg=#70c0e0   guibg=NONE      ctermfg=74     ctermbg=NONE      gui=bold      cterm=bold
+    hi Statement    guifg=#68b8d8   guibg=NONE      ctermfg=74     ctermbg=NONE      gui=none      cterm=none
+    hi BStatement   guifg=#68b8d8   guibg=NONE      ctermfg=74     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi PreProc      guifg=#90d0c0   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=none      cterm=none
-    hi BPreProc     guifg=#90d0c0   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=bold      cterm=bold
+    hi PreProc      guifg=#88c8b8   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=none      cterm=none
+    hi BPreProc     guifg=#88c8b8   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Type         guifg=#98c8d8   guibg=NONE      ctermfg=116    ctermbg=NONE      gui=none      cterm=none
-    hi BType        guifg=#98c8d8   guibg=NONE      ctermfg=116    ctermbg=NONE      gui=bold      cterm=bold
+    hi Type         guifg=#90c0d0   guibg=NONE      ctermfg=116    ctermbg=NONE      gui=none      cterm=none
+    hi BType        guifg=#90c0d0   guibg=NONE      ctermfg=116    ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Special      guifg=#c0a0d0   guibg=NONE      ctermfg=182    ctermbg=NONE      gui=none      cterm=none
-    hi BSpecial     guifg=#c0a0d0   guibg=NONE      ctermfg=182    ctermbg=NONE      gui=bold      cterm=bold
+    hi Special      guifg=#b898c8   guibg=NONE      ctermfg=182    ctermbg=NONE      gui=none      cterm=none
+    hi BSpecial     guifg=#c8a8d8   guibg=NONE      ctermfg=182    ctermbg=NONE      gui=bold      cterm=bold
 
     " == Text Markup ==
     hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
@@ -113,16 +114,16 @@ if g:lucius_style == "dark"
     hi Search       guifg=bg        guibg=#e0a020   ctermfg=bg     ctermbg=214       gui=none      cterm=none
 
     " == UI ==
-    hi Pmenu        guifg=#000000   guibg=#b0b0b0   ctermfg=bg     ctermbg=252       gui=none      cterm=none
+    hi Pmenu        guifg=#000000   guibg=#adaaa2   ctermfg=bg     ctermbg=252       gui=none      cterm=none
     hi PmenuSel     guifg=#e0e0e0   guibg=#205070   ctermfg=fg     ctermbg=24        gui=none      cterm=none
-    hi PMenuSbar    guifg=bg        guibg=#b0b0b0   ctermfg=bg     ctermbg=254       gui=none      cterm=none
+    hi PMenuSbar    guifg=bg        guibg=#adaaa2   ctermfg=bg     ctermbg=254       gui=none      cterm=none
     hi PMenuThumb   guifg=NONE      guibg=#808080   ctermfg=fg     ctermbg=244       gui=none      cterm=none
-    hi StatusLine   guifg=bg        guibg=#b0b0b0   ctermfg=bg     ctermbg=252       gui=bold      cterm=bold
-    hi StatusLineNC guifg=#404040   guibg=#b0b0b0   ctermfg=240    ctermbg=252       gui=none      cterm=none
-    hi TabLine      guifg=bg        guibg=#b0b0b0   ctermfg=bg     ctermbg=252       gui=none      cterm=none
-    hi TabLineFill  guifg=#404040   guibg=#b0b0b0   ctermfg=240    ctermbg=252       gui=none      cterm=none
+    hi StatusLine   guifg=bg        guibg=#adaaa2   ctermfg=bg     ctermbg=252       gui=bold      cterm=bold
+    hi StatusLineNC guifg=#404040   guibg=#adaaa2   ctermfg=240    ctermbg=252       gui=none      cterm=none
+    hi TabLine      guifg=bg        guibg=#adaaa2   ctermfg=bg     ctermbg=252       gui=none      cterm=none
+    hi TabLineFill  guifg=#404040   guibg=#adaaa2   ctermfg=240    ctermbg=252       gui=none      cterm=none
     hi TabLineSel   guifg=#e0e0e0   guibg=#205070   ctermfg=fg     ctermbg=24        gui=bold      cterm=bold
-    hi VertSplit    guifg=#606060   guibg=#b0b0b0   ctermfg=245    ctermbg=252       gui=none      cterm=none
+    hi VertSplit    guifg=#606060   guibg=#adaaa2   ctermfg=245    ctermbg=252       gui=none      cterm=none
     hi Folded       guifg=bg        guibg=#808080   ctermfg=bg     ctermbg=246       gui=none      cterm=none
     hi FoldColumn   guifg=bg        guibg=#808080   ctermfg=bg     ctermbg=246       gui=none      cterm=none
 
@@ -139,8 +140,8 @@ if g:lucius_style == "dark"
     hi DiffText     guifg=#e0b050   guibg=#605040   ctermfg=220    ctermbg=58        gui=bold      cterm=bold
 
     " == Misc ==
-    hi Directory    guifg=#b0d0a0   guibg=NONE      ctermfg=151    ctermbg=NONE      gui=none      cterm=none
-    hi ErrorMsg     guifg=#ee0000   guibg=NONE      ctermfg=196    ctermbg=NONE      gui=none      cterm=none
+    hi Directory    guifg=#a0c090   guibg=NONE      ctermfg=151    ctermbg=NONE      gui=none      cterm=none
+    hi ErrorMsg     guifg=#f04040   guibg=NONE      ctermfg=196    ctermbg=NONE      gui=none      cterm=none
     hi SignColumn   guifg=#a0b0b0   guibg=#282828   ctermfg=145    ctermbg=233       gui=none      cterm=none
     hi LineNr       guifg=bg        guibg=#808080   ctermfg=bg     ctermbg=246       gui=none      cterm=none
     hi MoreMsg      guifg=#60c0d0   guibg=NONE      ctermfg=117    ctermbg=NONE      gui=none      cterm=none

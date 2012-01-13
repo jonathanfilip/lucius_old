@@ -46,7 +46,7 @@ call pathogen#helptags()
     set tags=./tags;/.
     set wildignore+=.svn\*,*.pyc,*.pyo,*.so,*.o,*.dll,*.lib,*.pyd
     set wildignore+=*.obj,*.h5,*.ttf,*.pdf,*.xls,*.pcl,*.gz,*.png
-    set wildignore+=*.gif,*.jpg,*.ico,*.bak,*~,*.db
+    set wildignore+=*.gif,*.jpg,*.ico,*.bak,*~
     set wildignore+=*.sln,*.csproj,*.resx,*.suo
     set wildignore+=tests,tmp
     if !has("win32") && !has("win64")
@@ -66,7 +66,7 @@ call pathogen#helptags()
     set cmdheight=1
     set completeopt=longest,menu complete=.,w,b,u
     set confirm
-    set guioptions=aegc
+    set guioptions=egc
     set laststatus=2
     set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$
     set fillchars=
