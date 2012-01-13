@@ -43,15 +43,12 @@ call pathogen#helptags()
     set browsedir=buffer
     set shellslash
     set hidden
-    set tags=
     set tags=./tags;/.
     set wildignore+=.svn\*,*.pyc,*.pyo,*.so,*.o,*.dll,*.lib,*.pyd
     set wildignore+=*.obj,*.h5,*.ttf,*.pdf,*.xls,*.pcl,*.gz,*.png
     set wildignore+=*.gif,*.jpg,*.ico,*.bak,*~,*.db
     set wildignore+=*.sln,*.csproj,*.resx,*.suo
     set wildignore+=tests,tmp
-    "set tags+=tags,./tags,./../tags,./../../tags
-    "set tags+=./../../../tags,./../../../../tags
     if !has("win32") && !has("win64")
         set term=$TERM
     endif
@@ -59,8 +56,6 @@ call pathogen#helptags()
     if has("gui_running") || &t_Co == 256
         let g:lucius_style = "light"
         colorscheme lucius
-    else
-        colorscheme default
     endif
 " }}}
 " ============================================================================
@@ -71,9 +66,10 @@ call pathogen#helptags()
     set cmdheight=1
     set completeopt=longest,menu complete=.,w,b,u
     set confirm
-    set guioptions=egc
+    set guioptions=aegc
     set laststatus=2
     set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$
+    set fillchars=
     set mouse=a mousehide ttymouse=xterm2
     set noequalalways
     set noerrorbells novisualbell
@@ -94,8 +90,6 @@ call pathogen#helptags()
         endif
         if has("gui_win32") || has ("gui_win64")
             set guifont=Consolas:h10
-        elseif has("gui_gtk2")
-            set guifont=Consolas\ 13
         elseif has("gui_macvim")
             set guifont=Consolas:h13
         endif
@@ -124,7 +118,7 @@ call pathogen#helptags()
     set expandtab
     set formatoptions=tcrqn
     set nojoinspaces
-    set nowrap
+    set nowrap nowrapscan
     set shiftround
     set showmatch
     set smarttab
@@ -317,35 +311,6 @@ call pathogen#helptags()
         augroup END
     " }}}
 
-    " Vimwiki: {{{
-        let g:vimwiki_hl_cb_checked = 1 " Comment out checked items
-        let g:vimwiki_use_mouse = 0 " Toggle mouse to navigate
-        let g:vimwiki_hl_headers = 1
-        let g:vimwiki_camel_case = 0
-        let g:vimwiki_table_auto_fmt = 0 
-        let g:vimwiki_valid_html_tags="b,i,s,u,sub,sup,kbd,br,hr,div," .
-                    \"center,strong,em,span,a,img,h1,p"
-        au BufNewFile,BufRead *.wiki set tw=79
-        let nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'c#': 'cs',
-                    \'C#': 'cs', 'sql': 'sql', 'xml': 'xml'}
-        let wiki = {}
-        let wiki.path = '~/wiki/'
-        let wiki.path_html = '~/wiki/html/'
-        let wiki.index = 'Index'
-        let wiki.nested_syntaxes = nested_syntaxes
-        let wiki.maxhi = 1
-        let g:vimwiki_list = [wiki]
-        if InLocation("home_osx")
-            let wiki_info = {}
-            let wiki_info.path = '/Volumes/info/'
-            let wiki_info.path_html = '/Volumes/info/html/'
-            let wiki_info.index = 'Index'
-            let wiki_info.nested_syntaxes = nested_syntaxes
-            let wiki_info.maxhi = 1
-            let g:vimwiki_list = [wiki, wiki_info]
-        endif
-    " }}}
-
     " NERD Tree: {{{
         let g:NERDTreeChDirMode = 0
         let g:NERDChristmasTree = 1
@@ -366,18 +331,9 @@ call pathogen#helptags()
         let NERDRemoveExtraSpaces=0
     " }}}
 
-    " Taglist: {{{
-        let Tlist_Use_Right_Window = 1
-        let Tlist_Exit_OnlyWindow = 1
-        let Tlist_WinWidth = 32
-        let Tlist_Enable_Fold_Column = 0
-        let Tlist_Sort_Type = "name"
-        let Tlist_Show_One_File = 1
-        let g:tlist_python_settings = 'python;c:class;f:function'
-        "map <F4> :TlistToggle<CR>
-    " }}}
-
     " Tagbar: {{{
+        let g:tagbar_compact = 1
+        let g:tagbar_iconchars = ['+', '-']
         map <F4> :TagbarToggle<CR>
     " }}}
 
@@ -386,41 +342,10 @@ call pathogen#helptags()
         let g:ctrlp_dotfiles = 0
         let g:ctrlp_max_height = 20
         let g:ctrlp_clear_cache_on_exit = 0
-        let g:ctrlp_extensions = ["tagz"]
 
         noremap <silent> <leader>ff :CtrlP<CR>
         noremap <silent> <leader>fb :CtrlPBuffer<CR>
         noremap <silent> <leader>fr :CtrlPMRU<CR>
-    " }}}
-
-    " FuzzyFinder: {{{
-        "let g:exc_file_ext = '\.(o|exe|dll|bak|orig|swp|so|obj|dll|pyc|pyo' .
-        "            \'|pyd|exe|bak|swp|lib|sln|suo|pdf|gif|jpg|bmp|wmv|mov' .
-        "            \'|avi|db)'
-        "let g:exc_dotdirs = '(^|[/\\])\.(hg|git|bzr|svn)($|[/\\])'
-        "let g:exc_dirs = '(^|[/\\])(bin|obj)($|[/\\])'
-        "let g:exc_coverage_dirs = '(^|[/\\])(bin|obj|tests)($|[/\\])'
-        "let g:ignore_regex = '\v\~$|' . g:exc_file_ext . '|' . 
-        "            \g:exc_dotdirs . '|' . g:exc_dirs
-        "let g:ignore_coverage_regex = '\v\~$|' . g:exc_file_ext . '|' . 
-        "            \g:exc_dotdirs . '|' . g:exc_coverage_dirs
-
-        "let g:fuf_ignoreCase = 1
-        "let g:fuf_smartBs = 1
-        "let g:fuf_file_exclude = g:ignore_regex
-        "let g:fuf_coveragefile_exclude = g:ignore_coverage_regex
-        "let g:fuf_dir_exclude = '\.svn$'
-        "let g:fuf_buffer_mruOrder = 0
-        "let g:fuf_modesDisable = ['mrufile', 'aroundmrufile', 'mrucmd', 
-        "            \'dir', 'bookmarkfile', 'bookmarkdir', 'taggedfile',
-        "            \'line', 'help', 'givendir', 'givencmd',
-        "            \'callbackfile', 'callbackitem']
-
-        "noremap <silent> <C-S-]> :FufTagWithCursorWord!<CR>
-        "noremap <silent> <leader>ff :FufFile<CR>
-        "noremap <silent> <leader>fb :FufBuffer<CR>
-        "noremap <silent> <leader>ft :FufBufferTag<CR>
-        "noremap <silent> <leader>fc :FufCoverageFile<CR>
     " }}}
 
     " Dbext: {{{
@@ -454,9 +379,9 @@ call pathogen#helptags()
         let OmniCpp_ShowPrototypeInAbbr = 1
     " }}}
 
-    " Python Syntax: {{{
+    " Python: {{{
         let python_highlight_all = 1
-        "let python_print_as_function = 1
+        au BufEnter *.py :syntax sync fromstart " helps with ''' comments
     " }}}
 
     " Lucius: {{{
