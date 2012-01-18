@@ -118,7 +118,7 @@ call pathogen#helptags()
     set expandtab
     set formatoptions=tcrqn
     set nojoinspaces
-    set nowrap nowrapscan
+    set nowrap
     set shiftround
     set showmatch
     set smarttab
