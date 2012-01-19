@@ -40,7 +40,7 @@ let colors_name="lucius"
 "
 " * Dark: http://i.imgur.com/z0bDr.png
 " * Light: http://i.imgur.com/BXDiv.png
-" * Blue: http://i.imgur.com/Ea1Gq.png 
+" * Blue: http://i.imgur.com/Ea1Gq.png
 "
 " colorsupport.vim (vimscript #2682) is used to help with mapping the GUI
 " settings to the 256 terminal colors.
@@ -68,11 +68,10 @@ if g:lucius_style == "dark"
 
 
     hi Normal       guifg=#c8c6c0   guibg=#202628   ctermfg=253    ctermbg=234       gui=none      cterm=none
-    hi Normal       guifg=#c8c6c0   guibg=#2b2d37   ctermfg=253    ctermbg=234       gui=none      cterm=none
-    hi Normal       guifg=#d4d2c8   guibg=#2b2d37   ctermfg=253    ctermbg=234       gui=none      cterm=none
-    hi Normal       guifg=#d5d2ca   guibg=#23252f   ctermfg=253    ctermbg=234       gui=none      cterm=none
-    hi Normal       guifg=#d5d2ca   guibg=#23282f   ctermfg=253    ctermbg=234       gui=none      cterm=none
     hi Normal       guifg=#cdcac2   guibg=#23282f   ctermfg=253    ctermbg=234       gui=none      cterm=none
+    hi Normal       guifg=#cdcac2   guibg=#303030   ctermfg=253    ctermbg=234       gui=none      cterm=none
+    hi Normal       guifg=#cdcac2   guibg=#202830   ctermfg=253    ctermbg=234       gui=none      cterm=none
+    
 
     hi Comment      guifg=#73787f   guibg=NONE      ctermfg=240    ctermbg=NONE      gui=none      cterm=none
 
@@ -94,7 +93,7 @@ if g:lucius_style == "dark"
     hi Special      guifg=#b898c8   guibg=NONE      ctermfg=182    ctermbg=NONE      gui=none      cterm=none
     hi BSpecial     guifg=#c8a8d8   guibg=NONE      ctermfg=182    ctermbg=NONE      gui=bold      cterm=bold
 
-    " == Text Markup ==
+    " ## Text Markup ##
     hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
     hi Error        guifg=#e07070   guibg=#503030   ctermfg=167    ctermbg=236       gui=none      cterm=none
     hi Todo         guifg=#e0e090   guibg=#505000   ctermfg=186    ctermbg=NONE      gui=none      cterm=none
@@ -103,7 +102,7 @@ if g:lucius_style == "dark"
     hi SpecialKey   guifg=#406050   guibg=NONE      ctermfg=23     ctermbg=NONE      gui=none      cterm=none
     hi Title        guifg=#50b0d0   guibg=NONE      ctermfg=74     ctermbg=NONE      gui=bold      cterm=bold
 
-    " == Text Selection ==
+    " ## Text Selection ##
     hi Cursor       guifg=bg        guibg=fg        ctermfg=bg     ctermbg=fg        gui=none      cterm=none
     hi CursorIM     guifg=bg        guibg=fg        ctermfg=bg     ctermbg=fg        gui=none      cterm=none
     hi CursorColumn guifg=NONE      guibg=#484848   ctermfg=NONE   ctermbg=237       gui=none      cterm=none
@@ -114,32 +113,32 @@ if g:lucius_style == "dark"
     hi Search       guifg=bg        guibg=#e0a020   ctermfg=bg     ctermbg=214       gui=none      cterm=none
 
     " == UI ==
-    hi Pmenu        guifg=#000000   guibg=#adaaa2   ctermfg=bg     ctermbg=252       gui=none      cterm=none
+    hi Pmenu        guifg=#000000   guibg=#b0b0b0   ctermfg=bg     ctermbg=252       gui=none      cterm=none
     hi PmenuSel     guifg=#e0e0e0   guibg=#205070   ctermfg=fg     ctermbg=24        gui=none      cterm=none
-    hi PMenuSbar    guifg=bg        guibg=#adaaa2   ctermfg=bg     ctermbg=254       gui=none      cterm=none
+    hi PMenuSbar    guifg=bg        guibg=#b0b0b0   ctermfg=bg     ctermbg=254       gui=none      cterm=none
     hi PMenuThumb   guifg=NONE      guibg=#808080   ctermfg=fg     ctermbg=244       gui=none      cterm=none
-    hi StatusLine   guifg=bg        guibg=#adaaa2   ctermfg=bg     ctermbg=252       gui=bold      cterm=bold
-    hi StatusLineNC guifg=#404040   guibg=#adaaa2   ctermfg=240    ctermbg=252       gui=none      cterm=none
-    hi TabLine      guifg=bg        guibg=#adaaa2   ctermfg=bg     ctermbg=252       gui=none      cterm=none
-    hi TabLineFill  guifg=#404040   guibg=#adaaa2   ctermfg=240    ctermbg=252       gui=none      cterm=none
+    hi StatusLine   guifg=bg        guibg=#b0b0b0   ctermfg=bg     ctermbg=252       gui=bold      cterm=bold
+    hi StatusLineNC guifg=#404040   guibg=#b0b0b0   ctermfg=240    ctermbg=252       gui=none      cterm=none
+    hi TabLine      guifg=bg        guibg=#b0b0b0   ctermfg=bg     ctermbg=252       gui=none      cterm=none
+    hi TabLineFill  guifg=#404040   guibg=#b0b0b0   ctermfg=240    ctermbg=252       gui=none      cterm=none
     hi TabLineSel   guifg=#e0e0e0   guibg=#205070   ctermfg=fg     ctermbg=24        gui=bold      cterm=bold
-    hi VertSplit    guifg=#606060   guibg=#adaaa2   ctermfg=245    ctermbg=252       gui=none      cterm=none
+    hi VertSplit    guifg=#606060   guibg=#b0b0b0   ctermfg=245    ctermbg=252       gui=none      cterm=none
     hi Folded       guifg=bg        guibg=#808080   ctermfg=bg     ctermbg=246       gui=none      cterm=none
     hi FoldColumn   guifg=bg        guibg=#808080   ctermfg=bg     ctermbg=246       gui=none      cterm=none
 
-    " == Spelling =="{{{
+    " ## Spelling ##
     hi SpellBad     guisp=#ee0000                   ctermfg=fg     ctermbg=160       gui=undercurl cterm=undercurl
     hi SpellCap     guisp=#eeee00                   ctermfg=bg     ctermbg=226       gui=undercurl cterm=undercurl
     hi SpellRare    guisp=#ffa500                   ctermfg=bg     ctermbg=214       gui=undercurl cterm=undercurl
-    hi SpellLocal   guisp=#ffa500                   ctermfg=bg     ctermbg=214       gui=undercurl cterm=undercurl"}}}
+    hi SpellLocal   guisp=#ffa500                   ctermfg=bg     ctermbg=214       gui=undercurl cterm=undercurl
 
-    " == Diff ==
+    " ## Diff ##
     hi DiffAdd      guifg=fg        guibg=#405040   ctermfg=fg     ctermbg=22        gui=none      cterm=none
     hi DiffChange   guifg=fg        guibg=#605040   ctermfg=fg     ctermbg=58        gui=none      cterm=none
     hi DiffDelete   guifg=fg        guibg=#504040   ctermfg=fg     ctermbg=52        gui=none      cterm=none
     hi DiffText     guifg=#e0b050   guibg=#605040   ctermfg=220    ctermbg=58        gui=bold      cterm=bold
 
-    " == Misc ==
+    " ## Misc ##
     hi Directory    guifg=#a0c090   guibg=NONE      ctermfg=151    ctermbg=NONE      gui=none      cterm=none
     hi ErrorMsg     guifg=#f04040   guibg=NONE      ctermfg=196    ctermbg=NONE      gui=none      cterm=none
     hi SignColumn   guifg=#a0b0b0   guibg=#282828   ctermfg=145    ctermbg=233       gui=none      cterm=none
@@ -160,14 +159,14 @@ elseif g:lucius_style == "light"
 
     hi Comment      guifg=#808080   guibg=NONE      ctermfg=246    ctermbg=NONE      gui=none      cterm=none
 
-    hi Constant     guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
-    hi BConstant    guifg=#a05000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
+    hi Constant     guifg=#a06000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
+    hi BConstant    guifg=#a06000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
 
     hi Identifier   guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
     hi BIdentifier  guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Statement    guifg=#0040c0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=none      cterm=none
-    hi BStatement   guifg=#0040c0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=bold      cterm=bold
+    hi Statement    guifg=#0060c0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=none      cterm=none
+    hi BStatement   guifg=#0060c0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=bold      cterm=bold
 
     hi PreProc      guifg=#008080   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=none      cterm=none
     hi BPreProc     guifg=#008080   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=bold      cterm=bold
@@ -175,71 +174,72 @@ elseif g:lucius_style == "light"
     hi Type         guifg=#0070a0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=none      cterm=none
     hi BType        guifg=#0070a0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Special      guifg=#800080   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=none      cterm=none
-    hi BSpecial     guifg=#800080   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=bold      cterm=bold
+    hi Special      guifg=#804080   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=none      cterm=none
+    hi BSpecial     guifg=#804080   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=bold      cterm=bold
 
-    " == Text Markup ==
+    " ## Text Markup ##
     hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
-    hi Error        guifg=#c02620   guibg=#f0c6c0   ctermfg=1      ctermbg=181       gui=none      cterm=none
-    hi Todo         guifg=#504000   guibg=#f6f080   ctermfg=58     ctermbg=228       gui=none      cterm=none
-    hi MatchParen   guifg=NONE      guibg=#40d0d0   ctermfg=NONE   ctermbg=80        gui=none      cterm=none
+    hi Error        guifg=#c02020   guibg=#f0c0c0   ctermfg=1      ctermbg=181       gui=none      cterm=none
+    hi Todo         guifg=#504000   guibg=#e8e880   ctermfg=58     ctermbg=228       gui=none      cterm=none
+    hi MatchParen   guifg=NONE      guibg=#60d0d0   ctermfg=NONE   ctermbg=80        gui=none      cterm=none
     hi NonText      guifg=#b0c0d0   guibg=NONE      ctermfg=146    ctermbg=NONE      gui=none      cterm=none
     hi SpecialKey   guifg=#b0d0c0   guibg=NONE      ctermfg=151    ctermbg=NONE      gui=none      cterm=none
     hi Title        guifg=#0060a0   guibg=NONE      ctermfg=26     ctermbg=NONE      gui=bold      cterm=bold
 
-    " == Text Selection ==
-    hi Cursor       guifg=bg        guibg=#607080   ctermfg=NONE   ctermbg=239       gui=none      cterm=none
-    hi CursorIM     guifg=bg        guibg=#607080   ctermfg=NONE   ctermbg=239       gui=none      cterm=none
+    " ## Text Selection ##
+    hi Cursor       guifg=bg        guibg=#507080   ctermfg=NONE   ctermbg=239       gui=none      cterm=none
+    hi CursorIM     guifg=bg        guibg=#507080   ctermfg=NONE   ctermbg=239       gui=none      cterm=none
     hi CursorColumn guifg=NONE      guibg=#e0e0e0   ctermfg=NONE   ctermbg=254       gui=none      cterm=none
     hi CursorLine   guifg=NONE      guibg=#e0e0e0   ctermfg=NONE   ctermbg=254       gui=none      cterm=none
     hi Visual       guifg=NONE      guibg=#b0d0f0   ctermfg=NONE   ctermbg=153       gui=none      cterm=none
     hi VisualNOS    guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
     hi IncSearch    guifg=#000000   guibg=#90d0d0   ctermfg=fg     ctermbg=116       gui=none      cterm=none
-    hi Search       guifg=#000000   guibg=#f0b060   ctermfg=fg     ctermbg=215       gui=none      cterm=none
+    hi Search       guifg=#000000   guibg=#e0b060   ctermfg=fg     ctermbg=215       gui=none      cterm=none
 
-    " == UI ==
+    " ## UI ##
     hi Pmenu        guifg=bg        guibg=#808080   ctermfg=231    ctermbg=239       gui=none      cterm=none
-    hi PmenuSel     guifg=#000000   guibg=#b0d0f0   ctermfg=16     ctermbg=153       gui=none      cterm=none
-    hi PMenuSbar    guifg=bg        guibg=#404040   ctermfg=231    ctermbg=238       gui=none      cterm=none
-    hi PMenuThumb   guifg=#000000   guibg=#a0a0a0   ctermfg=16     ctermbg=247       gui=none      cterm=none
+    hi PmenuSel     guifg=fg        guibg=#b0d0f0   ctermfg=16     ctermbg=153       gui=none      cterm=none
+    hi PMenuSbar    guifg=#808080   guibg=#404040   ctermfg=231    ctermbg=238       gui=none      cterm=none
+    hi PMenuThumb   guifg=fg        guibg=#a0a0a0   ctermfg=16     ctermbg=247       gui=none      cterm=none
     hi StatusLine   guifg=bg        guibg=#808080   ctermfg=231    ctermbg=239       gui=bold      cterm=bold
     hi StatusLineNC guifg=#e0e0e0   guibg=#808080   ctermfg=254    ctermbg=239       gui=none      cterm=none
     hi TabLine      guifg=bg        guibg=#808080   ctermfg=231    ctermbg=239       gui=none      cterm=none
-    hi TabLineFill  guifg=#a0a0a0   guibg=#808080   ctermfg=247    ctermbg=239       gui=none      cterm=none
-    hi TabLineSel   guifg=#000000   guibg=#b0d0f0   ctermfg=16     ctermbg=153       gui=none      cterm=none
+    hi TabLineFill  guifg=#b0b0b0   guibg=#808080   ctermfg=247    ctermbg=239       gui=none      cterm=none
+    hi TabLineSel   guifg=fg        guibg=#b0d0f0   ctermfg=16     ctermbg=153       gui=none      cterm=none
     hi VertSplit    guifg=#e0e0e0   guibg=#808080   ctermfg=102    ctermbg=239       gui=none      cterm=none
     hi Folded       guifg=#606060   guibg=#c0c0c0   ctermfg=231    ctermbg=247       gui=bold      cterm=none
     hi FoldColumn   guifg=#606060   guibg=#c0c0c0   ctermfg=231    ctermbg=247       gui=bold      cterm=none
 
-    " == Spelling ==
-    hi SpellBad     guisp=#ee0000                                  ctermbg=210       gui=undercurl cterm=undercurl
-    hi SpellCap     guisp=#eeee00                                  ctermbg=227       gui=undercurl cterm=undercurl
-    hi SpellRare    guisp=#ffa500                                  ctermbg=221       gui=undercurl cterm=undercurl
-    hi SpellLocal   guisp=#ffa500                                  ctermbg=221       gui=undercurl cterm=undercurl
+    " ## Spelling ## 
+    hi SpellBad     guisp=#e00000                                  ctermbg=210       gui=undercurl cterm=undercurl
+    hi SpellCap     guisp=#00c0f0                                  ctermbg=227       gui=undercurl cterm=undercurl
+    hi SpellRare    guisp=#40b000                                  ctermbg=221       gui=undercurl cterm=undercurl
+    hi SpellLocal   guisp=#f0a000                                  ctermbg=221       gui=undercurl cterm=undercurl
 
-    " == Diff ==
+    " ## Diff ##
     hi DiffAdd      guifg=fg        guibg=#d0e0d0   ctermfg=fg     ctermbg=151       gui=none      cterm=none
     hi DiffChange   guifg=fg        guibg=#e0d6c0   ctermfg=fg     ctermbg=187       gui=none      cterm=none
     hi DiffDelete   guifg=fg        guibg=#f0d0d0   ctermfg=fg     ctermbg=181       gui=none      cterm=none
     hi DiffText     guifg=#d06040   guibg=#e0d6c0   ctermfg=160    ctermbg=187       gui=bold      cterm=bold
 
-    " == Misc ==
+    " ## Misc ##
     hi Directory    guifg=#008000   guibg=NONE      ctermfg=29     ctermbg=NONE      gui=none      cterm=none
     hi ErrorMsg     guifg=#a00000   guibg=NONE      ctermfg=124    ctermbg=NONE      gui=none      cterm=none
-    hi SignColumn   guifg=#708090   guibg=#f8f8f8   ctermfg=66     ctermbg=231       gui=none      cterm=none
+    hi SignColumn   guifg=#606060   guibg=#d0d0d0   ctermfg=66     ctermbg=231       gui=none      cterm=none
     hi LineNr       guifg=#a0a0a0   guibg=#e0e0e0   ctermfg=231    ctermbg=247       gui=none      cterm=none
     hi MoreMsg      guifg=#2060c0   guibg=NONE      ctermfg=4      ctermbg=NONE      gui=none      cterm=none
     hi ModeMsg      guifg=#000000   guibg=NONE      ctermfg=16     ctermbg=NONE      gui=none      cterm=none
     hi Question     guifg=fg        guibg=NONE      ctermfg=NONE   ctermbg=NONE      gui=none      cterm=none
     hi WarningMsg   guifg=#b03000   guibg=NONE      ctermfg=9      ctermbg=NONE      gui=none      cterm=none
-    hi WildMenu     guifg=#000000   guibg=#b0d0f0   ctermfg=16     ctermbg=153       gui=none      cterm=none
-    hi ColorColumn  guifg=NONE      guibg=#f0f0e0   ctermfg=NONE   ctermbg=230       gui=none      cterm=none
+    hi WildMenu     guifg=fg        guibg=#b0d0f0   ctermfg=16     ctermbg=153       gui=none      cterm=none
+    hi ColorColumn  guifg=NONE      guibg=#f0e8d7   ctermfg=NONE   ctermbg=230       gui=none      cterm=none
     hi Ignore       guifg=bg                        ctermfg=NONE
-"{{{
+
 
 endif
-"}}}
-" == Vimwiki Colors ==
+
+
+" ## Vimwiki Colors ##
 hi link VimwikiHeader1 BIdentifier
 hi link VimwikiHeader2 BPreProc
 hi link VimwikiHeader3 BStatement
@@ -247,12 +247,12 @@ hi link VimwikiHeader4 BSpecial
 hi link VimwikiHeader5 BConstant
 hi link VimwikiHeader6 BType
 
-" == Tagbar Colors ==
+" ## Tagbar Colors ##
 hi link TagbarAccessPublic Constant
 hi link TagbarAccessProtected Type
 hi link TagbarAccessPrivate PreProc
 
-" == Commands ==
+" ## Commands ##
 command! LuciusLight let g:lucius_style = "light" | colorscheme lucius
 command! LuciusDark let g:lucius_style = "dark" | colorscheme lucius
 

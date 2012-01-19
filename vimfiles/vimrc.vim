@@ -38,7 +38,7 @@ call pathogen#helptags()
     set shortmess=flmnrxIstToO
     set showmode
     set history=1000
-    set foldmethod=marker
+    set foldmethod=manual
     set nofoldenable
     set browsedir=buffer
     set shellslash
