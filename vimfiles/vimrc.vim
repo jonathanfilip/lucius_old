@@ -542,6 +542,7 @@ call pathogen#helptags()
             exec "set title titlestring=" . a:1
             exec "DBSetOption " . g:databases[a:1]
             setlocal filetype=sql
+            let b:sql_type_override = 'sqlanywhere'
         endfunction
         function! DatabaseComplete(A,L,P)
             return join(keys(g:databases), "\n")
