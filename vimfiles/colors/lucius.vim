@@ -71,8 +71,8 @@ if g:lucius_style == "dark"
 
     hi Comment      guifg=#707070   guibg=NONE      ctermfg=240    ctermbg=NONE      gui=none      cterm=none
 
-    hi Constant     guifg=#d0b080   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=none      cterm=none
-    hi BConstant    guifg=#d0b080   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=bold      cterm=bold
+    hi Constant     guifg=#c8c080   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=none      cterm=none
+    hi BConstant    guifg=#c8c080   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=bold      cterm=bold
 
     hi Identifier   guifg=#a0c080   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=none      cterm=none
     hi BIdentifier  guifg=#a0c080   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=bold      cterm=bold
@@ -111,7 +111,7 @@ if g:lucius_style == "dark"
     " == UI ==
     hi Pmenu        guifg=#000000   guibg=#b0b0b0   ctermfg=bg     ctermbg=252       gui=none      cterm=none
     hi PmenuSel     guifg=fg        guibg=#205070   ctermfg=fg     ctermbg=24        gui=none      cterm=none
-    hi PMenuSbar    guifg=bg        guibg=#b0b0b0   ctermfg=bg     ctermbg=254       gui=none      cterm=none
+    hi PMenuSbar    guifg=#b0b0b0   guibg=#d0d0d0   ctermfg=bg     ctermbg=254       gui=none      cterm=none
     hi PMenuThumb   guifg=NONE      guibg=#808080   ctermfg=fg     ctermbg=244       gui=none      cterm=none
     hi StatusLine   guifg=bg        guibg=#b0b0b0   ctermfg=bg     ctermbg=252       gui=bold      cterm=bold
     hi StatusLineNC guifg=#404040   guibg=#b0b0b0   ctermfg=240    ctermbg=252       gui=none      cterm=none

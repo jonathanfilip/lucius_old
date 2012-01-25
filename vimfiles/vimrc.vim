@@ -304,6 +304,14 @@ call pathogen#helptags()
 
 " ============================================================================
 " Plugin Options: {{{
+
+    " Tags: {{{
+        let g:ctags_bin = "ctags"
+        if InLocation("work_win")
+            let g:ctags_bin = "C:/bin/ctags58/ctags.exe"
+        endif
+    " }}}
+
     " VCS: {{{
         let VCSCommandDeleteOnHide = 1
         augroup VCSCommand
@@ -334,6 +342,7 @@ call pathogen#helptags()
     " Tagbar: {{{
         let g:tagbar_compact = 1
         let g:tagbar_iconchars = ['+', '-']
+        let g:tagbar_ctags_bin = g:ctags_bin
         map <F4> :TagbarToggle<CR>
     " }}}
 
@@ -342,10 +351,12 @@ call pathogen#helptags()
         let g:ctrlp_dotfiles = 0
         let g:ctrlp_max_height = 20
         let g:ctrlp_clear_cache_on_exit = 0
+        let g:ctrlp_buftag_ctags_bin = g:ctags_bin
 
         noremap <silent> <leader>ff :CtrlP<CR>
         noremap <silent> <leader>fb :CtrlPBuffer<CR>
         noremap <silent> <leader>fr :CtrlPMRU<CR>
+        noremap <silent> <leader>ft :CtrlPBufTag<CR>
     " }}}
 
     " Dbext: {{{
