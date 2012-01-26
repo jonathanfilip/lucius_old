@@ -91,8 +91,8 @@ if g:lucius_style == "dark"
 
     " ## Text Markup ##
     hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
-    hi Error        guifg=#e07070   guibg=#503030   ctermfg=167    ctermbg=236       gui=none      cterm=none
-    hi Todo         guifg=#e0e090   guibg=#505000   ctermfg=186    ctermbg=NONE      gui=none      cterm=none
+    hi Error        guifg=#e07070   guibg=#604040   ctermfg=167    ctermbg=236       gui=none      cterm=none
+    hi Todo         guifg=#e0e090   guibg=#606020   ctermfg=186    ctermbg=NONE      gui=none      cterm=none
     hi MatchParen   guifg=bg        guibg=#b0d070   ctermfg=bg     ctermbg=192       gui=none      cterm=bold
     hi NonText      guifg=#405060   guibg=NONE      ctermfg=24     ctermbg=NONE      gui=none      cterm=none
     hi SpecialKey   guifg=#406050   guibg=NONE      ctermfg=23     ctermbg=NONE      gui=none      cterm=none
