@@ -352,6 +352,7 @@ call pathogen#helptags()
         let g:ctrlp_max_height = 20
         let g:ctrlp_clear_cache_on_exit = 0
         let g:ctrlp_buftag_ctags_bin = g:ctags_bin
+        let g:ctrlp_extensions = ['buffertag']
 
         noremap <silent> <leader>ff :CtrlP<CR>
         noremap <silent> <leader>fb :CtrlPBuffer<CR>
