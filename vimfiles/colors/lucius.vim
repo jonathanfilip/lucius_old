@@ -67,7 +67,7 @@ endif
 if g:lucius_style == "dark"
 
 
-    hi Normal       guifg=#d0d0d0   guibg=#343434   ctermfg=253    ctermbg=NONE      gui=none      cterm=none
+    hi Normal       guifg=#d0d0d0   guibg=#303030   ctermfg=253    ctermbg=NONE      gui=none      cterm=none
 
     hi Comment      guifg=#808080   guibg=NONE      ctermfg=244    ctermbg=NONE      gui=none      cterm=none
 
@@ -170,8 +170,8 @@ elseif g:lucius_style == "light"
     hi Type         guifg=#0070a0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=none      cterm=none
     hi BType        guifg=#0070a0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Special      guifg=#804080   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=none      cterm=none
-    hi BSpecial     guifg=#804080   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=bold      cterm=bold
+    hi Special      guifg=#804080   guibg=NONE      ctermfg=53     ctermbg=NONE      gui=none      cterm=none
+    hi BSpecial     guifg=#804080   guibg=NONE      ctermfg=53     ctermbg=NONE      gui=bold      cterm=bold
 
     " ## Text Markup ##
     hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
