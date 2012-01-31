@@ -1,4 +1,4 @@
-" Vim configuration file
+﻿" Vim configuration file
 " Author: Jonathan Filip
 
 
@@ -35,6 +35,7 @@ call pathogen#helptags()
 
 " ============================================================================
 " General Options: {{{
+    set bomb
     set shortmess=flmnrxIstToO
     set showmode
     set history=1000
