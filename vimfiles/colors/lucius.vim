@@ -71,8 +71,8 @@ if g:lucius_style == "dark"
 
     hi Comment      guifg=#808080   guibg=NONE      ctermfg=244    ctermbg=NONE      gui=none      cterm=none
 
-    hi Constant     guifg=#c8c080   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=none      cterm=none
-    hi BConstant    guifg=#c8c080   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=bold      cterm=bold
+    hi Constant     guifg=#b8c080   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=none      cterm=none
+    hi BConstant    guifg=#b8c080   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=bold      cterm=bold
 
     hi Identifier   guifg=#a0c080   guibg=NONE      ctermfg=144    ctermbg=NONE      gui=none      cterm=none
     hi BIdentifier  guifg=#a0c080   guibg=NONE      ctermfg=144    ctermbg=NONE      gui=bold      cterm=bold
