@@ -58,9 +58,9 @@
             if running_windows
                 let ctags_bin = "ctags.exe"
             endif
-            "if exists("g:ctags_path")
-            "    let ctags_bin = g:ctags_path
-            "endif
+            if exists("g:ctags_bin")
+                let ctags_bin = g:ctags_bin
+            endif
 
             let tag_options = ""
             if ftype == "python"
