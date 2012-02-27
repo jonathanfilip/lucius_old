@@ -78,7 +78,7 @@ endif
 if g:lucius_style == "dark"
 
 
-    hi Normal       guifg=#dadada   guibg=#303030   ctermfg=253    ctermbg=236       gui=none      cterm=none
+    hi Normal       guifg=#d7d7d7   guibg=#303030   ctermfg=188    ctermbg=236       gui=none      cterm=none
 
     hi Comment      guifg=#808080   guibg=NONE      ctermfg=244    ctermbg=NONE      gui=none      cterm=none
 
@@ -102,7 +102,7 @@ if g:lucius_style == "dark"
 
     " ## Text Markup ##
     hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
-    hi Error        guifg=#d75f5f   guibg=#5f0000   ctermfg=167    ctermbg=52        gui=none      cterm=none
+    hi Error        guifg=#ff8787   guibg=#870000   ctermfg=210    ctermbg=88        gui=none      cterm=none
     hi Todo         guifg=#d7d75f   guibg=#5f5f00   ctermfg=185    ctermbg=58        gui=none      cterm=none
     hi MatchParen   guifg=bg        guibg=#afd75f   ctermfg=bg     ctermbg=149       gui=none      cterm=bold
     hi NonText      guifg=#5f5f87   guibg=NONE      ctermfg=60     ctermbg=NONE      gui=none      cterm=none
@@ -162,7 +162,7 @@ if g:lucius_style == "dark"
 elseif g:lucius_style == "light"
 
 
-    hi Normal       guifg=#3a3a3a   guibg=#eeeeee   ctermfg=237    ctermbg=255       gui=none      cterm=none
+    hi Normal       guifg=#444444   guibg=#eeeeee   ctermfg=238    ctermbg=255       gui=none      cterm=none
 
     hi Comment      guifg=#808080   guibg=NONE      ctermfg=244    ctermbg=NONE      gui=none      cterm=none
 
