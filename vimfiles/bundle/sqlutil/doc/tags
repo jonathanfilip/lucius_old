@@ -2,6 +2,7 @@ SQLUtilities.txt	SQLUtilities.txt	/*SQLUtilities.txt*
 sqlutil	SQLUtilities.txt	/*sqlutil*
 sqlutil-align-comma	SQLUtilities.txt	/*sqlutil-align-comma*
 sqlutil-align-first-word	SQLUtilities.txt	/*sqlutil-align-first-word*
+sqlutil-align-keyword-right	SQLUtilities.txt	/*sqlutil-align-keyword-right*
 sqlutil-align-where	SQLUtilities.txt	/*sqlutil-align-where*
 sqlutil-change_keyword-case	SQLUtilities.txt	/*sqlutil-change_keyword-case*
 sqlutil-column-datatype	SQLUtilities.txt	/*sqlutil-column-datatype*
@@ -17,5 +18,7 @@ sqlutil-format-options	SQLUtilities.txt	/*sqlutil-format-options*
 sqlutil-formatter	SQLUtilities.txt	/*sqlutil-formatter*
 sqlutil-history	SQLUtilities.txt	/*sqlutil-history*
 sqlutil-mappings	SQLUtilities.txt	/*sqlutil-mappings*
+sqlutil-options	SQLUtilities.txt	/*sqlutil-options*
 sqlutil-procedure	SQLUtilities.txt	/*sqlutil-procedure*
 sqlutil-todo	SQLUtilities.txt	/*sqlutil-todo*
+sqlutil-tutorial	SQLUtilities.txt	/*sqlutil-tutorial*

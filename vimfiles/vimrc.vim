@@ -365,7 +365,7 @@ call pathogen#helptags()
     " Dbext: {{{
         let g:dbext_default_prompt_for_parameters = 0
         let g:dbext_default_display_cmd_line = 1
-        let g:dbext_default_SQLITE_bin = 'sqlite3'
+        let g:dbext_default_SQLITE_bin = "sqlite3"
         let g:dbext_default_history_file = "$TMP/dbext_sql_history.txt"
     " }}}
 
@@ -373,6 +373,7 @@ call pathogen#helptags()
         let SuperTabDefaultCompletionType = "context"
         let SuperTabContextDefaultCompletionType = "<c-n>"
         let SuperTabContextTextOmniPrecedence = ['&completefunc']
+        au BufEnter *.md,*.txt,*.wiki :let b:SuperTabNoCompleteAfter = ['\.', '\*', '-', ')']
     " }}}
 
     " Pyflakes: {{{
