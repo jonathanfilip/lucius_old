@@ -116,9 +116,9 @@
                     fill="-${fill}"
                     let fillsize=${fillsize}-1
                 done
-                PS1="${EMK}- [${NONE}${Y}${SHELL_TAG}${NONE}${EMK}]${NONE} "
-                PS1="${PS1}${EMK}[${NONE}${C}\u@\h${NONE}${EMK}]${NONE} "
-                PS1="${PS1}${G}${PWD}${NONE} ${EMK}${fill}${NONE}\n> "
+                PS1="${NONE}- [${NONE}${Y}${SHELL_TAG}${NONE}${NONE}]${NONE} "
+                PS1="${PS1}${NONE}[${NONE}${C}\u@\h${NONE}${NONE}]${NONE} "
+                PS1="${PS1}${G}${PWD}${NONE} ${NONE}${fill}${NONE}\n> "
             else
                 local header="- [${USER}@${HOSTNAME}] ${PWD} "
                 let header_length=${#header}
@@ -129,7 +129,7 @@
                     fill="-${fill}"
                     let fillsize=${fillsize}-1
                 done
-                PS1="${EMK}- [${NONE}${C}${USER}@${HOSTNAME}${NONE}${EMK}]${NONE} ${G}${PWD}${NONE} ${EMK}${fill}${NONE}\n> "
+                PS1="${NONE}- [${NONE}${C}${USER}@${HOSTNAME}${NONE}${NONE}]${NONE} ${G}${PWD}${NONE} ${NONE}${fill}${NONE}\n> "
             fi
 
             if [ "${TITLE}" ]; then

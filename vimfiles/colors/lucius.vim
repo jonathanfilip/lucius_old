@@ -21,11 +21,11 @@ let colors_name="lucius"
 " * moria (vimscript #1464)
 " * zenburn (vimscript #415)
 " 
-" Version 7 has unified the 256 color terminal and GUI versions (in that the GUI
-" version only uses colors availabe on the 256 color terminal. The overall colors
-" were also toned down a bit (light version is now a light gray instead of white
-" and the dark version is slightly lighter) to make it easier on the eyes for
-" long periods of time.
+" Version 7 has unified the 256 color terminal and GUI versions (the GUI
+" version only uses colors available on the 256 color terminal). The overall
+" colors were also toned down a little bit (light version is now a light gray
+" instead of white and the dark version is slightly lighter) to make it easier
+" on the eyes.
 " 
 " Version 6+ has been revamped a bit from the original color scheme. If you
 " prefer the old style, or the 'blue' version, use the 5Final release. Version
