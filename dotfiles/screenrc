@@ -54,8 +54,14 @@ caption splitonly
 
 # Always make the status the last line
 hardstatus alwayslastline
-hardstatus string "%{= kd}%-Lw%20>%{= kG}[%{=b kd}%n %t%{= kG}]%{= kw}%+Lw %-=%{= kG} | %{= kd}${USER}@%H %{= kG}| %{= kd}[%l]"
-caption string "%{= Kd}%{= KG}(%{=b Kd}%n %t%{= KG})%{= Kd}"
+#hardstatus string "%{= kd}%-Lw%20>%{= kG}[%{=b kd}%n %t%{= kG}]%{= kw}%+Lw %-=%{= kG} | %{= kd}${USER}@%H %{= kG}| %{= kd}[%l]"
+#hardstatus string "%{= dd}%-Lw%20>%{= dG}[%{=b dd}%n %t%{= dG}]%{= dw}%+Lw %-=%{= dG} | %{= dd}${USER}@%H %{= dG}| %{= dd}[%l]"
+#hardstatus string "%{= dd}%-Lw%20>%{= dG}%n %t%{= dd}%+Lw %-=%{= dG} | %{= dd}${USER}@%H %{= dG}| %{= dd}[%l]"
+#hardstatus string "%{= dd}%-Lw%20>%{= dg}%t%{= dd}%+Lw%-=%{= dg} | %{= dd}${USER}@%H %{= dg}| %{= dd}[%l]"
+#hardstatus string "%{= dd}%-Lw%20>%{= dg} %n %t %{= dd}%+Lw%-=%{= dg} | %{= dd}${USER}@%H %{= dg}| %{= dd}[%l]"
+#hardstatus alwayslastline "%{= dd}%-w%{= dd} %n %t %{-}%+w %-="
+hardstatus alwayslastline "%{= dd}%-w%{= dc} %n %t %{-}%{= dd}%+w %-=%{= dg} | %{= dd}${USER}@%H %{= dg}| %{= dd}[%l]"
+caption string "%{= dd}%{= dg}(%{=b dd}%n %t%{= dg})%{= dd}"
 
 # Enable control characters
 defc1 on
@@ -64,7 +70,10 @@ bind a other
 
 #termcapinfo xterm* ti@:te@
 
-screen -t bash
+shelltitle "bash"
+
+#screen -t bash
+screen
  
 #select 0
 
