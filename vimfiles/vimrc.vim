@@ -373,7 +373,7 @@ call pathogen#helptags()
         let SuperTabDefaultCompletionType = "context"
         let SuperTabContextDefaultCompletionType = "<c-n>"
         let SuperTabContextTextOmniPrecedence = ['&completefunc']
-        au BufEnter *.md,*.txt,*.wiki :let b:SuperTabNoCompleteAfter = ['\.', '\*', '-', ')']
+        au BufEnter *.md,*.txt,*.wiki :let b:SuperTabNoCompleteAfter = g:SuperTabNoCompleteAfter + ['\.', '\*', '-', ')']
     " }}}
 
     " Pyflakes: {{{
