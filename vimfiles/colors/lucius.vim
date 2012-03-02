@@ -134,10 +134,10 @@ if g:lucius_style == "dark"
     hi FoldColumn   guifg=#bcbcbc   guibg=#4e4e4e   ctermfg=250    ctermbg=239       gui=bold      cterm=none
 
     " ## Spelling ##
-    hi SpellBad     guisp=#d70000                   ctermfg=bg     ctermbg=160       gui=undercurl cterm=undercurl
-    hi SpellCap     guisp=#00afd7                   ctermfg=bg     ctermbg=38        gui=undercurl cterm=undercurl
-    hi SpellRare    guisp=#5faf00                   ctermfg=bg     ctermbg=70        gui=undercurl cterm=undercurl
-    hi SpellLocal   guisp=#d7af00                   ctermfg=bg     ctermbg=178       gui=undercurl cterm=undercurl
+    hi SpellBad     guisp=#d70000                   ctermfg=160    ctermbg=NONE      gui=undercurl cterm=underline
+    hi SpellCap     guisp=#00afd7                   ctermfg=38     ctermbg=NONE      gui=undercurl cterm=underline
+    hi SpellRare    guisp=#5faf00                   ctermfg=70     ctermbg=NONE      gui=undercurl cterm=underline
+    hi SpellLocal   guisp=#d7af00                   ctermfg=178    ctermbg=NONE      gui=undercurl cterm=underline
 
     " ## Diff ##
     hi DiffAdd      guifg=fg        guibg=#5f875f   ctermfg=fg     ctermbg=65        gui=none      cterm=none
@@ -218,10 +218,10 @@ elseif g:lucius_style == "light"
     hi FoldColumn   guifg=#626262   guibg=#bcbcbc   ctermfg=241    ctermbg=250       gui=bold      cterm=none
 
     " ## Spelling ##
-    hi SpellBad     guisp=#d70000                   ctermfg=fg     ctermbg=160       gui=undercurl cterm=undercurl
-    hi SpellCap     guisp=#00afd7                   ctermfg=fg     ctermbg=38        gui=undercurl cterm=undercurl
-    hi SpellRare    guisp=#5faf00                   ctermfg=fg     ctermbg=70        gui=undercurl cterm=undercurl
-    hi SpellLocal   guisp=#d7af00                   ctermfg=fg     ctermbg=178       gui=undercurl cterm=undercurl
+    hi SpellBad     guisp=#d70000                   ctermfg=160    ctermbg=NONE      gui=undercurl cterm=underline
+    hi SpellCap     guisp=#00afd7                   ctermfg=38     ctermbg=NONE      gui=undercurl cterm=underline
+    hi SpellRare    guisp=#5faf00                   ctermfg=70     ctermbg=NONE      gui=undercurl cterm=underline
+    hi SpellLocal   guisp=#d7af00                   ctermfg=178    ctermbg=NONE      gui=undercurl cterm=underline
 
     " ## Diff ##
     hi DiffAdd      guifg=fg        guibg=#afd7af   ctermfg=fg     ctermbg=151       gui=none      cterm=none
