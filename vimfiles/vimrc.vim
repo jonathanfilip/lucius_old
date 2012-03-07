@@ -53,8 +53,15 @@ call pathogen#helptags()
     if !has("win32") && !has("win64")
         set term=$TERM
     endif
-    set background=light
-    if has("gui_running") || &t_Co == 256
+    if $LUCIUS_STYLE == "light"
+        set background=light
+        let g:lucius_style = "light"
+    elseif $LUCIUS_STYLE == "dark"
+        set background=dark
+        let g:lucius_style = "dark"
+    else 
+    "if has("gui_running") || &t_Co == 256
+        set background=light
         let g:lucius_style = "light"
         colorscheme lucius
     endif
