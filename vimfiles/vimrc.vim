@@ -56,11 +56,12 @@ call pathogen#helptags()
     if $LUCIUS_STYLE == "light"
         set background=light
         let g:lucius_style = "light"
+        colorscheme lucius
     elseif $LUCIUS_STYLE == "dark"
         set background=dark
         let g:lucius_style = "dark"
-    else 
-    "if has("gui_running") || &t_Co == 256
+        colorscheme lucius
+    elseif has("gui_running") || &t_Co == 256
         set background=light
         let g:lucius_style = "light"
         colorscheme lucius
