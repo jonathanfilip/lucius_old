@@ -33,6 +33,7 @@
     export PROMPT_COMMAND=bash_prompt # Set up the command line
     export GREP_OPTIONS="--exclude=\*.svn\*"
     export HISTCONTROL=ignoreboth
+    export LUCIUS_STYLE=dark
     if [[ "$platform" == "linux" ]]; then
         export TERM="xterm-256color"
     fi
@@ -65,6 +66,8 @@
     alias psme='ps -Af | grep ${USER}'
     alias dfme='df -h | egrep "${USER}|Filesystem"'
     alias xterm='xterm -ls'
+
+    alias ipy='ipython -colors Linux'
 # }}}
 # ============================================================================
 
@@ -85,15 +88,15 @@
             local C="\[\033[0;36m\]"    # cyan
             local W="\[\033[0;37m\]"    # white
 
-            # empahsized (bolded) colors
-            local EMK="\[\033[1;30m\]"    # black
-            local EMR="\[\033[1;31m\]"    # red
-            local EMG="\[\033[1;32m\]"    # green
-            local EMY="\[\033[1;33m\]"    # yellow
-            local EMB="\[\033[1;34m\]"    # blue
-            local EMM="\[\033[1;35m\]"    # magenta
-            local EMC="\[\033[1;36m\]"    # cyan
-            local EMW="\[\033[1;37m\]"    # white
+            # bolded colors
+            #local EMK="\[\033[1;30m\]"    # black
+            #local EMR="\[\033[1;31m\]"    # red
+            #local EMG="\[\033[1;32m\]"    # green
+            #local EMY="\[\033[1;33m\]"    # yellow
+            #local EMB="\[\033[1;34m\]"    # blue
+            #local EMM="\[\033[1;35m\]"    # magenta
+            #local EMC="\[\033[1;36m\]"    # cyan
+            #local EMW="\[\033[1;37m\]"    # white
 
             # background colors
             local BGK="\[\033[40m\]"    # black
@@ -107,29 +110,11 @@
 
 
             if [ "${SHELL_TAG}" ]; then
-                local header="- [${SHELL_TAG}] [${USER}@${HOSTNAME}] ${PWD} "
-                let header_length=${#header}
-                let fillsize=${COLUMNS}-${header_length}
-                local fill=""
-                while [ "$fillsize" -gt "0" ]
-                do
-                    fill="-${fill}"
-                    let fillsize=${fillsize}-1
-                done
-                PS1="${NONE}- [${NONE}${Y}${SHELL_TAG}${NONE}${NONE}]${NONE} "
+                PS1="\n${NONE}[${NONE}${Y}${SHELL_TAG}${NONE}${NONE}]${NONE} "
                 PS1="${PS1}${NONE}[${NONE}${C}\u@\h${NONE}${NONE}]${NONE} "
-                PS1="${PS1}${G}${PWD}${NONE} ${NONE}${fill}${NONE}\n> "
+                PS1="${PS1}${G}${PWD}${NONE}\n> "
             else
-                local header="- [${USER}@${HOSTNAME}] ${PWD} "
-                let header_length=${#header}
-                let fillsize=${COLUMNS}-${header_length}
-                local fill=""
-                while [ "$fillsize" -gt "0" ]
-                do
-                    fill="-${fill}"
-                    let fillsize=${fillsize}-1
-                done
-                PS1="${NONE}- [${NONE}${C}${USER}@${HOSTNAME}${NONE}${NONE}]${NONE} ${G}${PWD}${NONE} ${NONE}${fill}${NONE}\n> "
+                PS1="\n${NONE}[${NONE}${C}${USER}@${HOSTNAME}${NONE}${NONE}]${NONE} ${G}${PWD}${NONE}\n> "
             fi
 
             if [ "${TITLE}" ]; then
@@ -172,6 +157,17 @@
     # }}}
 
 
+    # Vim colorshemes {{{
+        function lucius_dark {
+            export LUCIUS_STYLE=dark
+        }
+
+        function lucius_light {
+            export LUCIUS_STYLE=light
+        }
+    # }}}
+
+
     # Print Terminal Colors {{{
         function print_colors()
         {
@@ -196,6 +192,14 @@
     # SVN Commands {{{
         function svn_modified {
             svn status $@ | egrep -v "^\?"
+        }
+    # }}}
+
+    # TMUX {{{
+        function tmux_compress {
+            tmux lsw |
+            awk -F: '/^[0-9]+/ { if ($1 != ++i) print "tmux move-window -s " $1 " -t " i }' |
+            sh
         }
     # }}}
 

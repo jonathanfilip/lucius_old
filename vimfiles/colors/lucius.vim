@@ -143,7 +143,7 @@ if g:lucius_style == "dark"
     hi DiffAdd      guifg=fg        guibg=#5f875f   ctermfg=fg     ctermbg=65        gui=none      cterm=none
     hi DiffChange   guifg=fg        guibg=#87875f   ctermfg=fg     ctermbg=101       gui=none      cterm=none
     hi DiffDelete   guifg=fg        guibg=#875f5f   ctermfg=fg     ctermbg=95        gui=none      cterm=none
-    hi DiffText     guifg=#ffff87   guibg=#87875f   ctermfg=228    ctermbg=101       gui=none      cterm=none
+    hi DiffText     guifg=#ffff5f   guibg=#87875f   ctermfg=227    ctermbg=101       gui=none      cterm=none
 
     " ## Misc ##
     hi Directory    guifg=#afd7af   guibg=NONE      ctermfg=151    ctermbg=NONE      gui=none      cterm=none
