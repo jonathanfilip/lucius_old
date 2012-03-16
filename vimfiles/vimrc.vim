@@ -49,7 +49,7 @@ call pathogen#helptags()
     set wildignore+=*.obj,*.h5,*.ttf,*.pdf,*.xls,*.pcl,*.gz,*.png
     set wildignore+=*.gif,*.jpg,*.ico,*.bak,*~
     set wildignore+=*.sln,*.csproj,*.resx,*.suo
-    set wildignore+=tests,tmp,tags
+    set wildignore+=tmp,tags
     if !has("win32") && !has("win64")
         set term=$TERM
     endif
@@ -365,6 +365,10 @@ call pathogen#helptags()
         let g:ctrlp_lazy_update = 0
         let g:ctrlp_buftag_ctags_bin = g:ctags_bin
         let g:ctrlp_extensions = ['buffertag']
+        let g:ctrlp_custom_ignore = {
+                    \ 'dir': 'tests$',
+                    \ 'file': '',
+                    \ }
 
         noremap <silent> <leader>ff :CtrlP<CR>
         noremap <silent> <leader>fb :CtrlPBuffer<CR>
