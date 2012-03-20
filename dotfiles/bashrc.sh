@@ -68,6 +68,7 @@
     alias xterm='xterm -ls'
 
     alias ipy='ipython -colors Linux'
+    alias grep='grep --color=auto'
 # }}}
 # ============================================================================
 
@@ -200,6 +201,10 @@
             tmux lsw |
             awk -F: '/^[0-9]+/ { if ($1 != ++i) print "tmux move-window -s " $1 " -t " i }' |
             sh
+        }
+
+        function tmux_rename {
+            tmux rename-window ${SHELL_TAG}
         }
     # }}}
 
