@@ -33,7 +33,7 @@
     export PROMPT_COMMAND=bash_prompt # Set up the command line
     export GREP_OPTIONS="--exclude=\*.svn\*"
     export HISTCONTROL=ignoreboth
-    export LUCIUS_STYLE=dark
+    export LUCIUS_STYLE=light
     if [[ "$platform" == "linux" ]]; then
         export TERM="xterm-256color"
     fi
