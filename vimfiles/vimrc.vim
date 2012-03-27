@@ -232,7 +232,7 @@ call pathogen#helptags()
     " Color scheme
     nnoremap <F2> :LuciusLight<CR>
     nnoremap <S-F2> :LuciusDark<CR>
-    nnoremap <C-F2> :LuciusDim<CR>
+    nnoremap <C-F2> :LuciusDarkDim<CR>
 
     " Windows copy, cut, and paste
     if has("win32") || has("win64")
