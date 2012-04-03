@@ -62,10 +62,10 @@ call pathogen#helptags()
         let g:lucius_style = "dark"
         colorscheme lucius
     elseif has("gui_running") || &t_Co == 256
-        set background=dark
-        let g:lucius_style = "dark"
-        "set background=light
-        "let g:lucius_style = "light"
+        "set background=dark
+        "let g:lucius_style = "dark"
+        set background=light
+        let g:lucius_style = "light"
         colorscheme lucius
     endif
 " }}}
@@ -184,7 +184,7 @@ call pathogen#helptags()
 
     " Diff commands
     noremap <silent> <leader>dt :diffthis<CR>
-    noremap <silent> <leader>do :diffoff<CR>
+    noremap <silent> <leader>do :diffoff!<CR>
 
     " Window control
     nmap <C-j> <C-w>j
