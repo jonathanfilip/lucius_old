@@ -271,8 +271,8 @@ elseif g:lucius_style == "light"
 
     " ## Text Markup ##
     hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
-    hi Error        guifg=#af0000   guibg=#ffafaf   ctermfg=124    ctermbg=217       gui=none      cterm=none
-    hi Todo         guifg=#875f00   guibg=#ffff87   ctermfg=94     ctermbg=228       gui=none      cterm=none
+    hi Error        guifg=#af0000   guibg=#d7afaf   ctermfg=124    ctermbg=181       gui=none      cterm=none
+    hi Todo         guifg=#875f00   guibg=#ffffaf   ctermfg=94     ctermbg=228       gui=none      cterm=none
     hi MatchParen   guifg=NONE      guibg=#5fd7d7   ctermfg=NONE   ctermbg=80        gui=none      cterm=none
     hi NonText      guifg=#afafd7   guibg=NONE      ctermfg=146    ctermbg=NONE      gui=none      cterm=none
     hi SpecialKey   guifg=#afd7af   guibg=NONE      ctermfg=151    ctermbg=NONE      gui=none      cterm=none
