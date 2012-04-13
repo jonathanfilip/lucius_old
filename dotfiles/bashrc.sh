@@ -21,6 +21,7 @@
     shopt -s dotglob # Allow dot files to be returned in path expansion
     shopt -s checkwinsize # Check size after each command
     #set -o vi # Make the prompt like vi
+    stty ixoff -ixon # Don't let CTRL S/Q work
 # }}}
 # ============================================================================
 
