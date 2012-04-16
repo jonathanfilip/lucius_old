@@ -1,62 +1,56 @@
 " Lucius vim color file
 " Maintainer: Jonathan Filip <jfilip1024@gmail.com>
 " Version: 7.1.1
-
-hi clear
-if exists("syntax_on")
-    syntax reset
-endif
-let colors_name="lucius"
-
+"
 " Summary:
 " Color scheme with dark and light versions (GUI and 256 color terminal).
-" 
+"
 " Description:
 " This color scheme was originally created by combining my favorite parts of
 " the following color schemes:
-" 
+"
 " * oceandeep (vimscript #368)
 " * peaksea (vimscript #760)
 " * wombat (vimscript #1778)
 " * moria (vimscript #1464)
 " * zenburn (vimscript #415)
-" 
+"
 " Version 7 has unified the 256 color terminal and GUI versions (the GUI
 " version only uses colors available on the 256 color terminal). The overall
 " colors were also toned down a little bit (light version is now a light gray
 " instead of white and the dark version is slightly lighter) to make it easier
 " on the eyes.
-" 
+"
 " Version 6+ has been revamped a bit from the original color scheme. If you
 " prefer the old style, or the 'blue' version, use the 5Final release. Version
 " 6+ only has a light and dark version. The new version tries to unify some of
 " the colors and also adds more contrast between text and interface.
-" 
+"
 " The color scheme is dark, by default. You can change this by setting the
 " g:lucius_style variable to "light", "dark", or "dark_dim". Once the color
 " scheme is loaded, you can use the commands "LuciusLight", "LuciusDark", or
 " "LuciusDarkDim" to change schemes quickly.
-" 
+"
 " Screenshots of version 7:
-" 
+"
 " * Dark: http://i.imgur.com/tgUsz.png
 " * DarkDim: http://i.imgur.com/0bOCv.png
 " * Light: http://i.imgur.com/ndd9A.png
-" 
+"
 " Screenshots of version 6:
-" 
+"
 " * Dark: http://i.imgur.com/IzYcB.png
 " * Light: http://i.imgur.com/kfJcm.png
-" 
+"
 " Screenshots of the version 5Final:
-" 
+"
 " * Dark: http://i.imgur.com/z0bDr.png
 " * Light: http://i.imgur.com/BXDiv.png
 " * Blue: http://i.imgur.com/Ea1Gq.png
-" 
+"
 " colorsupport.vim (vimscript #2682) is used to help with mapping the GUI
 " settings to the 256 terminal colors.
-" 
+"
 " This color scheme also has custom colors defined for the following plugins:
 "
 " * vimwiki (vimscript #2226)
@@ -64,6 +58,13 @@ let colors_name="lucius"
 "
 " Installation:
 " Copy the file to your vim colors directory and then do :colorscheme lucius.
+
+
+hi clear
+if exists("syntax_on")
+    syntax reset
+endif
+let colors_name="lucius"
 
 set background=dark
 if exists("g:lucius_style")
@@ -78,7 +79,7 @@ endif
 
 if g:lucius_style == "dark"
 
-
+" # LuciusDark {{{
     hi Normal       guifg=#d7d7d7   guibg=#303030   ctermfg=188    ctermbg=236       gui=none      cterm=none
 
     hi Comment      guifg=#808080   guibg=NONE      ctermfg=244    ctermbg=NONE      gui=none      cterm=none
@@ -159,11 +160,11 @@ if g:lucius_style == "dark"
     hi WildMenu     guifg=fg        guibg=#005f87   ctermfg=fg     ctermbg=24        gui=none      cterm=none
     hi ColorColumn  guifg=NONE      guibg=#87875f   ctermfg=NONE   ctermbg=101       gui=none      cterm=none
     hi Ignore       guifg=bg                        ctermfg=bg
-
+" }}}
 
 elseif g:lucius_style == "dark_dim"
 
-
+" # LuciusDarkDim {{{
     hi Normal       guifg=#bcbcbc   guibg=#303030   ctermfg=250    ctermbg=236       gui=none      cterm=none
 
     hi Comment      guifg=#6c6c6c   guibg=NONE      ctermfg=242    ctermbg=NONE      gui=none      cterm=none
@@ -244,11 +245,11 @@ elseif g:lucius_style == "dark_dim"
     hi WildMenu     guifg=fg        guibg=#005f87   ctermfg=fg     ctermbg=24        gui=none      cterm=none
     hi ColorColumn  guifg=NONE      guibg=#87875f   ctermfg=NONE   ctermbg=101       gui=none      cterm=none
     hi Ignore       guifg=bg                        ctermfg=bg
-
+" }}}
 
 elseif g:lucius_style == "light"
 
-
+" # LuciusLight {{{
     hi Normal       guifg=#444444   guibg=#eeeeee   ctermfg=238    ctermbg=255       gui=none      cterm=none
 
     hi Comment      guifg=#808080   guibg=NONE      ctermfg=244    ctermbg=NONE      gui=none      cterm=none
@@ -329,7 +330,7 @@ elseif g:lucius_style == "light"
     hi WildMenu     guifg=fg        guibg=#afd7ff   ctermfg=fg     ctermbg=153       gui=none      cterm=none
     hi ColorColumn  guifg=NONE      guibg=#d7d7af   ctermfg=NONE   ctermbg=187       gui=none      cterm=none
     hi Ignore       guifg=bg                        ctermfg=bg
-
+" }}}
 
 endif
 

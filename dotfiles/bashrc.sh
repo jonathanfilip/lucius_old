@@ -37,6 +37,9 @@
     export LUCIUS_STYLE=light
     if [[ "$platform" == "linux" ]]; then
         export TERM="xterm-256color"
+        export LOAD_CMD="cut -d ' ' -f 1-3 /proc/loadavg"
+    elif [[ "$platform" == "osx" ]]; then
+        export LOAD_CMD="uptime | cut -d ' ' -f 13-"
     fi
 # }}}
 # ============================================================================
