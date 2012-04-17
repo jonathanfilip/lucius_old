@@ -122,13 +122,19 @@
                 PS1="\n${NONE}[${NONE}${C}${USER}@${HOSTNAME}${NONE}${NONE}]${NONE} ${G}${PWD}${NONE}\n> "
             fi
 
-            if [ "${TITLE}" ]; then
-                echo -ne "\033]0;${TITLE} - ${HOSTNAME}\007"
-            else
-                echo -ne "\033]0;${HOSTNAME}\007"
-            fi
+            #    echo -ne "\033]0;${HOSTNAME}\007"
+            #if [ "${TITLE}" ]; then
+            #    echo -ne "\033]0;${TITLE} - ${HOSTNAME}\007"
+            #else
+            #    echo -ne "\033]0;${HOSTNAME}\007"
+            #fi
         }
     # }}}
+
+    function set_title {
+        echo -ne "\033]0;$@\007"
+        #export TITLE="$@"
+    }
 
     # Display ls Colors {{{
         function lscolors {
@@ -208,7 +214,20 @@
         }
 
         function tmux_rename {
-            tmux rename-window ${SHELL_TAG}
+            local JON=4
+            #tmux rename-window "${SHELL_TAG}"
+        }
+
+        function tmux_title {
+            tmux rename-session "$1"
+        }
+
+        function tmux_list {
+            tmux list-sessions
+        }
+
+        function tmuxn {
+            tmux new -s "$1"
         }
     # }}}
 

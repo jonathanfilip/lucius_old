@@ -168,7 +168,7 @@ call pathogen#helptags()
     vnoremap <BS> d
     if InLocation("home_osx")
         inoremap <A-BS> <C-w>
-    else
+    elseif InLocation("home_win") || InLocation("work_win")
         inoremap <C-BS> <C-w>
     endif
 
@@ -193,20 +193,17 @@ call pathogen#helptags()
     nmap <C-l> <C-w>l
 
     " Resize windows
-    nnoremap <S-Up> 10<C-W>+
-    nnoremap <S-Down> 10<C-W>-
-    nnoremap <S-Left> 10<C-W><
-    nnoremap <S-Right> 10<C-W>>
-    nnoremap <C-S-Up> 1<C-W>+
-    nnoremap <C-S-Down> 1<C-W>-
-    nnoremap <C-S-Left> 1<C-W><
-    nnoremap <C-S-Right> 1<C-W>>
-
-    " Scroll windows
-    nnoremap <C-Up> 10<C-y>
-    nnoremap <C-Down> 10<C-e>
-    nnoremap <C-Left> 20zh
-    nnoremap <C-Right> 20zl
+    if has("gui_running")
+        nnoremap <S-Up> 10<C-W>+
+        nnoremap <S-Down> 10<C-W>-
+        nnoremap <S-Left> 10<C-W><
+        nnoremap <S-Right> 10<C-W>>
+    else
+        nnoremap <Up> 10<C-W>+
+        nnoremap <Down> 10<C-W>-
+        nnoremap <Left> 10<C-W><
+        nnoremap <Right> 10<C-W>>
+    endif
 
     " Splitting
     noremap <leader>sp :split<CR>
