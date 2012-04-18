@@ -24,6 +24,7 @@
 
             let tagsfile = a:dir . slash . "tags"
             let tagfilesfile = a:dir . slash . "tagfiles"
+            let tagdirsfile = a:dir . slash . "tagdirs"
             let tagsdir = a:dir
             if a:force != 1
                 let curdir = a:dir
@@ -48,11 +49,13 @@
 
                 let tagsfile = curdir . slash . "tags"
                 let tagfilesfile = curdir . slash . "tagfiles"
+                let tagdirsfile = curdir . slash . "tagdirs"
                 let tagsdir = curdir
             endif
 
             let tagsfile = substitute(tagsfile, "\\", "/", "g")
             let tagfilesfile = substitute(tagfilesfile, "\\", "/", "g")
+            let tagdirsfile = substitute(tagdirsfile, "\\", "/", "g")
 
             let ctags_bin = "ctags"
             if running_windows
@@ -72,6 +75,19 @@
             elseif ftype == "cs"
                 let tag_options = " -h .cs -R --fields=+fkiasSt " .
                             \"--extra=+q --languages=c# "
+            endif
+
+            if filereadable(tagdirsfile) == 1
+                let tfiles = []
+                let dirs = readfile(tagdirsfile)
+                for d in dirs
+                    let search = d . "*.*"
+                    let globfiles = split(glob(search))
+                    for globfile in globfiles
+                        call add(tfiles, globfile)
+                    endfor
+                endfor
+                call writefile(tfiles, tagfilesfile)
             endif
 
             let target = " . "

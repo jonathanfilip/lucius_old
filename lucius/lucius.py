@@ -86,47 +86,47 @@ class Lucius(object):
             self.ansi_colors[theme] = d
             if theme in LIGHT_THEMES:
                 d["ansi0"] = self.get_fg(theme, "Normal")
-                d["ansi1"] = self.get_fg(theme, "Normal")
                 d["black"] = self.get_fg(theme, "Normal")
+                d["ansi1"] = self.get_fg(theme, "Normal")
                 d["black_bold"] = self.get_fg(theme, "Normal")
             else:
                 d["ansi0"] = self.get_bg(theme, "Normal")
-                d["ansi1"] = self.get_bg(theme, "Normal")
                 d["black"] = self.get_bg(theme, "Normal")
+                d["ansi1"] = self.get_bg(theme, "Normal")
                 d["black_bold"] = self.get_bg(theme, "Normal")
             d["ansi2"] = self.get_fg(theme, "ErrorMsg")
-            d["ansi3"] = self.get_fg(theme, "ErrorMsg")
             d["red"] = self.get_fg(theme, "ErrorMsg")
+            d["ansi3"] = self.get_fg(theme, "ErrorMsg")
             d["red_bold"] = self.get_fg(theme, "ErrorMsg")
             d["ansi4"] = self.get_fg(theme, "Identifier")
-            d["ansi5"] = self.get_fg(theme, "Identifier")
             d["green"] = self.get_fg(theme, "Identifier")
+            d["ansi5"] = self.get_fg(theme, "Identifier")
             d["green_bold"] = self.get_fg(theme, "Identifier")
             d["ansi6"] = self.get_fg(theme, "Constant")
-            d["ansi7"] = self.get_fg(theme, "Constant")
             d["yellow"] = self.get_fg(theme, "Constant")
+            d["ansi7"] = self.get_fg(theme, "Constant")
             d["yellow_bold"] = self.get_fg(theme, "Constant")
             d["ansi8"] = self.get_fg(theme, "Statement")
-            d["ansi9"] = self.get_fg(theme, "Statement")
             d["blue"] = self.get_fg(theme, "Statement")
+            d["ansi9"] = self.get_fg(theme, "Statement")
             d["blue_bold"] = self.get_fg(theme, "Statement")
             d["ansi10"] = self.get_fg(theme, "Special")
-            d["ansi11"] = self.get_fg(theme, "Special")
             d["magenta"] = self.get_fg(theme, "Special")
+            d["ansi11"] = self.get_fg(theme, "Special")
             d["magenta_bold"] = self.get_fg(theme, "Special")
             d["ansi12"] = self.get_fg(theme, "PreProc")
-            d["ansi13"] = self.get_fg(theme, "PreProc")
             d["cyan"] = self.get_fg(theme, "PreProc")
+            d["ansi13"] = self.get_fg(theme, "PreProc")
             d["cyan_bold"] = self.get_fg(theme, "PreProc")
             if theme in LIGHT_THEMES:
                 d["ansi14"] = self.get_bg(theme, "Normal")
-                d["ansi15"] = self.get_bg(theme, "Normal")
                 d["white"] = self.get_bg(theme, "Normal")
+                d["ansi15"] = self.get_bg(theme, "Normal")
                 d["white_bold"] = self.get_bg(theme, "Normal")
             else:
                 d["ansi14"] = self.get_fg(theme, "Normal")
-                d["ansi15"] = self.get_fg(theme, "Normal")
                 d["white"] = self.get_fg(theme, "Normal")
+                d["ansi15"] = self.get_fg(theme, "Normal")
                 d["white_bold"] = self.get_fg(theme, "Normal")
 
     def get_bg(self, theme, name):
@@ -171,6 +171,10 @@ class Lucius(object):
             raise Exception("Could not find color for %s, %s, %s" % (theme, name, c))
         return color
 
+    def write_all(self):
+        self.write_putty()
+        self.write_iterm2()
+
     def write_putty(self):
         def srgb(rgb):
             return ",".join([str(c) for c in rgb])
@@ -193,7 +197,7 @@ class Lucius(object):
             with open(os.path.join(putty_dir, theme + ".reg"), "w") as fd:
                 fd.write(file_data)
 
-    def write_iterm(self):
+    def write_iterm2(self):
         iterm_dir = os.path.join(GIT_LUCIUS, "iterm2")
         if not os.path.exists(iterm_dir):
             os.mkdir(iterm_dir)
@@ -253,6 +257,7 @@ Windows Registry Editor Version 5.00
 "Colour21"="%(white_bold)s"
 """
 
+
 _ITERM = """\
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -262,6 +267,7 @@ _ITERM = """\
 </dict>
 </plist>
 """
+
 
 _ITERM_ENTRY = """\
     <key>%(name)s</key>
