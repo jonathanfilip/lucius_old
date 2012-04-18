@@ -52,6 +52,9 @@ call pathogen#helptags()
     set wildignore+=tmp,tags
     if !has("win32") && !has("win64")
         set term=$TERM
+        if &term == "screen"
+            set term=xterm-256color
+        endif
     endif
     if $LUCIUS_STYLE == "light"
         set background=light
