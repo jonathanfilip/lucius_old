@@ -71,6 +71,9 @@ call pathogen#helptags()
         let g:lucius_style = "light"
         colorscheme lucius
     endif
+    if !has("gui_running") && has("clipboard")
+        set clipboard=unnamed
+    endif
 " }}}
 " ============================================================================
 
