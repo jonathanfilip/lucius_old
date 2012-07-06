@@ -49,6 +49,7 @@ call pathogen#helptags()
     set wildignore+=*.obj,*.h5,*.ttf,*.pdf,*.xls,*.pcl,*.gz,*.png
     set wildignore+=*.gif,*.jpg,*.ico,*.bak,*~
     set wildignore+=*.sln,*.csproj,*.resx,*.suo
+    set wildignore+=*.exe,*.pdb,*.map
     set wildignore+=tmp,tags
     if !has("win32") && !has("win64")
         set term=$TERM
