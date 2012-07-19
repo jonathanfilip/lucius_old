@@ -51,12 +51,12 @@ call pathogen#helptags()
     set wildignore+=*.sln,*.csproj,*.resx,*.suo
     set wildignore+=*.exe,*.pdb,*.map
     set wildignore+=tmp,tags
-    if !has("win32") && !has("win64")
-        set term=$TERM
-        if &term == "screen"
-            set term=xterm-256color
-        endif
-    endif
+    "if !has("win32") && !has("win64")
+    "    set term=$TERM
+    "    if &term == "screen"
+    "        set term=xterm-256color
+    "    endif
+    "endif
     if $LUCIUS_STYLE == "light"
         set background=light
         let g:lucius_style = "light"
@@ -72,6 +72,7 @@ call pathogen#helptags()
         let g:lucius_style = "light"
         colorscheme lucius
     endif
+    set t_Co=256
     if !has("gui_running") && has("clipboard")
         set clipboard=unnamed
     endif
