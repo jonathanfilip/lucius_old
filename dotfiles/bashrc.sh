@@ -225,10 +225,16 @@
         function tmux_list {
             tmux list-sessions
         }
+        alias tl=tmux_list
 
         function tmuxn {
             tmux new -s "$1"
         }
+
+        function tmux_attach {
+            tmux attach -t "$1"
+        }
+        alias ta=tmux_attach
     # }}}
 
 # }}}
