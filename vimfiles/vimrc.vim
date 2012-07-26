@@ -329,6 +329,17 @@ call pathogen#helptags()
         endif
     " }}}
 
+    " CScope: {{{
+        if has("cscope")
+            if filereadable("cscope.out")
+                set cscopetagorder=0
+                set cscopetag
+                set nocscopeverbose
+                cs add cscope.out
+            endif
+        endif
+    " }}}
+
     " VCS: {{{
         let VCSCommandDeleteOnHide = 1
         augroup VCSCommand
