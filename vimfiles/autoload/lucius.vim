@@ -3,122 +3,163 @@
 
 
 " ============================================================================
-" Functions: {{{
+" Functions:
+" ============================================================================
 
-   " GenerateTags: {{{
-        function! lucius#GenerateTags(dir, force)
-            " dir - directory to start in
-            " force - set to 1 if you want to force tags to be in 'dir'
-            let running_windows = has("win16") || has("win32") ||
-                        \has("win64")
-            let slash = running_windows ? '\' : '/'
-            let ftype = getbufvar("%", '&filetype')
-            let olddir = getcwd()
+" GenerateTags:
+    function! lucius#GenerateTags(dir, force)
+        " dir - directory to start in
+        " force - set to 1 if you want to force tags to be in 'dir'
+        let running_windows = has("win16") || has("win32") ||
+                    \has("win64")
+        let slash = running_windows ? '\' : '/'
+        let ftype = getbufvar("%", '&filetype')
+        let olddir = getcwd()
 
-            if running_windows
-                let root = substitute(a:dir, '\(^[a-zA-Z]:\).*', '\1', '') .
-                            \'\'
-            else
-                let root = '/'
-            endif
+        if running_windows
+            let root = substitute(a:dir, '\(^[a-zA-Z]:\).*', '\1', '') .
+                        \'\'
+        else
+            let root = '/'
+        endif
 
-            let tagsfile = a:dir . slash . "tags"
-            let tagfilesfile = a:dir . slash . "tagfiles"
-            let tagdirsfile = a:dir . slash . "tagdirs"
-            let tagsdir = a:dir
-            if a:force != 1
-                let curdir = a:dir
-                let home = $HOME
-                let tag_exists = 0
-                while curdir != root && curdir != home
-                    let tag_exists = filereadable(curdir . slash . "tags")
-                    if tag_exists == 1
-                        break
-                    endif
-                    let pathdirs = split(curdir, slash)
-                    if running_windows
-                        let curdir = join(pathdirs[0:-2], slash)
-                    else
-                        let curdir = root . join(pathdirs[0:-2], slash)
-                    endif
-                endwhile
-
-                if curdir == root || curdir == home
-                    let curdir = a:dir
+        let tagsfile = a:dir . slash . "tags"
+        let tagfilesfile = a:dir . slash . "tagfiles"
+        let tagdirsfile = a:dir . slash . "tagdirs"
+        let tagsdir = a:dir
+        if a:force != 1
+            let curdir = a:dir
+            let home = $HOME
+            let tag_exists = 0
+            while curdir != root && curdir != home
+                let tag_exists = filereadable(curdir . slash . "tags")
+                if tag_exists == 1
+                    break
                 endif
+                let pathdirs = split(curdir, slash)
+                if running_windows
+                    let curdir = join(pathdirs[0:-2], slash)
+                else
+                    let curdir = root . join(pathdirs[0:-2], slash)
+                endif
+            endwhile
 
-                let tagsfile = curdir . slash . "tags"
-                let tagfilesfile = curdir . slash . "tagfiles"
-                let tagdirsfile = curdir . slash . "tagdirs"
-                let tagsdir = curdir
+            if curdir == root || curdir == home
+                let curdir = a:dir
             endif
 
-            let tagsfile = substitute(tagsfile, "\\", "/", "g")
-            let tagfilesfile = substitute(tagfilesfile, "\\", "/", "g")
-            let tagdirsfile = substitute(tagdirsfile, "\\", "/", "g")
+            let tagsfile = curdir . slash . "tags"
+            let tagfilesfile = curdir . slash . "tagfiles"
+            let tagdirsfile = curdir . slash . "tagdirs"
+            let tagsdir = curdir
+        endif
 
-            let ctags_bin = "ctags"
-            if running_windows
-                let ctags_bin = "ctags.exe"
-            endif
-            if exists("g:ctags_bin")
-                let ctags_bin = g:ctags_bin
-            endif
+        let tagsfile = substitute(tagsfile, "\\", "/", "g")
+        let tagfilesfile = substitute(tagfilesfile, "\\", "/", "g")
+        let tagdirsfile = substitute(tagdirsfile, "\\", "/", "g")
 
-            let tag_options = ""
-            if ftype == "python"
-                let tag_options = " -h .py --languages=python " .
-                            \"--python-kinds=-i "
-            elseif ftype == "cpp"
-                let tag_options = " -h .cpp.C.H.hpp.c.h -R --c++-kinds=+p " .
-                            \"--fields=+fkiasSt --extra=+q --languages=c++ "
-            elseif ftype == "cs"
-                let tag_options = " -h .cs -R --fields=+fkiasSt " .
-                            \"--extra=+q --languages=c# "
-            endif
+        let ctags_bin = "ctags"
+        if running_windows
+            let ctags_bin = "ctags.exe"
+        endif
+        if exists("g:ctags_bin")
+            let ctags_bin = g:ctags_bin
+        endif
 
-            if filereadable(tagdirsfile) == 1
-                let tfiles = []
-                let dirs = readfile(tagdirsfile)
-                for d in dirs
-                    let search = d . "*.*"
-                    let globfiles = split(glob(search))
-                    for globfile in globfiles
-                        call add(tfiles, globfile)
-                    endfor
+        let tag_options = ""
+        if ftype == "python"
+            let tag_options = " -h .py --languages=python " .
+                        \"--python-kinds=-i "
+        elseif ftype == "cpp"
+            let tag_options = " -h .cpp.C.H.hpp.c.h -R --c++-kinds=+p " .
+                        \"--fields=+fkiasSt --extra=+q --languages=c++ "
+        elseif ftype == "cs"
+            let tag_options = " -h .cs -R --fields=+fkiasSt " .
+                        \"--extra=+q --languages=c# "
+        endif
+
+        if filereadable(tagdirsfile) == 1
+            let tfiles = []
+            let dirs = readfile(tagdirsfile)
+            for d in dirs
+                let search = d . "*.*"
+                let globfiles = split(glob(search))
+                for globfile in globfiles
+                    call add(tfiles, globfile)
                 endfor
-                call writefile(tfiles, tagfilesfile)
-            endif
+            endfor
+            call writefile(tfiles, tagfilesfile)
+        endif
 
-            let target = " . "
-            if filereadable(tagfilesfile) == 1
-                let target = " -L " . tagfilesfile
-            endif
+        let target = " . "
+        if filereadable(tagfilesfile) == 1
+            let target = " -L " . tagfilesfile
+        endif
 
-            exec "silent cd " . tagsdir
-            let cmd = ctags_bin . " -f " . tagsfile . " --recurse=yes " .
-                        \"--sort=foldcase " . tag_options . target
-            echo cmd
-            let output = system(cmd)
-            exec "silent cd " . olddir
+        exec "silent cd " . tagsdir
+        let cmd = ctags_bin . " -f " . tagsfile . " --recurse=yes " .
+                    \"--sort=foldcase " . tag_options . target
+        echo cmd
+        let output = system(cmd)
+        exec "silent cd " . olddir
 
-            if output != ""
-                echohl WarningMsg
-                echomsg cmd
-                echomsg output
-                echohl None
-            endif
+        if output != ""
+            echohl WarningMsg
+            echomsg cmd
+            echomsg output
+            echohl None
+        endif
 
-            return
+        return
 
-        endfunction
+    endfunction
 
-" }}}
+" LoadProject:
+    function! lucius#LoadProject(...)
+        exec "silent cd " . g:projects[a:1]
+        exec "silent set title titlestring=" . a:1
+        echo a:1 . " project loaded."
+    endfunction
+    function! lucius#ProjectComplete(A,L,P)
+        return join(keys(g:projects), "\n")
+    endfunction
+
+" LoadDatabase:
+    function! lucius#LoadDatabase(...)
+        call lucius#ScratchBuffer("[" . a:1 . "]")
+        exec "set title titlestring=" . a:1
+        exec "DBSetOption " . g:databases[a:1]
+        setlocal filetype=sql
+        let b:sql_type_override = 'sqlanywhere'
+    endfunction
+    function! lucius#DatabaseComplete(A,L,P)
+        return join(keys(g:databases), "\n")
+    endfunction
+
+" LoadSqlite:
+    function! lucius#LoadSqlite(path)
+        let path = substitute(a:path, ':', '\\:', "g")
+        call lucius#ScratchBuffer("[SQLITE]")
+        exec "set title titlestring=SQLITE"
+        let cmdStr = 'DBSetOption type=SQLITE:dbname=' . path . 
+                    \':user=jfilip:passwd=jfilip'
+        exec cmdStr
+        setlocal filetype=sql
+    endfunction
+
+" ScratchBuffer:
+    function! lucius#ScratchBuffer(buf_name)
+        "exec "silent! e "
+        exec "silent! e " . a:buf_name
+        setlocal buftype=nofile bufhidden=hide noswapfile nowrap
+    endfunction
+    command! -nargs=1 CreateScratchBuffer call ScratchBuffer(<args>)
+
+
+
 " ============================================================================
-
-
+" Python:
 " ============================================================================
-" Python: {{{
 
 if has("python")
 python << EOL
@@ -153,7 +194,4 @@ function! lucius#EvaluateCurrentRange()
 endfunction
 
 endif
-
-" }}}
-" ============================================================================
 
