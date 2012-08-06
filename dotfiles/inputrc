@@ -14,3 +14,6 @@ set horizontal-scroll-mode Off
 
 set visible-stats On
 
+set editing-mode vi
+set keymap vi
+
