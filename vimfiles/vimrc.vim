@@ -204,6 +204,9 @@ vnoremap zy "*y
 noremap zp "*p
 noremap zy "*y
 
+" Make x not yank to register
+noremap x "_x
+
 " CTRL-A is Select all, etc
 if !InLocation("home_osx")
     noremap <C-A> ggVG
@@ -289,6 +292,8 @@ command! Pandoc :!pandoc -f markdown -t html -Ss -o ~/out.html %
 " More lenient to save command
 command! W w
 command! Q q
+command! QA qa
+command! Qa qa
 command! Wq wq
 command! WQ wq
 
