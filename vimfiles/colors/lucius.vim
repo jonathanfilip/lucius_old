@@ -59,33 +59,71 @@
 " Copy the file to your vim colors directory and then do :colorscheme lucius.
 
 
+
 hi clear
 if exists("syntax_on")
     syntax reset
 endif
 let colors_name="lucius"
 
-set background=dark
+" ============================================================================
+" Options:
+" ============================================================================
+
 if exists("g:lucius_style")
-    if g:lucius_style == "light"
-        set background=light
-    endif
+    let s:style = g:lucius_style
 else
-    let g:lucius_style = "dark"
+    let s:style == &background
 endif
 
-if !exists("g:lucius_use_underline")
-    let g:lucius_use_underline = 1
+if s:style == "dark_dim"
+    let s:style = "dark"
 endif
 
-if !exists("g:lucius_use_bold")
-    let g:lucius_use_bold = 1
+exec "set background=" . s:style
+
+if exists("g:lucius_high_contrast_fg")
+    let s:high_contrast_fg = g:lucius_high_contrast_fg
+else
+    if g:lucius_style == "light"
+        let s:high_contrast_fg = 0
+    else
+        let s:high_contrast_fg = 1
+    endif
 endif
 
-if !exists("g:lucius_use_undercurl")
-    let g:lucius_use_undercurl = 1
+if exists("g:lucius_high_contrast_bg")
+    let s:high_contrast_bg = g:lucius_high_contrast_bg
+else
+    if g:lucius_style == "light"
+        let s:high_contrast_bg = 0
+    else
+        let s:high_contrast_bg = 0
+    endif
 endif
 
+if g:lucius_style == "dark_dim"
+    let s:high_contrast_fg = 0
+    let s:high_contrast_bg = 0
+endif
+
+if exists("g:lucius_use_bold")
+    let s:use_bold = g:lucius_use_bold
+else
+    let s:use_bold = 1
+endif
+
+if exists("g:lucius_use_underline")
+
+    let s:use_underline = g:lucius_use_underline
+else
+    let s:use_underline = 1
+endif
+
+
+" ============================================================================
+" Color Map:
+" ============================================================================
 
 let s:color_map = {
     \ 'bg': 'bg', 'fg': 'fg', 'NONE': 'NONE',
@@ -152,37 +190,167 @@ let s:color_map = {
     \ }
 
 
+" ============================================================================
+" Functions:
+" ============================================================================
+
+function! s:AddCterm(name)
+    exec "let l:gfg = synIDattr(synIDtrans(hlID('" . a:name .
+                \ "')), 'fg', 'gui')"
+    exec "let l:gbg = synIDattr(synIDtrans(hlID('" . a:name .
+                \ "')), 'bg', 'gui')"
+    let l:gfg = l:gfg == "" ? "NONE" : l:gfg
+    let l:gbg = l:gbg == "" ? "NONE" : l:gbg
+    exec "hi " . a:name . " ctermfg=" . s:color_map[l:gfg] .
+                \ " ctermbg=" . s:color_map[l:gbg]
+endfunction
+
+function! s:AddSpCterm(name)
+    exec "let l:gsp = synIDattr(synIDtrans(hlID('" . a:name .
+                \ "')), 'sp', 'gui')"
+    let l:gsp = l:gsp == "" ? "NONE" : l:gsp
+    exec "hi " . a:name . " ctermfg=" . s:color_map[l:gsp]
+endfunction
+
+
+" ============================================================================
+" Text Groups:
+" ============================================================================
+
+let s:normal_items = [
+            \ "Normal",
+            \ "ColorColumn", "Comment", "Constant", "Cursor", "CursorColumn",
+            \ "CursorIM", "CursorLine", "CursorLineNr", "DiffAdd", "DiffChange",
+            \ "DiffDelete", "Directory", "Error", "ErrorMsg", "Identifier",
+            \ "IncSearch", "LineNr", "MatchParen", "ModeMsg", "MoreMsg",
+            \ "NonText", "Pmenu", "PmenuSbar", "PmenuSel",
+            \ "PmenuThumb", "PreProc", "Question", "Search", "SignColumn",
+            \ "Special", "SpecialKey", "Statement", "StatusLineNC", "TabLine",
+            \ "TabLineFill", "Todo", "Type", "VertSplit", "Visual",
+            \ "WarningMsg", "WildMenu",
+            \ ]
+
+let s:bold_items = [
+            \ "DiffText", "FoldColumn", "Folded", "StatusLine", "TabLineSel",
+            \ "Title",
+            \ ]
+
+let s:underline_items = [
+            \ "Underlined", "VisualNOS"
+            \ ]
+
+let s:undercurl_items = [
+            \ "SpellBad", "SpellCap", "SpellLocal", "SpellRare"
+            \ ]
+
+for item in s:normal_items + s:bold_items + s:underline_items + s:undercurl_items
+    exec "hi " . item . " guifg=NONE guibg=NONE gui=none"
+endfor
+
+" ============================================================================
+" Color Definitions:
+" ============================================================================
+
+if g:lucius_style == "light"
+
+else
+    if s:high_contrast_fg == 1
+        hi Normal       guifg=#d7d7d7   
+    else
+        hi Normal       guifg=#bcbcbc
+    endif
+
+    if s:high_contrast_bg == 1
+        hi Normal       guibg=#121212
+    else
+        hi Normal       guibg=#303030
+    endif
+
+    if s:high_contrast_fg == 1
+        hi Comment      guifg=#808080
+        hi Constant     guifg=#d7d7af
+        hi Identifier   guifg=#afd787
+        hi Statement    guifg=#87d7ff
+        hi PreProc      guifg=#87d7af
+        hi Type         guifg=#87d7d7
+        hi Special      guifg=#d7afd7
+
+        hi Error        guifg=#ff8787
+        hi Todo         guifg=#d7d75f
+        hi Title        guifg=#5fafd7
+
+        hi DiffText     guifg=#ffff87
+    else
+        hi Comment      guifg=#6c6c6c
+        hi Constant     guifg=#afaf87
+        hi Identifier   guifg=#87af5f
+        hi Statement    guifg=#5fafd7
+        hi PreProc      guifg=#5faf87
+        hi Type         guifg=#5fafaf
+        hi Special      guifg=#af87af
+
+        hi Error        guifg=#d75f5f
+        hi Todo         guifg=#afaf00
+        hi Title        guifg=#00afd7
+
+        hi DiffText     guifg=#d7d75f
+    endif
+
+    if s:high_contrast_bg == 1
+        hi MatchParen   guibg=#afd75f
+
+        hi Cursor       guibg=#87afd7
+        hi CursorIM     guibg=#87afd7
+        
+        hi IncSearch    guibg=#5fd7d7
+    else
+        hi MatchParen   guibg=#87af5f
+
+        hi Cursor       guibg=#5f87af
+        hi CursorIM     guibg=#5f87af
+
+        hi IncSearch    guibg=#00afaf
+    endif
+    
+    hi NonText      guifg=#5f5f87
+    hi SpecialKey   guifg=#5f875f
+
+    hi Error        guibg=#870000
+    hi Todo         guibg=#5f5f00
+
+    hi CursorColumn guibg=#444444
+    hi CursorLine   guibg=#444444
+
+    hi Visual       guibg=#005f87
+
+    hi Search       guibg=#d78700
+
+    hi IncSearch    guifg=bg
+    hi Search       guifg=bg
+
+    hi SpellBad     guisp=#d70000
+    hi SpellCap     guisp=#00afd7
+    hi SpellRare    guisp=#5faf00
+    hi SpellLocal   guisp=#d7af00
+
+    hi DiffAdd      guifg=fg        guibg=#5f875f
+    hi DiffChange   guifg=fg        guibg=#87875f
+    hi DiffDelete   guifg=fg        guibg=#875f5f
+    hi DiffText     guifg=#ffff87   guibg=#87875f
+    
+    
+    
+endif
+
+
+
+
+
+
+
 if g:lucius_style == "dark"
 
 " LuciusDark:
-    hi Normal       guifg=#d7d7d7   guibg=#303030
-    hi Comment      guifg=#808080   guibg=NONE
-    hi Constant     guifg=#d7d7af   guibg=NONE
-    hi Identifier   guifg=#afd787   guibg=NONE
-    hi Statement    guifg=#87d7ff   guibg=NONE
-    hi PreProc      guifg=#87d7af   guibg=NONE
-    hi Type         guifg=#87d7d7   guibg=NONE
-    hi Special      guifg=#d7afd7   guibg=NONE
-
-    " Text Markup:
-    hi Underlined   guifg=fg        guibg=NONE
-    hi Error        guifg=#ff8787   guibg=#870000
-    hi Todo         guifg=#d7d75f   guibg=#5f5f00
-    hi MatchParen   guifg=bg        guibg=#afd75f
-    hi NonText      guifg=#5f5f87   guibg=NONE
-    hi SpecialKey   guifg=#5f875f   guibg=NONE
-    hi Title        guifg=#5fafd7   guibg=NONE
-
-    " Text Selection:
-    hi Cursor       guifg=bg        guibg=#87afd7
-    hi CursorIM     guifg=bg        guibg=#87afd7
-    hi CursorColumn guifg=NONE      guibg=#444444
-    hi CursorLine   guifg=NONE      guibg=#444444
-    hi Visual       guifg=NONE      guibg=#005f87
-    hi VisualNOS    guifg=fg        guibg=NONE
-    hi IncSearch    guifg=bg        guibg=#5fd7d7
-    hi Search       guifg=bg        guibg=#d78700
-
     " UI:
     hi Pmenu        guifg=bg        guibg=#b2b2b2
     hi PmenuSel     guifg=fg        guibg=#005f87
@@ -197,17 +365,7 @@ if g:lucius_style == "dark"
     hi Folded       guifg=#bcbcbc   guibg=#4e4e4e
     hi FoldColumn   guifg=#bcbcbc   guibg=#4e4e4e
 
-    " Spelling:
-    hi SpellBad     guisp=#d70000
-    hi SpellCap     guisp=#00afd7
-    hi SpellRare    guisp=#5faf00
-    hi SpellLocal   guisp=#d7af00
-
     " Diff:
-    hi DiffAdd      guifg=fg        guibg=#5f875f
-    hi DiffChange   guifg=fg        guibg=#87875f
-    hi DiffDelete   guifg=fg        guibg=#875f5f
-    hi DiffText     guifg=#ffff87   guibg=#87875f
 
     " Misc:
     hi Directory    guifg=#afd7af   guibg=NONE
@@ -225,33 +383,6 @@ if g:lucius_style == "dark"
 elseif g:lucius_style == "dark_dim"
 
 " LuciusDarkDim:
-    hi Normal       guifg=#bcbcbc   guibg=#303030
-    hi Comment      guifg=#6c6c6c   guibg=NONE
-    hi Constant     guifg=#afaf87   guibg=NONE
-    hi Identifier   guifg=#87af5f   guibg=NONE
-    hi Statement    guifg=#5fafd7   guibg=NONE
-    hi PreProc      guifg=#5faf87   guibg=NONE
-    hi Type         guifg=#5fafaf   guibg=NONE
-    hi Special      guifg=#af87af   guibg=NONE
-
-    " Text Markup:
-    hi Underlined   guifg=fg        guibg=NONE
-    hi Error        guifg=#d75f5f   guibg=#870000
-    hi Todo         guifg=#afaf00   guibg=#5f5f00
-    hi MatchParen   guifg=bg        guibg=#87af5f
-    hi NonText      guifg=#5f5f87   guibg=NONE
-    hi SpecialKey   guifg=#5f875f   guibg=NONE
-    hi Title        guifg=#00afd7   guibg=NONE
-
-    " Text Selection:
-    hi Cursor       guifg=bg        guibg=#5f87af
-    hi CursorIM     guifg=bg        guibg=#5f87af
-    hi CursorColumn guifg=NONE      guibg=#444444
-    hi CursorLine   guifg=NONE      guibg=#444444
-    hi Visual       guifg=NONE      guibg=#005f87
-    hi VisualNOS    guifg=fg        guibg=NONE
-    hi IncSearch    guifg=bg        guibg=#00afaf
-    hi Search       guifg=bg        guibg=#d78700
 
     " UI:
     hi Pmenu        guifg=bg        guibg=#8a8a8a
@@ -267,17 +398,6 @@ elseif g:lucius_style == "dark_dim"
     hi Folded       guifg=#a8a8a8   guibg=#4e4e4e
     hi FoldColumn   guifg=#a8a8a8   guibg=#4e4e4e
 
-    " Spelling:
-    hi SpellBad     guisp=#d70000
-    hi SpellCap     guisp=#00afd7
-    hi SpellRare    guisp=#5faf00
-    hi SpellLocal   guisp=#d7af00
-
-    " Diff:
-    hi DiffAdd      guifg=fg        guibg=#5f875f
-    hi DiffChange   guifg=fg        guibg=#87875f
-    hi DiffDelete   guifg=fg        guibg=#875f5f
-    hi DiffText     guifg=#d7d75f   guibg=#87875f
 
     " Misc:
     hi Directory    guifg=#87af87   guibg=NONE
@@ -435,91 +555,44 @@ elseif g:lucius_style == "light"
 
 endif
 
+
 hi Ignore guifg=bg
+hi Underlined guifg=fg
 
-
-" ============================================================================
-" Functions:
-" ============================================================================
-
-function! s:AddCterm(name)
-    exec "let s:temp_gui_fg = synIDattr(synIDtrans(hlID('" . a:name .
-                \ "')), 'fg', 'gui')"
-    exec "let s:temp_gui_bg = synIDattr(synIDtrans(hlID('" . a:name .
-                \ "')), 'bg', 'gui')"
-
-    let s:temp_gui_fg = s:temp_gui_fg == "" ? "NONE" : s:temp_gui_fg
-    let s:temp_gui_bg = s:temp_gui_bg == "" ? "NONE" : s:temp_gui_bg
-    let l:cfg = s:color_map[s:temp_gui_fg]
-    let l:cbg = s:color_map[s:temp_gui_bg]
-    exec "hi " . a:name . " ctermfg=" . l:cfg .
-                \ " ctermbg=" . l:cbg
-endfunction
-
-function! s:AddSpCterm(name)
-    exec "let s:temp_gui_sp = synIDattr(synIDtrans(hlID('" . a:name .
-                \ "')), 'sp', 'gui')"
-
-    let s:temp_gui_sp = s:temp_gui_sp == "" ? "NONE" : s:temp_gui_sp
-    let l:csp = s:color_map[s:temp_gui_sp]
-    exec "hi " . a:name . " ctermfg=" . l:csp .
-endfunction
+hi Cursor       guifg=bg  
+hi CursorIM     guifg=bg  
+hi CursorColumn guifg=NONE
+hi CursorLine   guifg=NONE
+hi Visual       guifg=NONE
+hi VisualNOS    guifg=fg
+exec "hi IncSearch guifg=" . (s:style == "light" ? "bg" : "fg")
+exec "hi Search guifg=" . (s:style == "light" ? "bg" : "fg")
+exec "hi MatchParen guifg=" . (s:style == "light" ? "NONE" : "bg")
 
 
 " ============================================================================
 " Text Emphasis:
 " ============================================================================
 
-let s:normal_items = [
-            \ "ColorColumn", "Comment", "Constant", "Cursor", "CursorColumn",
-            \ "CursorIM", "CursorLine", "CursorLineNr", "DiffAdd", "DiffChange",
-            \ "DiffDelete", "Directory", "Error", "ErrorMsg", "Identifier",
-            \ "IncSearch", "LineNr", "MatchParen", "ModeMsg", "MoreMsg",
-            \ "NonText", "Normal", "Pmenu" , "PmenuSbar", "PmenuSel",
-            \ "PmenuThumb", "PreProc", "Question", "Search", "SignColumn",
-            \ "Special", "SpecialKey", "Statement", "StatusLineNC", "TabLine",
-            \ "TabLineFill", "Todo", "Type", "VertSplit", "Visual",
-            \ "WarningMsg", "WildMenu",
-            \ ]
-
-let s:bold_items = [
-            \ "DiffText", "FoldColumn", "Folded", "StatusLine", "TabLineSel",
-            \ "Title",
-            \ ]
-
-let s:underline_items = [
-            \ "Underlined", "VisualNOS"
-            \ ]
-
-let s:undercurl_items = [
-            \ "SpellBad", "SpellCap", "SpellLocal", "SpellRare"
-            \ ]
-
 for item in s:normal_items
     exec "hi " . item . " gui=none cterm=none term=none"
 endfor
 
-if g:lucius_use_bold == 1
+if s:use_bold == 1
     for item in s:bold_items
         exec "hi " . item . " gui=bold cterm=bold term=none"
     endfor
 endif
 
-if g:lucius_use_underline == 1
+if s:use_underline == 1
     for item in s:underline_items
         exec "hi " . item . " gui=underline cterm=underline term=none"
     endfor
-endif
-
-if g:lucius_use_undercurl == 1
     for item in s:undercurl_items
         exec "hi " . item . " gui=undercurl cterm=underline term=none"
     endfor
-elseif g:lucius_use_underline == 1
-    for item in s:undercurl_items
-        exec "hi " . item . " gui=underline cterm=underline term=none"
-    endfor
 endif
+
 
 " ============================================================================
 " Cterm Colors:
@@ -531,15 +604,9 @@ for item in s:normal_items + s:bold_items + s:underline_items
     call s:AddCterm(item)
 endfor
 
-
-" ============================================================================
-" Plugin Specific Colors:
-" ============================================================================
-
-" Tagbar:
-hi link TagbarAccessPublic Constant
-hi link TagbarAccessProtected Type
-hi link TagbarAccessPrivate PreProc
+for item in s:undercurl_items
+    call s:AddSpCterm(item)
+endfor
 
 
 " ============================================================================
@@ -560,6 +627,16 @@ endfor
 
 
 " ============================================================================
+" Plugin Specific Colors:
+" ============================================================================
+
+" Tagbar:
+hi link TagbarAccessPublic Constant
+hi link TagbarAccessProtected Type
+hi link TagbarAccessPrivate PreProc
+
+
+" ============================================================================
 " Commands:
 " ============================================================================
 
@@ -567,5 +644,4 @@ command! LuciusLight let g:lucius_style = 'light' | colorscheme lucius
 command! LuciusDark let g:lucius_style = 'dark' | colorscheme lucius
 command! LuciusDarkDim let g:lucius_style = 'dark_dim' | colorscheme lucius
 command! LuciusBlack let g:lucius_style = 'black' | colorscheme lucius
-
 

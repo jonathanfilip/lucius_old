@@ -302,140 +302,211 @@ command! WQ wq
 " Plugin Options:
 " ============================================================================
 
-" Tags:
-    let g:ctags_bin = "ctags"
 
-" CScope:
-    if has("cscope")
-        set cscopequickfix=s-,c-,d-,i-,t-,e-
-        if filereadable("cscope.out")
-            set cscopetagorder=0
-            set cscopetag
-            set nocscopeverbose
-            cs add cscope.out
-            "set cscopeverbose
-        endif
+" ----------------------------------------------------------------------------
+" Ctags:
+" ----------------------------------------------------------------------------
 
-        " View the tag (g-] behavior)
-        nmap <C-@>v :tselect <C-R>=expand("<cword>")<CR><CR>
-        " Find this C symbol
-        nmap <C-@>s :lcscope find s <C-R>=expand("<cword>")<CR><CR>
-        " Find this definition
-        nmap <C-@>g :lcscope find g <C-R>=expand("<cword>")<CR><CR>
-        " Find functions called by this function
-        nmap <C-@>d :lcscope find d <C-R>=expand("<cword>")<CR><CR>
-        " Find functions calling this function
-        nmap <C-@>c :lcscope find c <C-R>=expand("<cword>")<CR><CR>
-        " Find this text string
-        nmap <C-@>t :lcscope find t <C-R>=expand("<cword>")<CR><CR>
-        " Find this egrep pattern
-        nmap <C-@>e :lcscope find e <C-R>=expand("<cword>")<CR><CR>
-        " Find this file
-        nmap <C-@>f :lcscope find f <C-R>=expand("<cword>")<CR><CR>
-        " Find files #including this file
-        nmap <C-@>i :lcscope find i <C-R>=expand("<cword>")<CR><CR>
-    endif
+let g:ctags_bin = "ctags"
 
-" VCS:
-    let VCSCommandDeleteOnHide = 1
-    augroup VCSCommand
-        au User VCSBufferCreated set bufhidden=wipe
-    augroup END
 
-" NERD Tree:
-    let g:NERDTreeChDirMode = 0
-    let g:NERDChristmasTree = 1
-    let g:NERDTreeCaseSensitiveSort = 0
-    let g:NERDTreeIgnore = ['\.doc$', '\.pdf$', '\.xls$', '\.docx$', 
-                \'\.zip$', '\.dll$', '\.so$', '\.pyc$', '\~$']
-    let g:NERDTreeShowHidden = 0
-    let g:NERDTreeWinPos = 'left'
-    let g:NERDTreeWinSize = 32
-
-    map <F3> :NERDTreeToggle<CR>
-    map <C-F3> :NERDTree<CR>
-    map <S-F3> :NERDTreeClose<CR>
-
-" NERD Commenter:
-    let NERDShutUp = 1
-    let NERDRemoveExtraSpaces=0
-
-" Tagbar:
-    let g:tagbar_compact = 1
-    let g:tagbar_iconchars = ['+', '-']
-    let g:tagbar_ctags_bin = g:ctags_bin
-    map <F4> :TagbarToggle<CR>
-
-" CtrlP:
-    let g:ctrlp_working_path_mode = 0
-    let g:ctrlp_dotfiles = 0
-    let g:ctrlp_max_height = 20
-    let g:ctrlp_clear_cache_on_exit = 0
-    let g:ctrlp_lazy_update = 0
-    let g:ctrlp_buftag_ctags_bin = g:ctags_bin
-    let g:ctrlp_extensions = ['buffertag']
-    let g:ctrlp_custom_ignore = {
-                \ 'dir': 'tests$',
-                \ 'file': '',
-                \ }
-
-    noremap <silent> <leader>ff :CtrlP<CR>
-    noremap <silent> <leader>fb :CtrlPBuffer<CR>
-    noremap <silent> <leader>fr :CtrlPMRU<CR>
-    noremap <silent> <leader>ft :CtrlPBufTag<CR>
-
-" Dbext:
-    let g:dbext_default_prompt_for_parameters = 0
-    let g:dbext_default_display_cmd_line = 1
-    let g:dbext_default_SQLITE_bin = "sqlite3"
-    let g:dbext_default_history_file = "$HOME/.dbext_sql_history.txt"
-
-" SuperTab:
-    let SuperTabDefaultCompletionType = "context"
-    let SuperTabContextDefaultCompletionType = "<c-n>"
-    let SuperTabContextTextOmniPrecedence = ['&completefunc']
-    au BufEnter *.md,*.txt,*.wiki :let b:SuperTabNoCompleteAfter = g:SuperTabNoCompleteAfter + ['\.', '\*', '-', ')']
-
-" Pyflakes:
-    let g:pyflakes_use_quickfix = 0
-
-" SQLUtilities:
-    let g:sql_type_default = 'sqlanywhere'
-    let g:sqlutil_align_where = 0
-    let g:sqlutil_align_comma = 1
-    let g:sqlutil_align_first_word = 1
-    let g:sqlutil_keyword_case = '\L'
-
+" ----------------------------------------------------------------------------
 " Cpp Omnicomplete:
-    let OmniCpp_GlobalScopeSearch = 1
-    let OmniCpp_NamespaceSearch = 2
-    let OmniCpp_ShowPrototypeInAbbr = 1
+" ----------------------------------------------------------------------------
 
-" Python:
-    let python_highlight_all = 1
-    au BufEnter *.py :syntax sync fromstart " helps with ''' comments
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_NamespaceSearch = 2
+let OmniCpp_ShowPrototypeInAbbr = 1
 
-" Lucius:
-    let g:projects = {}
-    let g:databases = {}
-    command! Tags call lucius#GenerateTags(fnamemodify(bufname('%'), \':p:h'), 0) " current file dir
-    command! TagsForce call lucius#GenerateTags(fnamemodify(bufname('%'), \':p:h'), 1) " current file dir, force
-    command! TagsCwd call lucius#GenerateTags(getcwd(), 0) " current cwd
-    command! TagsCwdForce call lucius#GenerateTags(getcwd(), 1) " cwd, force
-    command! -nargs=1 -complete=file Sqlite :call lucius#LoadSqlite(<q-args>)
-    command! -nargs=1 -complete=custom,lucius#DatabaseComplete Database :call 
-                \lucius#LoadDatabase(<q-args>)
-    command! -nargs=1 -complete=custom,lucius#DatabaseComplete Data :call 
-                \lucius#LoadDatabase(<q-args>)
-    command! -nargs=1 -complete=custom,lucius#ProjectComplete Project :call 
-                \lucius#LoadProject(<q-args>)
-    command! -nargs=1 -complete=custom,lucius#ProjectComplete Proj :call 
-                \lucius#LoadProject(<q-args>)
 
-    if has("python")
-        command! -range EvalPythonRange call lucius#EvaluateCurrentRange()
-        map <silent> <F5> :EvalPythonRange<CR>
+" ----------------------------------------------------------------------------
+" CScope:
+" ----------------------------------------------------------------------------
+
+if has("cscope")
+    set cscopequickfix=s-,c-,d-,i-,t-,e-
+    if filereadable("cscope.out")
+        set cscopetagorder=0
+        set cscopetag
+        set nocscopeverbose
+        cs add cscope.out
+        "set cscopeverbose
     endif
+
+    " View the tag (g-] behavior)
+    nmap <C-@>v :tselect <C-R>=expand("<cword>")<CR><CR>
+    " Find this C symbol
+    nmap <C-@>s :lcscope find s <C-R>=expand("<cword>")<CR><CR>
+    " Find this definition
+    nmap <C-@>g :lcscope find g <C-R>=expand("<cword>")<CR><CR>
+    " Find functions called by this function
+    nmap <C-@>d :lcscope find d <C-R>=expand("<cword>")<CR><CR>
+    " Find functions calling this function
+    nmap <C-@>c :lcscope find c <C-R>=expand("<cword>")<CR><CR>
+    " Find this text string
+    nmap <C-@>t :lcscope find t <C-R>=expand("<cword>")<CR><CR>
+    " Find this egrep pattern
+    nmap <C-@>e :lcscope find e <C-R>=expand("<cword>")<CR><CR>
+    " Find this file
+    nmap <C-@>f :lcscope find f <C-R>=expand("<cword>")<CR><CR>
+    " Find files #including this file
+    nmap <C-@>i :lcscope find i <C-R>=expand("<cword>")<CR><CR>
+endif
+
+
+" ----------------------------------------------------------------------------
+" CtrlP:
+" ----------------------------------------------------------------------------
+
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_max_height = 20
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_lazy_update = 0
+let g:ctrlp_buftag_ctags_bin = g:ctags_bin
+let g:ctrlp_extensions = ['buffertag']
+let g:ctrlp_custom_ignore = {
+            \ 'dir': 'tests$',
+            \ 'file': '',
+            \ }
+
+noremap <silent> <leader>ff :CtrlP<CR>
+noremap <silent> <leader>fb :CtrlPBuffer<CR>
+noremap <silent> <leader>fr :CtrlPMRU<CR>
+noremap <silent> <leader>ft :CtrlPBufTag<CR>
+
+
+" ----------------------------------------------------------------------------
+" Dbext:
+" ----------------------------------------------------------------------------
+
+let g:dbext_default_prompt_for_parameters = 0
+let g:dbext_default_display_cmd_line = 1
+let g:dbext_default_SQLITE_bin = "sqlite3"
+let g:dbext_default_history_file = "$HOME/.dbext_sql_history.txt"
+
+
+" ----------------------------------------------------------------------------
+" Lucius:
+" ----------------------------------------------------------------------------
+
+let g:projects = {}
+let g:databases = {}
+command! Tags call lucius#GenerateTags(fnamemodify(bufname('%'), \':p:h'), 0) " current file dir
+command! TagsForce call lucius#GenerateTags(fnamemodify(bufname('%'), \':p:h'), 1) " current file dir, force
+command! TagsCwd call lucius#GenerateTags(getcwd(), 0) " current cwd
+command! TagsCwdForce call lucius#GenerateTags(getcwd(), 1) " cwd, force
+command! -nargs=1 -complete=file Sqlite :call lucius#LoadSqlite(<q-args>)
+command! -nargs=1 -complete=custom,lucius#DatabaseComplete Database :call 
+            \lucius#LoadDatabase(<q-args>)
+command! -nargs=1 -complete=custom,lucius#DatabaseComplete Data :call 
+            \lucius#LoadDatabase(<q-args>)
+command! -nargs=1 -complete=custom,lucius#ProjectComplete Project :call 
+            \lucius#LoadProject(<q-args>)
+command! -nargs=1 -complete=custom,lucius#ProjectComplete Proj :call 
+            \lucius#LoadProject(<q-args>)
+
+noremap <C-f> :call lucius#ToggleSearchHighlighting()<CR>
+nnoremap <F10> :call lucius#ToggleTextWidth()<CR>
+nnoremap <S-F10> :call lucius#ToggleWrap()<CR>
+nnoremap <F11> :call lucius#ToggleSpellCheck()<CR>
+nnoremap <F12> :call lucius#ToggleScrollbars()<CR>
+
+if has("python")
+    command! -range EvalPythonRange call lucius#EvaluateCurrentRange()
+    map <silent> <F5> :EvalPythonRange<CR>
+endif
+
+
+" ----------------------------------------------------------------------------
+" NERD Commenter:
+" ----------------------------------------------------------------------------
+
+let NERDShutUp = 1
+let NERDRemoveExtraSpaces=0
+
+
+" ----------------------------------------------------------------------------
+" NERD Tree:
+" ----------------------------------------------------------------------------
+
+let g:NERDTreeChDirMode = 0
+let g:NERDChristmasTree = 1
+let g:NERDTreeCaseSensitiveSort = 0
+let g:NERDTreeIgnore = ['\.doc$', '\.pdf$', '\.xls$', '\.docx$', 
+            \'\.zip$', '\.dll$', '\.so$', '\.pyc$', '\~$']
+let g:NERDTreeShowHidden = 0
+let g:NERDTreeWinPos = 'left'
+let g:NERDTreeWinSize = 32
+
+map <F3> :NERDTreeToggle<CR>
+map <C-F3> :NERDTree<CR>
+map <S-F3> :NERDTreeClose<CR>
+
+
+" ----------------------------------------------------------------------------
+" Python:
+" ----------------------------------------------------------------------------
+
+let python_highlight_all = 1
+au BufEnter *.py :syntax sync fromstart " helps with ''' comments
+
+
+" ----------------------------------------------------------------------------
+" SQLUtilities:
+" ----------------------------------------------------------------------------
+
+let g:sql_type_default = "sqlanywhere"
+let g:sqlutil_align_where = 0
+let g:sqlutil_align_comma = 1
+let g:sqlutil_align_first_word = 1
+let g:sqlutil_keyword_case = '\L'
+
+
+" ----------------------------------------------------------------------------
+" SuperTab:
+" ----------------------------------------------------------------------------
+
+let SuperTabDefaultCompletionType = "context"
+let SuperTabContextDefaultCompletionType = "<c-n>"
+let SuperTabContextTextOmniPrecedence = ["&completefunc"]
+au BufEnter *.md,*.txt,*.wiki :let b:SuperTabNoCompleteAfter = g:SuperTabNoCompleteAfter + ['\.', '\*', '-', ')']
+
+
+" ----------------------------------------------------------------------------
+" Syntastic:
+" ----------------------------------------------------------------------------
+
+let g:syntastic_check_on_open = 0
+let g:syntastic_echo_current_error = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_enable_balloons = 1
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_mode_map = { 
+            \ "mode": "passive",
+            \ "active_filetypes": ["python"],
+            \ "passive_filetypes": [] }
+
+
+" ----------------------------------------------------------------------------
+" Tagbar:
+" ----------------------------------------------------------------------------
+
+let g:tagbar_compact = 1
+let g:tagbar_iconchars = ['+', '-']
+let g:tagbar_ctags_bin = g:ctags_bin
+map <F4> :TagbarToggle<CR>
+
+
+" ----------------------------------------------------------------------------
+" VCS:
+" ----------------------------------------------------------------------------
+
+let VCSCommandDeleteOnHide = 1
+augroup VCSCommand
+    au User VCSBufferCreated set bufhidden=wipe
+augroup END
 
 
 " ============================================================================
@@ -454,110 +525,46 @@ au BufNewFile,BufRead *.xaml setfiletype xml
 " Functions:
 " ============================================================================
 
-" ToggleSearchHighlighting:
-    function! ToggleSearchHighlighting()
-        if &hls == 0
-            set hls
-            echo "Search highlighting on."
-        else
-            set nohls
-            echo "Search highlighting off."
-        endif
-    endfunction
-    noremap <C-f> :call ToggleSearchHighlighting()<CR>
-
-" ToggleFold:
-    function! ToggleFold()
-        if &foldenable == 1
-        "if &foldmethod == "manual"
-            set nofoldenable
-            echo "Folding disabled."
-            "echo "Fold on marker."
-        else
-            set foldenable
-            echo "Folding enabled."
-            "echo "Fold manually."
-        endif
-    endfunction
-    nnoremap <F9> :call ToggleFold()<CR>
-
-" ToggleTextWidth:
-    function! ToggleTextWidth()
-        if &tw == 0
-            set tw=79
-            echo "Text width set to 79."
-        else
-            set tw=0
-            echo "Text width set to 0."
-        endif
-    endfunction
-    nnoremap <silent> <F10> :call ToggleTextWidth()<CR>
-
-" ToggleWrap:
-    function! ToggleWrap()
-        if &wrap == 0 && &linebreak == 0
-            set wrap linebreak
-            echo "Wrapping on."
-        else
-            set nowrap nolinebreak
-            echo "Wrapping off."
-        endif
-    endfunction
-    nnoremap <S-F10> :call ToggleWrap()<CR>
-
-" ToggleSpellCheck:
-    function! ToggleSpellCheck()
-        if &spell == 0
-            set spell
-            echo "Spell check on."
-        else
-            set nospell
-            echo "Spell check off."
-        endif
-    endfunction
-    nnoremap <silent> <F11> :call ToggleSpellCheck()<CR>
-
-" ToggleScrollbars:
-    function! ToggleScrollbars()
-        if &guioptions =~ "rb"
-            set guioptions-=rb
-            echo "Scrollbars off."
-        else
-            set guioptions+=rb
-            echo "Scrollbars on."
-        endif
-    endfunction
-    nnoremap <F12> :call ToggleScrollbars()<CR>
-
+" ----------------------------------------------------------------------------
 " EditColors:
-    function! EditColors()
-        execute 'e ~/lucius/vimfiles/colors/lucius.vim'
-        execute 'so $VIMRUNTIME/syntax/hitest.vim'
-        execute 'wincmd L'
-        execute 'help syntax'
-        execute 'wincmd ='
-        execute '10wincmd +'
-        execute '219'
-        normal! zt
-        execute 'wincmd h'
-        execute 'set title titlestring=Colors'
-    endfunction
-    command! Colors call EditColors()
+" ----------------------------------------------------------------------------
 
+function! EditColors()
+    execute 'e ~/lucius/vimfiles/colors/lucius.vim'
+    execute 'so $VIMRUNTIME/syntax/hitest.vim'
+    execute 'wincmd L'
+    execute 'help syntax'
+    execute 'wincmd ='
+    execute '10wincmd +'
+    execute '219'
+    normal! zt
+    execute 'wincmd h'
+    execute 'set title titlestring=Colors'
+endfunction
+command! Colors call EditColors()
+
+
+" ----------------------------------------------------------------------------
 " UseWorkSettings:
-    function! UseWorkSettings()
-        au BufNewFile,BufRead *.py set noexpandtab
-        au BufNewFile,BufRead *.cpp set noexpandtab
-        au BufNewFile,BufRead *.C set noexpandtab
-        au BufNewFile,BufRead *.hpp set noexpandtab
-        au BufNewFile,BufRead *.H set noexpandtab
-        au BufNewFile,BufRead *.cs set noexpandtab
-    endfunction
-    command! WorkSettings :call UseWorkSettings()
-    if InLocation("work_win", "work_linux")
-        WorkSettings
-    endif
+" ----------------------------------------------------------------------------
 
+function! UseWorkSettings()
+    au BufNewFile,BufRead *.py set noexpandtab
+    au BufNewFile,BufRead *.cpp set noexpandtab
+    au BufNewFile,BufRead *.C set noexpandtab
+    au BufNewFile,BufRead *.hpp set noexpandtab
+    au BufNewFile,BufRead *.H set noexpandtab
+    au BufNewFile,BufRead *.cs set noexpandtab
+endfunction
+command! WorkSettings :call UseWorkSettings()
+if InLocation("work_win", "work_linux")
+    WorkSettings
+endif
+
+
+" ============================================================================
+" Local:
+" ============================================================================
 
 if filereadable(expand("~/.vimrc_local"))
     source ~/.vimrc_local
