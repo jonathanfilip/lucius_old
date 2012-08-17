@@ -206,9 +206,9 @@ endfor
 
 if s:style == "light"
     if s:high_contrast == 1
-        hi Normal       guifg=#444444
-    else
         hi Normal       guifg=#000000
+    else
+        hi Normal       guifg=#444444
     endif
 else
     if s:high_contrast == 1
