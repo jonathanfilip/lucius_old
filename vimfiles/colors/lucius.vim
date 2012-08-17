@@ -1,74 +1,22 @@
-" Lucius vim color file
-" Maintainer: Jonathan Filip <jfilip1024@gmail.com>
-" Version: 7.1.1
-"
-" Summary:
-" Color scheme with dark and light versions (GUI and 256 color terminal).
-"
-" Description:
-" This color scheme was originally created by combining my favorite parts of
-" the following color schemes:
-"
-" * oceandeep (vimscript #368)
-" * peaksea (vimscript #760)
-" * wombat (vimscript #1778)
-" * moria (vimscript #1464)
-" * zenburn (vimscript #415)
-"
-" Version 7 has unified the 256 color terminal and GUI versions (the GUI
-" version only uses colors available on the 256 color terminal). The overall
-" colors were also toned down a little bit (light version is now a light gray
-" instead of white and the dark version is slightly lighter) to make it easier
-" on the eyes.
-"
-" Version 6+ has been revamped a bit from the original color scheme. If you
-" prefer the old style, or the 'blue' version, use the 5Final release. Version
-" 6+ only has a light and dark version. The new version tries to unify some of
-" the colors and also adds more contrast between text and interface.
-"
-" The color scheme is dark, by default. You can change this by setting the
-" g:lucius_style variable to "light", "dark", or "dark_dim". Once the color
-" scheme is loaded, you can use the commands "LuciusLight", "LuciusDark", or
-" "LuciusDarkDim" to change schemes quickly.
-"
-" Screenshots of version 7:
-"
-" * Dark: http://i.imgur.com/tgUsz.png
-" * DarkDim: http://i.imgur.com/0bOCv.png
-" * Light: http://i.imgur.com/ndd9A.png
-"
-" Screenshots of version 6:
-"
-" * Dark: http://i.imgur.com/IzYcB.png
-" * Light: http://i.imgur.com/kfJcm.png
-"
-" Screenshots of the version 5Final:
-"
-" * Dark: http://i.imgur.com/z0bDr.png
-" * Light: http://i.imgur.com/BXDiv.png
-" * Blue: http://i.imgur.com/Ea1Gq.png
-"
-" colorsupport.vim (vimscript #2682) is used to help with mapping the GUI
-" settings to the 256 terminal colors.
-"
-" This color scheme also has custom colors defined for the following plugins:
-"
-" * tagbar (vimscript #3465)
-"
-" Installation:
-" Copy the file to your vim colors directory and then do :colorscheme lucius.
+" ============================================================================
+" Name:     Lucius vim colorscheme
+" Author:   Jonathan Filip <jfilip1024@gmail.com>
+" Version:  8.0.0
+" ============================================================================
+" Notes
+" ============================================================================
 
 
+
+" ============================================================================
+" Options:
+" ============================================================================
 
 hi clear
 if exists("syntax_on")
     syntax reset
 endif
 let colors_name="lucius"
-
-" ============================================================================
-" Options:
-" ============================================================================
 
 if exists("g:lucius_style")
     let s:style = g:lucius_style
@@ -258,9 +206,9 @@ endfor
 
 if s:style == "light"
     if s:high_contrast == 1
-        hi Normal       guifg=#000000
-    else
         hi Normal       guifg=#444444
+    else
+        hi Normal       guifg=#000000
     endif
 else
     if s:high_contrast == 1
@@ -327,10 +275,8 @@ else
         hi PreProc      guifg=#87d7af
         hi Type         guifg=#87d7d7
         hi Special      guifg=#d7afd7
-        hi Title        guifg=#5fafd7
         hi Directory    guifg=#afd7af
-        hi MoreMsg      guifg=#5fd7d7
-        hi WarningMsg   guifg=#d7875f
+        hi Title        guifg=#5fafd7
     else
         hi Comment      guifg=#6c6c6c
         hi Constant     guifg=#afaf87
@@ -339,10 +285,8 @@ else
         hi PreProc      guifg=#5faf87
         hi Type         guifg=#5fafaf
         hi Special      guifg=#af87af
-        hi Title        guifg=#00afd7
         hi Directory    guifg=#87af87
-        hi MoreMsg      guifg=#00afaf
-        hi WarningMsg   guifg=#af875f
+        hi Title        guifg=#00afd7
     endif
 endif
 
@@ -356,7 +300,7 @@ hi CursorIM     guifg=bg
 hi CursorColumn guifg=NONE
 hi CursorLine   guifg=NONE
 hi Visual       guifg=NONE
-hi VisualNOS    guifg=fg
+hi VisualNOS    guifg=fg        guibg=NONE
 
 if s:style == "light"
     hi Error        guifg=#af0000   guibg=#d7afaf
@@ -367,7 +311,6 @@ if s:style == "light"
     hi CursorColumn guifg=NONE      guibg=#dadada
     hi CursorLine   guifg=NONE      guibg=#dadada
     hi Visual       guifg=NONE      guibg=#afd7ff
-    hi VisualNOS    guifg=fg        guibg=NONE
     hi IncSearch    guifg=fg        guibg=#5fd7d7
     hi Search       guifg=fg        guibg=#ffaf00
 
@@ -382,9 +325,27 @@ else
     hi MatchParen   guifg=bg
 
     if s:high_contrast == 1
-
+        hi Error        guifg=#ff8787   guibg=#870000
+        hi Todo         guifg=#d7d75f   guibg=#5f5f00
+        hi MatchParen                   guibg=#afd75f
+        hi Cursor                       guibg=#87afd7
+        hi CursorIM                     guibg=#87afd7
+        hi CursorColumn                 guibg=#444444
+        hi CursorLine                   guibg=#444444
+        hi Visual                       guibg=#005f87
+        hi IncSearch                    guibg=#5fd7d7
+        hi Search                       guibg=#d78700
     else
-
+        hi Error        guifg=#d75f5f   guibg=#870000
+        hi Todo         guifg=#afaf00   guibg=#5f5f00
+        hi MatchParen                   guibg=#87af5f
+        hi Cursor                       guibg=#5f87af
+        hi CursorIM                     guibg=#5f87af
+        hi CursorColumn                 guibg=#444444
+        hi CursorLine                   guibg=#444444
+        hi Visual                       guibg=#005f87
+        hi IncSearch                    guibg=#00afaf
+        hi Search                       guibg=#d78700
     endif
 endif
 
@@ -393,11 +354,12 @@ endif
 " Messages:
 " ----------------------------------------------------------------------------
 
+hi ModeMsg      guifg=fg
+hi Question     guifg=fg
+
 if s:style == "light"
     hi ErrorMsg     guifg=#af0000
     hi MoreMsg      guifg=#005fd7
-    hi ModeMsg      guifg=fg
-    hi Question     guifg=fg
     hi WarningMsg   guifg=#af5f00
 
     if s:high_contrast == 1
@@ -407,9 +369,13 @@ if s:style == "light"
     endif
 else
     if s:high_contrast == 1
-
+        hi ErrorMsg     guifg=#ff5f5f
+        hi MoreMsg      guifg=#5fd7d7
+        hi WarningMsg   guifg=#d7875f
     else
-
+        hi ErrorMsg     guifg=#d75f5f
+        hi MoreMsg      guifg=#00afaf
+        hi WarningMsg   guifg=#af875f
     endif
 endif
 
@@ -418,24 +384,33 @@ endif
 " UI:
 " ----------------------------------------------------------------------------
 
+hi Pmenu        guifg=bg
+hi PmenuSel     guifg=fg
+hi PmenuThumb   guifg=fg
+hi StatusLine   guifg=bg
+hi TabLine      guifg=bg
+hi TabLineSel   guifg=fg
+hi WildMenu     guifg=fg
+hi ColorColumn  guifg=NONE
+
 if s:style == "light"
-    hi Pmenu        guifg=bg        guibg=#808080
-    hi PmenuSel     guifg=fg        guibg=#afd7ff
+    hi Pmenu                        guibg=#808080
+    hi PmenuSel                     guibg=#afd7ff
     hi PmenuSbar    guifg=#808080   guibg=#444444
-    hi PmenuThumb   guifg=fg        guibg=#9e9e9e
-    hi StatusLine   guifg=bg        guibg=#808080
+    hi PmenuThumb                   guibg=#9e9e9e
+    hi StatusLine                   guibg=#808080
     hi StatusLineNC guifg=#e4e4e4   guibg=#808080
-    hi TabLine      guifg=bg        guibg=#808080
+    hi TabLine                      guibg=#808080
     hi TabLineFill  guifg=#b2b2b2   guibg=#808080
-    hi TabLineSel   guifg=fg        guibg=#afd7ff
+    hi TabLineSel                   guibg=#afd7ff
     hi VertSplit    guifg=#e4e4e4   guibg=#808080
     hi Folded       guifg=#626262   guibg=#bcbcbc
     hi FoldColumn   guifg=#626262   guibg=#bcbcbc
     hi SignColumn   guifg=#626262   guibg=#d0d0d0
     hi LineNr       guifg=#9e9e9e   guibg=#dadada
     hi CursorLineNr guifg=#9e9e9e   guibg=#dadada
-    hi WildMenu     guifg=fg        guibg=#afd7ff
-    hi ColorColumn  guifg=NONE      guibg=#d7d7af
+    hi WildMenu                     guibg=#afd7ff
+    hi ColorColumn                  guibg=#d7d7af
 
     if s:high_contrast == 1
 
@@ -443,10 +418,45 @@ if s:style == "light"
 
     endif
 else
+    hi LineNr       guifg=#626262   guibg=#444444
+    hi CursorLineNr guifg=#626262   guibg=#444444
+    hi StatusLineNC guifg=#444444
+    hi TabLineFill  guifg=#444444
+    hi VertSplit    guifg=#626262
+    hi Folded                       guibg=#4e4e4e
+    hi FoldColumn                   guibg=#4e4e4e
+    hi SignColumn                   guibg=#4e4e4e
+    hi WildMenu                     guibg=#005f87
+    hi ColorColumn                  guibg=#87875f
+
     if s:high_contrast == 1
-
+        hi Pmenu                        guibg=#b2b2b2
+        hi PmenuSel                     guibg=#005f87
+        hi PmenuSbar    guifg=#b2b2b2   guibg=#d0d0d0
+        hi PmenuThumb                   guibg=#808080
+        hi StatusLine                   guibg=#b2b2b2
+        hi StatusLineNC                 guibg=#b2b2b2
+        hi TabLine                      guibg=#b2b2b2
+        hi TabLineFill                  guibg=#b2b2b2
+        hi TabLineSel                   guibg=#005f87
+        hi VertSplit                    guibg=#b2b2b2
+        hi Folded       guifg=#bcbcbc
+        hi FoldColumn   guifg=#bcbcbc
+        hi SignColumn   guifg=#b2b2b2
     else
-
+        hi Pmenu                        guibg=#8a8a8a
+        hi PmenuSel                     guibg=#005f87
+        hi PmenuSbar    guifg=#8a8a8a   guibg=#bcbcbc
+        hi PmenuThumb                   guibg=#585858
+        hi StatusLine                   guibg=#8a8a8a
+        hi StatusLineNC                 guibg=#8a8a8a
+        hi TabLine                      guibg=#8a8a8a
+        hi TabLineFill                  guibg=#8a8a8a
+        hi TabLineSel                   guibg=#005f87
+        hi VertSplit                    guibg=#8a8a8a
+        hi Folded       guifg=#a8a8a8
+        hi FoldColumn   guifg=#a8a8a8
+        hi SignColumn   guifg=#8a8a8a
     endif
 endif
 
@@ -455,10 +465,14 @@ endif
 " Diff:
 " ----------------------------------------------------------------------------
 
+hi DiffAdd      guifg=fg
+hi DiffChange   guifg=fg
+hi DiffDelete   guifg=fg
+
 if s:style == "light"
-    hi DiffAdd      guifg=fg        guibg=#afd7af
-    hi DiffChange   guifg=fg        guibg=#d7d7af
-    hi DiffDelete   guifg=fg        guibg=#d7afaf
+    hi DiffAdd                      guibg=#afd7af
+    hi DiffChange                   guibg=#d7d7af
+    hi DiffDelete                   guibg=#d7afaf
     hi DiffText     guifg=#d75f00   guibg=#d7d7af
 
     if s:high_contrast == 1
@@ -467,10 +481,15 @@ if s:style == "light"
 
     endif
 else
+    hi DiffAdd                      guibg=#5f875f
+    hi DiffChange                   guibg=#87875f
+    hi DiffDelete                   guibg=#875f5f
+    hi DiffText                     guibg=#87875f
+
     if s:high_contrast == 1
-
+        hi DiffText     guifg=#ffff87
     else
-
+        hi DiffText     guifg=#d7d75f
     endif
 endif
 
@@ -491,6 +510,11 @@ if s:style == "light"
 
     endif
 else
+    hi SpellBad     guisp=#d70000
+    hi SpellCap     guisp=#00afd7
+    hi SpellRare    guisp=#5faf00
+    hi SpellLocal   guisp=#d7af00
+
     if s:high_contrast == 1
 
     else
@@ -499,367 +523,12 @@ else
 endif
 
 
-
+" ----------------------------------------------------------------------------
+" Miscellaneous:
+" ----------------------------------------------------------------------------
 
 hi Ignore       guifg=bg
 hi Underlined   guifg=fg
-
-
-
-
-
-
-
-
-
-
-
-" OLD ===========================================================
-
-
-
-
-if g:lucius_style == "light"
-
-
-else
-
-    if s:high_contrast == 1
-
-        hi Error        guifg=#ff8787
-        hi Todo         guifg=#d7d75f
-
-        hi DiffText     guifg=#ffff87
-
-        hi PmenuSbar    guifg=#b2b2b2
-        hi Folded       guifg=#bcbcbc
-        hi FoldColumn   guifg=#bcbcbc
-
-        hi ErrorMsg     guifg=#ff5f5f
-        hi SignColumn   guifg=#b2b2b2
-    else
-
-        hi Error        guifg=#d75f5f
-        hi Todo         guifg=#afaf00
-
-        hi DiffText     guifg=#d7d75f
-
-        hi PmenuSbar    guifg=#8a8a8a
-        hi Folded       guifg=#a8a8a8
-        hi FoldColumn   guifg=#a8a8a8
-
-        hi ErrorMsg     guifg=#d75f5f
-        hi SignColumn   guifg=#8a8a8a
-    endif
-
-    if s:high_contrast_bg == 1
-        hi MatchParen                   guibg=#afd75f
-
-        hi Cursor                       guibg=#87afd7
-        hi CursorIM                     guibg=#87afd7
-
-        hi IncSearch                    guibg=#5fd7d7
-
-        hi Pmenu                        guibg=#b2b2b2
-        hi PmenuSbar                    guibg=#d0d0d0
-        hi PmenuThumb                   guibg=#808080
-        hi StatusLine                   guibg=#b2b2b2
-        hi StatusLineNC                 guibg=#b2b2b2
-        hi TabLine                      guibg=#b2b2b2
-        hi TabLineFill                  guibg=#b2b2b2
-        hi VertSplit                    guibg=#b2b2b2
-    else
-        hi MatchParen                   guibg=#87af5f
-
-        hi Cursor                       guibg=#5f87af
-        hi CursorIM                     guibg=#5f87af
-
-        hi IncSearch                    guibg=#00afaf
-
-        hi Pmenu                        guibg=#8a8a8a
-        hi PmenuSbar                    guibg=#bcbcbc
-        hi PmenuThumb                   guibg=#585858
-        hi StatusLine                   guibg=#8a8a8a
-        hi StatusLineNC                 guibg=#8a8a8a
-        hi TabLine                      guibg=#8a8a8a
-        hi TabLineFill                  guibg=#8a8a8a
-        hi VertSplit                    guibg=#8a8a8a
-    endif
-
-
-    hi Error                        guibg=#870000
-    hi Todo                         guibg=#5f5f00
-
-    hi CursorColumn                 guibg=#444444
-    hi CursorLine                   guibg=#444444
-
-    hi Visual                       guibg=#005f87
-
-    hi Search                       guibg=#d78700
-
-    hi IncSearch    guifg=bg
-    hi Search       guifg=bg
-
-    hi SpellBad     guisp=#d70000
-    hi SpellCap     guisp=#00afd7
-    hi SpellRare    guisp=#5faf00
-    hi SpellLocal   guisp=#d7af00
-
-    hi DiffAdd      guifg=fg        guibg=#5f875f
-    hi DiffChange   guifg=fg        guibg=#87875f
-    hi DiffDelete   guifg=fg        guibg=#875f5f
-    hi DiffText                     guibg=#87875f
-
-    hi Pmenu        guifg=bg
-    hi PmenuSel     guifg=fg        guibg=#005f87
-    hi PmenuThumb   guifg=fg
-    hi StatusLine   guifg=bg
-    hi StatusLineNC guifg=#444444
-    hi TabLine      guifg=bg
-    hi TabLineFill  guifg=#444444
-    hi TabLineSel   guifg=fg        guibg=#005f87
-    hi VertSplit    guifg=#626262
-    hi Folded                       guibg=#4e4e4e
-    hi FoldedColumn                 guibg=#4e4e4e
-
-    hi Directory                    guibg=NONE
-    hi ErrorMsg                     guibg=NONE
-    hi SignColumn                   guibg=#4e4e4e
-    hi LineNr       guifg=#626262   guibg=#444444
-    hi CursorLineNr guifg=#626262   guibg=#444444
-    hi MoreMsg                      guibg=NONE
-    hi WarningMsg                   guibg=NONE
-    hi WildMenu     guifg=fg        guibg=#005f87
-    hi ColorColumn  guifg=NONE      guibg=#87875f
-
-endif
-
-
-
-
-
-
-
-if g:lucius_style == "dark"
-
-"" LuciusDark:
-"    " UI:
-"    hi Pmenu        guifg=bg        guibg=#b2b2b2
-"    hi PmenuSel     guifg=fg        guibg=#005f87
-"    hi PmenuSbar    guifg=#b2b2b2   guibg=#d0d0d0
-"    hi PmenuThumb   guifg=fg        guibg=#808080
-"    hi StatusLine   guifg=bg        guibg=#b2b2b2
-"    hi StatusLineNC guifg=#444444   guibg=#b2b2b2
-"    hi TabLine      guifg=bg        guibg=#b2b2b2
-"    hi TabLineFill  guifg=#444444   guibg=#b2b2b2
-"    hi TabLineSel   guifg=fg        guibg=#005f87
-"    hi VertSplit    guifg=#626262   guibg=#b2b2b2
-"    hi Folded       guifg=#bcbcbc   guibg=#4e4e4e
-"    hi FoldColumn   guifg=#bcbcbc   guibg=#4e4e4e
-
-"    " Diff:
-
-"    " Misc:
-"    hi Directory    guifg=#afd7af   guibg=NONE
-"    hi ErrorMsg     guifg=#ff5f5f   guibg=NONE
-"    hi SignColumn   guifg=#b2b2b2   guibg=#4e4e4e
-"    hi LineNr       guifg=#626262   guibg=#444444
-"    hi CursorLineNr guifg=#626262   guibg=#444444
-"    hi MoreMsg      guifg=#5fd7d7   guibg=NONE
-"    hi ModeMsg      guifg=fg        guibg=NONE
-"    hi Question     guifg=fg        guibg=NONE
-"    hi WarningMsg   guifg=#d7875f   guibg=NONE
-"    hi WildMenu     guifg=fg        guibg=#005f87
-"    hi ColorColumn  guifg=NONE      guibg=#87875f
-
-"elseif g:lucius_style == "dark_dim"
-
-"" LuciusDarkDim:
-
-"    " UI:
-"    hi Pmenu        guifg=bg        guibg=#8a8a8a
-"    hi PmenuSel     guifg=fg        guibg=#005f87
-"    hi PmenuSbar    guifg=#8a8a8a   guibg=#bcbcbc
-"    hi PmenuThumb   guifg=fg        guibg=#585858
-"    hi StatusLine   guifg=bg        guibg=#8a8a8a
-"    hi StatusLineNC guifg=#444444   guibg=#8a8a8a
-"    hi TabLine      guifg=bg        guibg=#8a8a8a
-"    hi TabLineFill  guifg=#444444   guibg=#8a8a8a
-"    hi TabLineSel   guifg=fg        guibg=#005f87
-"    hi VertSplit    guifg=#626262   guibg=#8a8a8a
-"    hi Folded       guifg=#a8a8a8   guibg=#4e4e4e
-"    hi FoldColumn   guifg=#a8a8a8   guibg=#4e4e4e
-
-
-"    " Misc:
-"    hi Directory    guifg=#87af87   guibg=NONE
-"    hi ErrorMsg     guifg=#d75f5f   guibg=NONE
-"    hi SignColumn   guifg=#8a8a8a   guibg=#4e4e4e
-"    hi LineNr       guifg=#626262   guibg=#444444
-"    hi CursorLineNr guifg=#626262   guibg=#444444
-"    hi MoreMsg      guifg=#00afaf   guibg=NONE
-"    hi ModeMsg      guifg=fg        guibg=NONE
-"    hi Question     guifg=fg        guibg=NONE
-"    hi WarningMsg   guifg=#af875f   guibg=NONE
-"    hi WildMenu     guifg=fg        guibg=#005f87
-"    hi ColorColumn  guifg=NONE      guibg=#87875f
-
-elseif g:lucius_style == "black"
-
-" LuciusBlack:
-    hi Normal       guifg=#b2b2b2   guibg=#121212
-    hi Comment      guifg=#585858   guibg=NONE
-    hi Constant     guifg=#afaf87   guibg=NONE
-    hi Identifier   guifg=#87af5f   guibg=NONE
-    hi Statement    guifg=#5fafd7   guibg=NONE
-    hi PreProc      guifg=#5faf87   guibg=NONE
-    hi Type         guifg=#5fafaf   guibg=NONE
-    hi Special      guifg=#af87af   guibg=NONE
-
-    " Text Markup:
-    hi Underlined   guifg=fg        guibg=NONE
-    hi Error        guifg=#d75f5f   guibg=#870000
-    hi Todo         guifg=#afaf00   guibg=#5f5f00
-    hi MatchParen   guifg=bg        guibg=#87af5f
-    hi NonText      guifg=#5f5f87   guibg=NONE
-    hi SpecialKey   guifg=#5f875f   guibg=NONE
-    hi Title        guifg=#00afd7   guibg=NONE
-
-    " Text Selection:
-    hi Cursor       guifg=bg        guibg=#5f87af
-    hi CursorIM     guifg=bg        guibg=#5f87af
-    hi CursorColumn guifg=NONE      guibg=#444444
-    hi CursorLine   guifg=NONE      guibg=#444444
-    hi Visual       guifg=NONE      guibg=#005f87
-    hi VisualNOS    guifg=fg        guibg=NONE
-    hi IncSearch    guifg=bg        guibg=#00afaf
-    hi Search       guifg=bg        guibg=#d78700
-
-    " UI:
-    hi Pmenu        guifg=bg        guibg=#808080
-    hi PmenuSel     guifg=fg        guibg=#005f87
-    hi PmenuSbar    guifg=#808080   guibg=#bcbcbc
-    hi PmenuThumb   guifg=fg        guibg=#585858
-    hi StatusLine   guifg=bg        guibg=#808080
-    hi StatusLineNC guifg=#444444   guibg=#808080
-    hi TabLine      guifg=bg        guibg=#808080
-    hi TabLineFill  guifg=#444444   guibg=#808080
-    hi TabLineSel   guifg=fg        guibg=#005f87
-    hi VertSplit    guifg=#626262   guibg=#808080
-    hi Folded       guifg=#a8a8a8   guibg=#4e4e4e
-    hi FoldColumn   guifg=#a8a8a8   guibg=#4e4e4e
-
-    " Spelling:
-    hi SpellBad     guisp=#d70000
-    hi SpellCap     guisp=#00afd7
-    hi SpellRare    guisp=#5faf00
-    hi SpellLocal   guisp=#d7af00
-
-    " Diff:
-    hi DiffAdd      guifg=fg        guibg=#5f875f
-    hi DiffChange   guifg=fg        guibg=#87875f
-    hi DiffDelete   guifg=fg        guibg=#875f5f
-    hi DiffText     guifg=#d7d75f   guibg=#87875f
-
-    " Misc:
-    hi Directory    guifg=#87af87   guibg=NONE
-    hi ErrorMsg     guifg=#d75f5f   guibg=NONE
-    hi SignColumn   guifg=#808080   guibg=#4e4e4e
-    hi LineNr       guifg=#626262   guibg=#444444
-    hi CursorLineNr guifg=#626262   guibg=#444444
-    hi MoreMsg      guifg=#00afaf   guibg=NONE
-    hi ModeMsg      guifg=fg        guibg=NONE
-    hi Question     guifg=fg        guibg=NONE
-    hi WarningMsg   guifg=#af875f   guibg=NONE
-    hi WildMenu     guifg=fg        guibg=#005f87
-    hi ColorColumn  guifg=NONE      guibg=#87875f
-
-
-elseif g:lucius_style == "light"
-
-" LuciusLight:
-    "hi Normal       guifg=#444444   guibg=#eeeeee
-    "hi Comment      guifg=#808080   guibg=NONE
-    "hi Constant     guifg=#af5f00   guibg=NONE
-    "hi Identifier   guifg=#008700   guibg=NONE
-    "hi Statement    guifg=#005faf   guibg=NONE
-    "hi PreProc      guifg=#008787   guibg=NONE
-    "hi Type         guifg=#005f87   guibg=NONE
-    "hi Special      guifg=#870087   guibg=NONE
-
-    " Text Markup:
-    "hi Underlined   guifg=fg        guibg=NONE
-    "hi Error        guifg=#af0000   guibg=#d7afaf
-    "hi Todo         guifg=#875f00   guibg=#ffffaf
-    "hi MatchParen   guifg=NONE      guibg=#5fd7d7
-    "hi NonText      guifg=#afafd7   guibg=NONE
-    "hi SpecialKey   guifg=#afd7af   guibg=NONE
-    "hi Title        guifg=#005faf   guibg=NONE
-
-    " Text Selection:
-    "hi Cursor       guifg=bg        guibg=#5f87af
-    "hi CursorIM     guifg=bg        guibg=#5f87af
-    "hi CursorColumn guifg=NONE      guibg=#dadada
-    "hi CursorLine   guifg=NONE      guibg=#dadada
-    "hi Visual       guifg=NONE      guibg=#afd7ff
-    "hi VisualNOS    guifg=fg        guibg=NONE
-    "hi IncSearch    guifg=fg        guibg=#5fd7d7
-    "hi Search       guifg=fg        guibg=#ffaf00
-
-    " UI:
-    "hi Pmenu        guifg=bg        guibg=#808080
-    "hi PmenuSel     guifg=fg        guibg=#afd7ff
-    "hi PmenuSbar    guifg=#808080   guibg=#444444
-    "hi PmenuThumb   guifg=fg        guibg=#9e9e9e
-    "hi StatusLine   guifg=bg        guibg=#808080
-    "hi StatusLineNC guifg=#e4e4e4   guibg=#808080
-    "hi TabLine      guifg=bg        guibg=#808080
-    "hi TabLineFill  guifg=#b2b2b2   guibg=#808080
-    "hi TabLineSel   guifg=fg        guibg=#afd7ff
-    "hi VertSplit    guifg=#e4e4e4   guibg=#808080
-    "hi Folded       guifg=#626262   guibg=#bcbcbc
-    "hi FoldColumn   guifg=#626262   guibg=#bcbcbc
-
-    " Spelling:
-    "hi SpellBad     guisp=#d70000
-    "hi SpellCap     guisp=#00afd7
-    "hi SpellRare    guisp=#5faf00
-    "hi SpellLocal   guisp=#d7af00
-
-    " Diff:
-    "hi DiffAdd      guifg=fg        guibg=#afd7af
-    "hi DiffChange   guifg=fg        guibg=#d7d7af
-    "hi DiffDelete   guifg=fg        guibg=#d7afaf
-    "hi DiffText     guifg=#d75f00   guibg=#d7d7af
-
-    " Misc:
-    "hi Directory    guifg=#00875f   guibg=NONE
-    "hi ErrorMsg     guifg=#af0000   guibg=NONE
-    "hi SignColumn   guifg=#626262   guibg=#d0d0d0
-    "hi LineNr       guifg=#9e9e9e   guibg=#dadada
-    "hi CursorLineNr guifg=#9e9e9e   guibg=#dadada
-    "hi MoreMsg      guifg=#005fd7   guibg=NONE
-    "hi ModeMsg      guifg=fg        guibg=NONE
-    "hi Question     guifg=fg        guibg=NONE
-    "hi WarningMsg   guifg=#af5f00   guibg=NONE
-    "hi WildMenu     guifg=fg        guibg=#afd7ff
-    "hi ColorColumn  guifg=NONE      guibg=#d7d7af
-
-endif
-
-
-hi Ignore guifg=bg
-hi Underlined guifg=fg
-
-hi Cursor       guifg=bg
-hi CursorIM     guifg=bg
-hi CursorColumn guifg=NONE
-hi CursorLine   guifg=NONE
-hi Visual       guifg=NONE
-hi VisualNOS    guifg=fg
-exec "hi IncSearch guifg=" . (s:style == "light" ? "bg" : "fg")
-exec "hi Search guifg=" . (s:style == "light" ? "bg" : "fg")
-exec "hi MatchParen guifg=" . (s:style == "light" ? "NONE" : "bg")
 
 
 " ============================================================================
@@ -932,7 +601,39 @@ hi link TagbarAccessPrivate PreProc
 " Commands:
 " ============================================================================
 
-command! LuciusLight let g:lucius_style = 'light' | colorscheme lucius
-command! LuciusDark let g:lucius_style = 'dark' | colorscheme lucius
-command! LuciusDarkDim let g:lucius_style = 'dark_dim' | colorscheme lucius
-command! LuciusBlack let g:lucius_style = 'black' | colorscheme lucius
+command! LuciusLight
+            \ let g:lucius_high_contrast = 0 |
+            \ let g:lucius_high_contrast_bg = 0 |
+            \ let g:lucius_style = "light" |
+            \ colorscheme lucius
+
+command! LuciusWhite
+            \ let g:lucius_high_contrast = 1 |
+            \ let g:lucius_high_contrast_bg = 1 |
+            \ let g:lucius_style = "light" |
+            \ colorscheme lucius
+
+command! LuciusDark
+            \ let g:lucius_high_contrast = 1 |
+            \ let g:lucius_high_contrast_bg = 0 |
+            \ let g:lucius_style = "dark" |
+            \ colorscheme lucius
+
+command! LuciusDarkDim
+            \ let g:lucius_high_contrast = 0 |
+            \ let g:lucius_high_contrast_bg = 0 |
+            \ let g:lucius_style = "dark" |
+            \ colorscheme lucius
+
+command! LuciusBlack
+            \ let g:lucius_high_contrast = 1 |
+            \ let g:lucius_high_contrast_bg = 1 |
+            \ let g:lucius_style = "dark" |
+            \ colorscheme lucius
+
+command! LuciusBlackDim
+            \ let g:lucius_high_contrast = 0 |
+            \ let g:lucius_high_contrast_bg = 1 |
+            \ let g:lucius_style = "dark" |
+            \ colorscheme lucius
+
