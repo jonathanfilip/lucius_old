@@ -545,6 +545,21 @@ command! Colors call EditColors()
 
 
 " ----------------------------------------------------------------------------
+" GetOutput:
+" ----------------------------------------------------------------------------
+
+function! GetOutput(cmd)
+    redir => message
+    silent execute a:cmd
+    redir END
+    enew
+    silent put=message
+    set nomodified
+endfunction
+command! -nargs=+ -complete=command GetOutput call GetOutput(<q-args>)
+
+
+" ----------------------------------------------------------------------------
 " UseWorkSettings:
 " ----------------------------------------------------------------------------
 
