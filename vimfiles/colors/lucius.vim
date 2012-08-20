@@ -10,7 +10,7 @@
 " This color scheme was started in 2008 as a combination of my favorite
 " parts from moria, oceandeep, peaksea, wombat, and zenburn. It has since
 " been refined as its own color scheme that is identical in gVim and 256
-" color terminal vim sessions. There are different options available to
+" color terminal sessions. There are also different options available to
 " customize the appearance. 
 "
 " Originally, there were 3 different variations: dark, light, and dark_dim.
@@ -19,6 +19,18 @@
 " both the light and dark schemes, you can choose a more bold or soft
 " background as well as the contrast of the text itself. There are several
 " presets available (links are screenshots):
+"
+" * Black:
+" * BlackDim:
+" * Dark:
+" * DarkDim:
+" * Light: 
+" * LightBright:
+" * White:
+" * WhiteBright:
+"
+" The default schemes are Dark and Light.
+"
 "
 " Also, rather than trying to keep the GUI and cterm settings synchronized,
 " I just use a map of hex colors to their corresponding 256 color value.
