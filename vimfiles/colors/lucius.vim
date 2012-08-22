@@ -9,31 +9,31 @@
 "
 " This color scheme was started in 2008 as a combination of my favorite
 " parts from moria, oceandeep, peaksea, wombat, and zenburn. It has since
-" been refined as its own color scheme that is identical in gVim and 256
-" color terminal sessions. There are also different options available to
-" customize the appearance. 
+" been refined as its own color scheme that is identical in gvim and 256
+" color vim. There are also different options available to customize the
+" appearance. 
 "
-" Originally, there were 3 different variations: dark, light, and dark_dim.
+" Originally, there were 3 variations: dark, light, and dark_dim.
 " As I kept wanting to tweak things for different environments (home,
-" office, day, night, etc), I changed things to give users more control. For
+" office, day, night, etc), I changed things to allow for more control. For
 " both the light and dark schemes, you can choose a more bold or soft
 " background as well as the contrast of the text itself. There are several
 " presets available (links are screenshots):
 "
-" * Black:
-" * BlackDim:
-" * Dark:
-" * DarkDim:
-" * Light: 
-" * LightBright:
-" * White:
-" * WhiteBright:
+" * Dark (dark default): http://i.imgur.com/LsZbF.png
+" * DarkDim: http://i.imgur.com/Hmw8s.png
+" * Black: http://i.imgur.com/iD4ri.png
+" * BlackDim: http://i.imgur.com/oZLkg.png
 "
-" The default schemes are Dark and Light.
+" * Light (light default): http://i.imgur.com/soYD8.png
+" * LightBright: http://i.imgur.com/95I86.png
+" * White: http://i.imgur.com/wDzkz.png
+" * WhiteBright: http://i.imgur.com/jlUf4.png
 "
-"
-" Also, rather than trying to keep the GUI and cterm settings synchronized,
-" I just use a map of hex colors to their corresponding 256 color value.
+" Once the color scheme is first loaded, you can use the commands for each
+" of the above presets (:LuciusLight) to see what the variations look like.
+" Or you can set the below options in your vimrc to customize the look.
+" 
 "
 " Options:
 "
